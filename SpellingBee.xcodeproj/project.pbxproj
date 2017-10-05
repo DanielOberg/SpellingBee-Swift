@@ -13,7 +13,24 @@
 		654407EA1F86873F00108C79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407E81F86873F00108C79 /* Main.storyboard */; };
 		654407EC1F86873F00108C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654407EB1F86873F00108C79 /* Assets.xcassets */; };
 		654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407ED1F86873F00108C79 /* LaunchScreen.storyboard */; };
+		654407F81F86879D00108C79 /* SpeechFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
+		654407F91F8687A800108C79 /* SpeechFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
+		654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		654407FC1F8689FA00108C79 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		654407DF1F86873F00108C79 /* SpellingBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellingBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +41,7 @@
 		654407EB1F86873F00108C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654407EE1F86873F00108C79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		654407F01F86873F00108C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		654407F71F86879D00108C79 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = ../../../../../Library/Frameworks/SpeechFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654407F81F86879D00108C79 /* SpeechFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,7 @@
 			children = (
 				654407E11F86873F00108C79 /* SpellingBee */,
 				654407E01F86873F00108C79 /* Products */,
+				654407F61F86879D00108C79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +87,14 @@
 			path = SpellingBee;
 			sourceTree = "<group>";
 		};
+		654407F61F86879D00108C79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				654407F71F86879D00108C79 /* SpeechFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +105,7 @@
 				654407DB1F86873F00108C79 /* Sources */,
 				654407DC1F86873F00108C79 /* Frameworks */,
 				654407DD1F86873F00108C79 /* Resources */,
+				654407FC1F8689FA00108C79 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654407F91F8687A800108C79 /* SpeechFramework.framework in Resources */,
 				654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */,
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
@@ -280,6 +310,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DWXWLRAPJ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unitedlambdas.SpellingBee;
@@ -295,6 +329,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DWXWLRAPJ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unitedlambdas.SpellingBee;
