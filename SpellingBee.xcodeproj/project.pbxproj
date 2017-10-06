@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652E55871F87C4810062349B /* JapaneseWords.json in Resources */ = {isa = PBXBuildFile; fileRef = 654407FD1F87BEE800108C79 /* JapaneseWords.json */; };
+		652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55881F87CBE90062349B /* MenuTableViewController.swift */; };
+		652E558B1F87CF280062349B /* ListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558A1F87CF280062349B /* ListenViewController.swift */; };
 		654407E31F86873F00108C79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E21F86873F00108C79 /* AppDelegate.swift */; };
 		654407E51F86873F00108C79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E41F86873F00108C79 /* MasterViewController.swift */; };
 		654407E71F86873F00108C79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E61F86873F00108C79 /* DetailViewController.swift */; };
@@ -16,6 +19,7 @@
 		654407F81F86879D00108C79 /* SpeechFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
 		654407F91F8687A800108C79 /* SpeechFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
 		654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		652E55881F87CBE90062349B /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		652E558A1F87CF280062349B /* ListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenViewController.swift; sourceTree = "<group>"; };
 		654407DF1F86873F00108C79 /* SpellingBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellingBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654407E21F86873F00108C79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		654407E41F86873F00108C79 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +48,8 @@
 		654407EE1F86873F00108C79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		654407F01F86873F00108C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		654407F71F86879D00108C79 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = ../../../../../Library/Frameworks/SpeechFramework.framework; sourceTree = "<group>"; };
+		654407FD1F87BEE800108C79 /* JapaneseWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JapaneseWords.json; sourceTree = "<group>"; };
+		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 		654407E11F86873F00108C79 /* SpellingBee */ = {
 			isa = PBXGroup;
 			children = (
+				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
 				654407E41F86873F00108C79 /* MasterViewController.swift */,
 				654407E61F86873F00108C79 /* DetailViewController.swift */,
@@ -83,6 +92,9 @@
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407F01F86873F00108C79 /* Info.plist */,
+				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
+				652E55881F87CBE90062349B /* MenuTableViewController.swift */,
+				652E558A1F87CF280062349B /* ListenViewController.swift */,
 			);
 			path = SpellingBee;
 			sourceTree = "<group>";
@@ -159,6 +171,7 @@
 				654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */,
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
+				652E55871F87C4810062349B /* JapaneseWords.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */,
 				654407E71F86873F00108C79 /* DetailViewController.swift in Sources */,
+				652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */,
 				654407E51F86873F00108C79 /* MasterViewController.swift in Sources */,
 				654407E31F86873F00108C79 /* AppDelegate.swift in Sources */,
+				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
