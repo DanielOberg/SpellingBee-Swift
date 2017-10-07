@@ -52,9 +52,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bHr-j4-q0d">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="28" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -304,7 +304,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uaK-9R-vrd" firstAttribute="top" secondItem="Clu-uD-YH5" secondAttribute="bottom" constant="7.5" id="1SP-FR-Dxx"/>
                             <constraint firstItem="Clu-uD-YH5" firstAttribute="trailing" secondItem="Zaw-WX-aO5" secondAttribute="trailing" id="Pjz-TB-ha5"/>
                             <constraint firstItem="Clu-uD-YH5" firstAttribute="top" secondItem="Zaw-WX-aO5" secondAttribute="top" constant="62" id="Voo-EK-SFt"/>
                             <constraint firstItem="uaK-9R-vrd" firstAttribute="leading" secondItem="Zaw-WX-aO5" secondAttribute="leading" id="WBb-R8-m5A"/>

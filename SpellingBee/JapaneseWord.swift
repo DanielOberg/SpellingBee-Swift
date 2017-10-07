@@ -23,14 +23,16 @@ struct JapaneseWord: Codable {
     }
     
     func listRomaji() -> [String] {
-        let all = JapaneseWord.listAllRomaji().sorted { (a, b) -> Bool in a.count > b.count }
-        let romajiMutable = NSMutableString(string: romaji)
+        let all = (JapaneseWord.listAllHiragana()+JapaneseWord.listAllKatakana()).sorted { (a, b) -> Bool in a.count > b.count }
+        let kanaMutable = NSMutableString(string: kana)
         var result = [String]()
-        while (romajiMutable.length > 0) {
+        while (kanaMutable.length > 0) {
             for r in all {
-                if (romajiMutable.hasPrefix(r)) {
-                    result.append(r);
-                    romajiMutable.deleteCharacters(in: NSRange(location: 0, length: r.count))
+                if (kanaMutable.hasPrefix(r)) {
+                    let str = r.applyingTransform(StringTransform.latinToKatakana, reverse: true)?.applyingTransform(StringTransform.latinToHiragana, reverse: true)
+                    result.append(str!);
+                    kanaMutable.deleteCharacters(in: NSRange(location: 0, length: r.count))
+                    break;
                 }
             }
         }
@@ -46,6 +48,7 @@ struct JapaneseWord: Codable {
                 if (kanaMutable.hasPrefix(r)) {
                     result.append(r);
                     kanaMutable.deleteCharacters(in: NSRange(location: 0, length: r.count))
+                    break;
                 }
             }
         }
