@@ -129,7 +129,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Path ⟩" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSX-jR-9Ee">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Find Path ⟩" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSX-jR-9Ee">
                                                     <rect key="frame" x="16" y="0.0" width="344" height="139.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -158,6 +158,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5ht-w2-lhC" kind="show" identifier="spellSegue" id="8Ne-b3-eDy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -265,6 +268,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf8-ha-Y1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311.1999999999998" y="-388.15592203898052"/>
+        </scene>
+        <!--Spell View Controller-->
+        <scene sceneID="fxS-0u-Sh1">
+            <objects>
+                <viewController id="5ht-w2-lhC" customClass="SpellViewController" customModule="SpellingBee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L3s-XM-mAc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教育" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clu-uD-YH5">
+                                <rect key="frame" x="0.0" y="126" width="375" height="81.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="68"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ぎゅうにゅう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV1-S9-3Fy">
+                                <rect key="frame" x="0.0" y="334" width="375" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaK-9R-vrd">
+                                <rect key="frame" x="0.0" y="215" width="375" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xkB-Y8-2bm">
+                                <rect key="frame" x="16" y="645" width="343" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uaK-9R-vrd" firstAttribute="top" secondItem="Clu-uD-YH5" secondAttribute="bottom" constant="7.5" id="1SP-FR-Dxx"/>
+                            <constraint firstItem="Clu-uD-YH5" firstAttribute="trailing" secondItem="Zaw-WX-aO5" secondAttribute="trailing" id="Pjz-TB-ha5"/>
+                            <constraint firstItem="Clu-uD-YH5" firstAttribute="top" secondItem="Zaw-WX-aO5" secondAttribute="top" constant="62" id="Voo-EK-SFt"/>
+                            <constraint firstItem="uaK-9R-vrd" firstAttribute="leading" secondItem="Zaw-WX-aO5" secondAttribute="leading" id="WBb-R8-m5A"/>
+                            <constraint firstItem="Clu-uD-YH5" firstAttribute="trailing" secondItem="Zaw-WX-aO5" secondAttribute="trailing" id="Wke-DT-kGU"/>
+                            <constraint firstItem="aV1-S9-3Fy" firstAttribute="top" secondItem="uaK-9R-vrd" secondAttribute="bottom" priority="250" constant="90" id="axH-XZ-TI1"/>
+                            <constraint firstItem="aV1-S9-3Fy" firstAttribute="trailing" secondItem="Zaw-WX-aO5" secondAttribute="trailing" id="hH3-0r-3hM"/>
+                            <constraint firstItem="uaK-9R-vrd" firstAttribute="trailing" secondItem="Zaw-WX-aO5" secondAttribute="trailing" id="iMm-LC-MAX"/>
+                            <constraint firstItem="xkB-Y8-2bm" firstAttribute="leading" secondItem="L3s-XM-mAc" secondAttribute="leadingMargin" id="k5v-uG-qH8"/>
+                            <constraint firstItem="Zaw-WX-aO5" firstAttribute="bottom" secondItem="xkB-Y8-2bm" secondAttribute="bottom" constant="20" id="l8Y-Jl-3ah"/>
+                            <constraint firstItem="aV1-S9-3Fy" firstAttribute="leading" secondItem="Zaw-WX-aO5" secondAttribute="leading" id="mu7-qv-Z2r"/>
+                            <constraint firstItem="Clu-uD-YH5" firstAttribute="leading" secondItem="Zaw-WX-aO5" secondAttribute="leading" id="mz3-De-JGd"/>
+                            <constraint firstItem="xkB-Y8-2bm" firstAttribute="trailing" secondItem="L3s-XM-mAc" secondAttribute="trailingMargin" id="x8n-Y2-pNO"/>
+                            <constraint firstItem="uaK-9R-vrd" firstAttribute="top" secondItem="Clu-uD-YH5" secondAttribute="bottom" constant="8" id="yjy-Mh-HGN"/>
+                            <constraint firstItem="Clu-uD-YH5" firstAttribute="leading" secondItem="Zaw-WX-aO5" secondAttribute="leading" id="yuI-kc-jNY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zaw-WX-aO5"/>
+                    </view>
+                    <connections>
+                        <outlet property="englishLabel" destination="uaK-9R-vrd" id="svx-U6-OYh"/>
+                        <outlet property="kanaLabel" destination="aV1-S9-3Fy" id="War-E0-Ej9"/>
+                        <outlet property="kanjiLabel" destination="Clu-uD-YH5" id="mi5-I1-UjB"/>
+                        <outlet property="progressView" destination="xkB-Y8-2bm" id="yIE-av-Ixn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ap-GZ-CcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2306" y="319"/>
         </scene>
         <!--Listen View Controller-->
         <scene sceneID="mVg-Zx-bP2">

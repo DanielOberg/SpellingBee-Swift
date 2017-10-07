@@ -36,6 +36,9 @@ class MenuTableViewController: UITableViewController {
         } else if segue.identifier == "pathSegue" {
             let controller = segue.destination as? PathViewController
             controller?.words = words
+        } else if segue.identifier == "spellSegue" {
+            let controller = segue.destination as? SpellViewController
+            controller?.words = words
         }
     }
 }

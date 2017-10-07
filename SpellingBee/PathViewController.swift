@@ -18,7 +18,6 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var englishLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
 
-
     var words: [JapaneseWord]!
     
     static let MAX_SQUARES = 3;
@@ -37,8 +36,6 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         kanaCollectionView.dataSource = self
         kanaCollectionView.delegate = self;
-        kanaCollectionView.reloadData()
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,6 +50,11 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         spokenChars = 0
         show(word: words[0])
         progressView.progress = 0.0
+        self.kanaCollectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        soundRecorder.onMadeSound = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,9 +79,20 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 kanaCell.kanaLetterButton.setNeedsDisplay()
                 
                 self.spokenChars += 1
-                
                 self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)
                 
+                let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
+                if (isNewWord) {
+                    let isFinished = self.indexWord + 1 >= self.words.count
+                    if (!isFinished) {
+                        self.indexChar = 0
+                        self.indexWord += 1
+                        
+                        self.show(word: self.words[self.indexWord])
+                    }
+                } else {
+                    self.indexChar += 1
+                }
                 return true
             } else {
                 return false
@@ -124,6 +137,8 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.kanjiLabel.text = word.kanji
         self.englishLabel.text = word.english
+        
+        self.kanaCollectionView.reloadData()
     }
     
     static func recRandomPath(kanas: ArraySlice<String>, xv: Int, yv: Int, result: [(Int, Int)]) -> [(Int, Int)] {
@@ -164,7 +179,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KanaLetter", for: indexPath) as! KanaLetterCollectionViewCell
         cell.kanaLetterButton.setTitle(self.matrix[indexPath.section][indexPath.row], for: UIControlState.normal)
         cell.kanaLetterButton.layer.masksToBounds = true;
-        cell.kanaLetterButton.layer.cornerRadius = cell.kanaLetterButton.bounds.width;
+        cell.kanaLetterButton.layer.cornerRadius = cell.kanaLetterButton.frame.height / 2.0;
         cell.kanaLetterButton.backgroundColor = UIColor.black;
         if (self.path.first?.0 == indexPath.section && self.path.first?.1 == indexPath.row) {
             cell.kanaLetterButton.backgroundColor = UIColor.gray;
