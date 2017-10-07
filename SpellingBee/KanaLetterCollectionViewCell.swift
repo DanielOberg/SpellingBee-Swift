@@ -10,4 +10,7 @@ import UIKit
 
 class KanaLetterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var kanaLetterButton: UIButton!
+    @IBAction func kanaLetterPress(_ sender: Any) {
+        self.kanaLetterButton.backgroundColor = UIColor.gray
+    }
 }

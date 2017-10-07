@@ -75,8 +75,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         englishLabel.text = word.english
         romajiLabel.text = word.romaji
     }
-    
-    
+
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if (enLastSpeechUtterance == utterance) {
             index += 1
@@ -89,15 +88,5 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
             } 
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
