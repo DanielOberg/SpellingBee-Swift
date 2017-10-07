@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,6 +83,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nextButton" destination="tJi-hq-c01" id="YqT-Zq-cKq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,6 +138,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="nv5-wr-Z9q" kind="show" identifier="pathSegue" id="6sm-Tg-eY2"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="7vM-HX-Xhv" rowHeight="140" style="IBUITableViewCellStyleDefault" id="yH5-hg-k7h">
                                         <rect key="frame" x="0.0" y="280" width="375" height="140"/>
@@ -163,6 +171,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oM-4J-Pkv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1426" y="-628"/>
+        </scene>
+        <!--Path View Controller-->
+        <scene sceneID="A1Y-PI-hR6">
+            <objects>
+                <viewController id="nv5-wr-Z9q" customClass="PathViewController" customModule="SpellingBee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ayY-fZ-vDd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-L3-kVv">
+                                <rect key="frame" x="0.0" y="106" width="375" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="教育" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afd-Pe-usF">
+                                <rect key="frame" x="0.0" y="152" width="375" height="134"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gZ6-8G-2UV">
+                                <rect key="frame" x="16" y="645" width="343" height="2"/>
+                            </progressView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LQQ-dz-CqD">
+                                <rect key="frame" x="16" y="294" width="343" height="343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LQQ-dz-CqD" secondAttribute="height" multiplier="1:1" id="Sb1-eM-e8I"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dxg-nn-p5s">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KanaLetter" id="b49-1S-euh" customClass="KanaLetterCollectionViewCell" customModule="SpellingBee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-eF-SpT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    <state key="normal" title="ぎゅ">
+                                                        <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ZAY-eF-SpT" secondAttribute="trailing" id="XTF-dy-46J"/>
+                                            <constraint firstItem="ZAY-eF-SpT" firstAttribute="top" secondItem="b49-1S-euh" secondAttribute="topMargin" id="Yjw-Yf-Sba"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ZAY-eF-SpT" secondAttribute="bottom" id="gUF-Dh-y38"/>
+                                            <constraint firstItem="ZAY-eF-SpT" firstAttribute="leading" secondItem="b49-1S-euh" secondAttribute="leadingMargin" id="n7Z-Cm-YuR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="kanaLetterButton" destination="ZAY-eF-SpT" id="gVg-rQ-N9v"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Afd-Pe-usF" firstAttribute="trailing" secondItem="v2G-cB-bDn" secondAttribute="trailing" id="0Qc-QC-NuA"/>
+                            <constraint firstItem="v2G-cB-bDn" firstAttribute="bottom" secondItem="gZ6-8G-2UV" secondAttribute="bottom" constant="20" id="54i-mH-Ptz"/>
+                            <constraint firstItem="cOV-L3-kVv" firstAttribute="trailing" secondItem="v2G-cB-bDn" secondAttribute="trailing" id="Imu-gY-yxc"/>
+                            <constraint firstItem="cOV-L3-kVv" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" id="M4b-cY-07I"/>
+                            <constraint firstItem="LQQ-dz-CqD" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" constant="16" id="WuW-QP-Onz"/>
+                            <constraint firstItem="gZ6-8G-2UV" firstAttribute="trailing" secondItem="ayY-fZ-vDd" secondAttribute="trailingMargin" id="d3b-GN-ioe"/>
+                            <constraint firstItem="LQQ-dz-CqD" firstAttribute="top" secondItem="Afd-Pe-usF" secondAttribute="bottom" constant="8" id="hSf-Yq-xRC"/>
+                            <constraint firstItem="Afd-Pe-usF" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" id="ibx-7d-VzH"/>
+                            <constraint firstItem="Afd-Pe-usF" firstAttribute="top" secondItem="cOV-L3-kVv" secondAttribute="bottom" constant="8" id="lhG-Zs-wDM"/>
+                            <constraint firstItem="gZ6-8G-2UV" firstAttribute="top" secondItem="LQQ-dz-CqD" secondAttribute="bottom" constant="8" id="pOg-BW-C9T"/>
+                            <constraint firstItem="cOV-L3-kVv" firstAttribute="top" secondItem="v2G-cB-bDn" secondAttribute="top" constant="42" id="tZc-rX-GzX"/>
+                            <constraint firstItem="gZ6-8G-2UV" firstAttribute="leading" secondItem="ayY-fZ-vDd" secondAttribute="leadingMargin" id="voa-bQ-79t"/>
+                            <constraint firstItem="v2G-cB-bDn" firstAttribute="trailing" secondItem="LQQ-dz-CqD" secondAttribute="trailing" constant="16" id="wDW-lp-wTP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v2G-cB-bDn"/>
+                    </view>
+                    <connections>
+                        <outlet property="englishLabel" destination="cOV-L3-kVv" id="IaK-XQ-5PR"/>
+                        <outlet property="kanaCollectionView" destination="LQQ-dz-CqD" id="ZHX-pC-Iev"/>
+                        <outlet property="kanjiLabel" destination="Afd-Pe-usF" id="1om-yY-fqM"/>
+                        <outlet property="progressView" destination="gZ6-8G-2UV" id="2VQ-b5-SYD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xf8-ha-Y1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2311.1999999999998" y="-388.15592203898052"/>
         </scene>
         <!--Listen View Controller-->
         <scene sceneID="mVg-Zx-bP2">
@@ -196,9 +298,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QY4-ty-eap">
+                                <rect key="frame" x="16" y="645" width="343" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2ce-JW-071" firstAttribute="bottom" secondItem="QY4-ty-eap" secondAttribute="bottom" constant="20" id="0LO-JV-hSJ"/>
                             <constraint firstItem="D38-h6-ppj" firstAttribute="trailing" secondItem="2ce-JW-071" secondAttribute="trailing" id="0WL-Fr-xqG"/>
                             <constraint firstItem="pVc-ga-pxU" firstAttribute="centerY" secondItem="zIx-ak-VwO" secondAttribute="centerY" id="2OW-Cq-7Ai"/>
                             <constraint firstItem="Z8z-E7-KlK" firstAttribute="top" secondItem="VU2-X9-FbB" secondAttribute="bottom" constant="8" id="C2S-8A-PHh"/>
@@ -206,19 +312,22 @@
                             <constraint firstItem="pVc-ga-pxU" firstAttribute="leading" secondItem="2ce-JW-071" secondAttribute="leading" id="NIE-4G-MjI"/>
                             <constraint firstItem="D38-h6-ppj" firstAttribute="top" secondItem="pVc-ga-pxU" secondAttribute="bottom" constant="8" id="RTu-NR-Ajf"/>
                             <constraint firstItem="pVc-ga-pxU" firstAttribute="trailing" secondItem="2ce-JW-071" secondAttribute="trailing" id="UyP-Pk-Kt8"/>
+                            <constraint firstItem="QY4-ty-eap" firstAttribute="trailing" secondItem="zIx-ak-VwO" secondAttribute="trailingMargin" id="adL-SC-Rxd"/>
                             <constraint firstItem="pVc-ga-pxU" firstAttribute="top" secondItem="Z8z-E7-KlK" secondAttribute="bottom" priority="250" constant="90" id="bTL-qV-UGx"/>
                             <constraint firstItem="Z8z-E7-KlK" firstAttribute="leading" secondItem="2ce-JW-071" secondAttribute="leading" id="fAS-B7-twi"/>
                             <constraint firstItem="VU2-X9-FbB" firstAttribute="top" secondItem="2ce-JW-071" secondAttribute="top" constant="62" id="hOh-Yv-Uiz"/>
                             <constraint firstItem="Z8z-E7-KlK" firstAttribute="trailing" secondItem="2ce-JW-071" secondAttribute="trailing" id="lpH-6Q-wdq"/>
                             <constraint firstItem="VU2-X9-FbB" firstAttribute="trailing" secondItem="2ce-JW-071" secondAttribute="trailing" id="p2d-n8-BPP"/>
+                            <constraint firstItem="QY4-ty-eap" firstAttribute="leading" secondItem="zIx-ak-VwO" secondAttribute="leadingMargin" id="r63-iK-8kh"/>
                             <constraint firstItem="VU2-X9-FbB" firstAttribute="leading" secondItem="2ce-JW-071" secondAttribute="leading" id="zbA-Jo-ZeB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ce-JW-071"/>
                     </view>
                     <connections>
-                        <outlet property="englishiLabel" destination="Z8z-E7-KlK" id="aUE-M8-SIE"/>
+                        <outlet property="englishLabel" destination="Z8z-E7-KlK" id="dqh-O8-uqj"/>
                         <outlet property="hiraganaiLabel" destination="pVc-ga-pxU" id="bXk-nu-xcc"/>
                         <outlet property="kanjiLabel" destination="VU2-X9-FbB" id="L0s-du-Kna"/>
+                        <outlet property="progressView" destination="QY4-ty-eap" id="v4e-BN-WGm"/>
                         <outlet property="romajiLabel" destination="D38-h6-ppj" id="bGX-Mz-QfS"/>
                     </connections>
                 </viewController>

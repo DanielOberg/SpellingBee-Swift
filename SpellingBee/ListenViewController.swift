@@ -14,7 +14,8 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBOutlet weak var kanjiLabel: UILabel!
     @IBOutlet weak var romajiLabel: UILabel!
     @IBOutlet weak var hiraganaiLabel: UILabel!
-    @IBOutlet weak var englishiLabel: UILabel!
+    @IBOutlet weak var englishLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
     
     var words: [JapaneseWord]!
     
@@ -39,7 +40,11 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         speak(word: words[index])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         show(word: words[index])
+        progressView.progress = 0.0
     }
     
     func speak(word: JapaneseWord) {
@@ -47,12 +52,14 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         utEn.voice = speechSynthVoiceEN
         utEn.preUtteranceDelay = 0.1
         self.speechSynth.speak(utEn)
-        let utJp = AVSpeechUtterance(string: word.hiragana)
+        let utJp = AVSpeechUtterance(string: word.kanji)
         utJp.voice = speechSynthVoiceJP
-        utJp.preUtteranceDelay = 0.1
+        utJp.rate = (AVSpeechUtteranceDefaultSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 2 + AVSpeechUtteranceMinimumSpeechRate
+        utJp.preUtteranceDelay = 0.2
         self.speechSynth.speak(utJp)
-        let utJp2 = AVSpeechUtterance(string: word.hiragana)
+        let utJp2 = AVSpeechUtterance(string: word.kana)
         utJp2.voice = speechSynthVoiceJP
+        utJp2.rate = (AVSpeechUtteranceDefaultSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 2 + AVSpeechUtteranceMinimumSpeechRate
         utJp2.preUtteranceDelay = 0.2
         self.speechSynth.speak(utJp2)
         enLastSpeechUtterance = AVSpeechUtterance(string: word.english)
@@ -64,8 +71,8 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func show(word: JapaneseWord) {
         kanjiLabel.text = word.kanji
-        hiraganaiLabel.text = word.hiragana
-        englishiLabel.text = word.english
+        hiraganaiLabel.text = word.kana
+        englishLabel.text = word.english
         romajiLabel.text = word.romaji
     }
     
@@ -73,6 +80,8 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if (enLastSpeechUtterance == utterance) {
             index += 1
+            
+            progressView.progress = Float(index) / Float(words.count)
             
             if (index < words.count) {
                 speak(word: words[index])

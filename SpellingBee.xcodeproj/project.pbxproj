@@ -10,9 +10,10 @@
 		652E55871F87C4810062349B /* JapaneseWords.json in Resources */ = {isa = PBXBuildFile; fileRef = 654407FD1F87BEE800108C79 /* JapaneseWords.json */; };
 		652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55881F87CBE90062349B /* MenuTableViewController.swift */; };
 		652E558B1F87CF280062349B /* ListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558A1F87CF280062349B /* ListenViewController.swift */; };
+		652E558E1F88F52A0062349B /* PathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558D1F88F52A0062349B /* PathViewController.swift */; };
+		652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */; };
 		654407E31F86873F00108C79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E21F86873F00108C79 /* AppDelegate.swift */; };
 		654407E51F86873F00108C79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E41F86873F00108C79 /* MasterViewController.swift */; };
-		654407E71F86873F00108C79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E61F86873F00108C79 /* DetailViewController.swift */; };
 		654407EA1F86873F00108C79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407E81F86873F00108C79 /* Main.storyboard */; };
 		654407EC1F86873F00108C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654407EB1F86873F00108C79 /* Assets.xcassets */; };
 		654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407ED1F86873F00108C79 /* LaunchScreen.storyboard */; };
@@ -39,10 +40,12 @@
 /* Begin PBXFileReference section */
 		652E55881F87CBE90062349B /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		652E558A1F87CF280062349B /* ListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenViewController.swift; sourceTree = "<group>"; };
+		652E558C1F88EF410062349B /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		652E558D1F88F52A0062349B /* PathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathViewController.swift; sourceTree = "<group>"; };
+		652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaLetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		654407DF1F86873F00108C79 /* SpellingBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellingBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654407E21F86873F00108C79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		654407E41F86873F00108C79 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		654407E61F86873F00108C79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		654407E91F86873F00108C79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		654407EB1F86873F00108C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654407EE1F86873F00108C79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,10 +87,12 @@
 		654407E11F86873F00108C79 /* SpellingBee */ = {
 			isa = PBXGroup;
 			children = (
+				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
 				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
 				654407E41F86873F00108C79 /* MasterViewController.swift */,
-				654407E61F86873F00108C79 /* DetailViewController.swift */,
+				652E558D1F88F52A0062349B /* PathViewController.swift */,
+				652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */,
 				654407E81F86873F00108C79 /* Main.storyboard */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
@@ -183,11 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */,
-				654407E71F86873F00108C79 /* DetailViewController.swift in Sources */,
 				652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */,
 				654407E51F86873F00108C79 /* MasterViewController.swift in Sources */,
 				654407E31F86873F00108C79 /* AppDelegate.swift in Sources */,
+				652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */,
 				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
+				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

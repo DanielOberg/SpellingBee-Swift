@@ -33,6 +33,9 @@ class MenuTableViewController: UITableViewController {
         if segue.identifier == "listenSegue" {
             let controller = segue.destination as? ListenViewController
             controller?.words = words
+        } else if segue.identifier == "pathSegue" {
+            let controller = segue.destination as? PathViewController
+            controller?.words = words
         }
     }
 }

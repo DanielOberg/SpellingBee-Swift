@@ -11,8 +11,7 @@ import UIKit
 import SpeechFramework
 
 class MasterViewController: UITableViewController {
-
-    var detailViewController: DetailViewController? = nil
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     var objects = JapaneseWord.all()
 
     override func viewDidLoad() {
@@ -21,6 +20,7 @@ class MasterViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.nextButton.isEnabled = self.tableView.indexPathsForSelectedRows != nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,10 +42,12 @@ class MasterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        self.nextButton.isEnabled = tableView.indexPathsForSelectedRows != nil
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        self.nextButton.isEnabled = tableView.indexPathsForSelectedRows != nil
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,7 +63,7 @@ class MasterViewController: UITableViewController {
 
         let object = objects[indexPath.row]
         cell.textLabel!.text = object.english
-        cell.detailTextLabel!.text = object.hiragana
+        cell.detailTextLabel!.text = object.kana
         cell.accessoryType = UITableViewCellAccessoryType.none
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
