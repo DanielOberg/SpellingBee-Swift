@@ -250,7 +250,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LQQ-dz-CqD" secondAttribute="height" multiplier="1:1" id="Sb1-eM-e8I"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dxg-nn-p5s">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dxg-nn-p5s">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>

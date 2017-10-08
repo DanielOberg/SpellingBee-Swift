@@ -36,17 +36,12 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        kanaCollectionView.dataSource = self
-        kanaCollectionView.delegate = self;
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func indexTitles(for collectionView: UICollectionView) -> [String]? {
-        return ["Common Japanese Words"]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +52,8 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         show(word: words[0])
         progressView.progress = 0.0
         
-        self.kanaCollectionView.reloadData()
+        kanaCollectionView.dataSource = self
+        kanaCollectionView.delegate = self;
     }
     
     override func viewDidLayoutSubviews() {
@@ -200,7 +196,8 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KanaLetter", for: indexPath) as! KanaLetterCollectionViewCell
         cell.kanaLetterButton.setTitle(self.matrix[indexPath.section][indexPath.row], for: UIControlState.normal)
         cell.kanaLetterButton.layer.masksToBounds = true;
-        cell.kanaLetterButton.layer.cornerRadius = cell.kanaLetterButton.frame.height / 2.0;
+        cell.kanaLetterButton.layer.cornerRadius = collectionView.frame.size.width/CGFloat(PathViewController.MAX_SQUARES) / 2.375;
+        
         cell.kanaLetterButton.backgroundColor = UIColor.black;
         if (self.path.first?.0 == indexPath.section && self.path.first?.1 == indexPath.row) {
             cell.kanaLetterButton.backgroundColor = UIColor.gray;
@@ -226,7 +223,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthOfCell = (collectionView.frame.size.height - 32)/CGFloat(PathViewController.MAX_SQUARES);
+        let widthOfCell = collectionView.frame.size.width/CGFloat(PathViewController.MAX_SQUARES);
         let heightOfCell = widthOfCell;
         let returnValue = CGSize(width: widthOfCell, height: heightOfCell);
         return returnValue;
