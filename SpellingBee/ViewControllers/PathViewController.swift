@@ -20,7 +20,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var bgTopView: UIView!
 
-    var words: [JapaneseWord]!
+    var words: [JapaneseWord] = []
     
     static let MAX_SQUARES = 3;
     var path = [(Int, Int)]()

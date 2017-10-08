@@ -20,6 +20,10 @@ class MenuTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func prepareForUnwindToMenu(segue: UIStoryboardSegue){
+        
+    }
+    
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

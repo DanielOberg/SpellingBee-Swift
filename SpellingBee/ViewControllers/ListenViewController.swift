@@ -54,6 +54,10 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         progressView.progress = 0.0
     }
     
+    @IBAction func prepareForUnwindToRepeat(segue: UIStoryboardSegue){
+        index = 0
+    }
+    
     func speak(word: JapaneseWord) {
         let utEn = AVSpeechUtterance(string: word.english)
         utEn.voice = speechSynthVoiceEN
@@ -92,7 +96,9 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
             if (index < words.count) {
                 speak(word: words[index])
                 show(word: words[index])
-            } 
+            }  else {
+                performSegue(withIdentifier: "successSegue", sender: self)
+            }
         }
     }
 

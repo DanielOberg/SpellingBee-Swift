@@ -13,6 +13,7 @@
 		652E558E1F88F52A0062349B /* PathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558D1F88F52A0062349B /* PathViewController.swift */; };
 		652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */; };
 		652E55921F8945410062349B /* SpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55911F8945410062349B /* SpellViewController.swift */; };
+		652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55951F8A93390062349B /* SuccessListenViewController.swift */; };
 		654407E31F86873F00108C79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E21F86873F00108C79 /* AppDelegate.swift */; };
 		654407E51F86873F00108C79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E41F86873F00108C79 /* MasterViewController.swift */; };
 		654407EA1F86873F00108C79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407E81F86873F00108C79 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		652E558D1F88F52A0062349B /* PathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathViewController.swift; sourceTree = "<group>"; };
 		652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaLetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		652E55911F8945410062349B /* SpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellViewController.swift; sourceTree = "<group>"; };
+		652E55951F8A93390062349B /* SuccessListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessListenViewController.swift; sourceTree = "<group>"; };
 		654407DF1F86873F00108C79 /* SpellingBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellingBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654407E21F86873F00108C79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		654407E41F86873F00108C79 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				652E55911F8945410062349B /* SpellViewController.swift */,
 				652E55881F87CBE90062349B /* MenuTableViewController.swift */,
 				652E558A1F87CF280062349B /* ListenViewController.swift */,
+				652E55951F8A93390062349B /* SuccessListenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				654407E31F86873F00108C79 /* AppDelegate.swift in Sources */,
 				652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */,
 				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
+				652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */,
 				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
