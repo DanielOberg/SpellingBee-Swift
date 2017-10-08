@@ -69,6 +69,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652E55931F8A24B60062349B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
+				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		652E55941F8A24DC0062349B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				654407E41F86873F00108C79 /* MasterViewController.swift */,
+				652E558D1F88F52A0062349B /* PathViewController.swift */,
+				652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */,
+				652E55911F8945410062349B /* SpellViewController.swift */,
+				652E55881F87CBE90062349B /* MenuTableViewController.swift */,
+				652E558A1F87CF280062349B /* ListenViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		654407D61F86873F00108C79 = {
 			isa = PBXGroup;
 			children = (
@@ -89,16 +111,10 @@
 		654407E11F86873F00108C79 /* SpellingBee */ = {
 			isa = PBXGroup;
 			children = (
-				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
-				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
+				652E55931F8A24B60062349B /* Resources */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
-				654407E41F86873F00108C79 /* MasterViewController.swift */,
-				652E558D1F88F52A0062349B /* PathViewController.swift */,
-				652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */,
-				652E55911F8945410062349B /* SpellViewController.swift */,
 				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
-				652E55881F87CBE90062349B /* MenuTableViewController.swift */,
-				652E558A1F87CF280062349B /* ListenViewController.swift */,
+				652E55941F8A24DC0062349B /* ViewControllers */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407E81F86873F00108C79 /* Main.storyboard */,

@@ -14,6 +14,7 @@ class SpellViewController: UIViewController {
     @IBOutlet weak var kanjiLabel: UILabel!
     @IBOutlet weak var kanaLabel: UILabel!
     @IBOutlet weak var englishLabel: UILabel!
+    @IBOutlet weak var speakingIndicatorLabel: UILabel!
 
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -56,6 +57,7 @@ class SpellViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         soundRecorder.onMadeSound = {data,probabilities in
             let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
+            self.speakingIndicatorLabel.textColor = color
             
             let firstFive = probabilities?.sorted(by: { (a, b) -> Bool in
                 let aValue = (a.value as! NSNumber).floatValue
@@ -67,6 +69,10 @@ class SpellViewController: UIViewController {
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
                 return self.words[self.indexWord].listRomaji()[self.indexChar] == (a.key as! String)
             })
+            
+            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" })) { // Noise
+                return false
+            }
             
             if (containsRomaji!) {
                 self.kanaLabel.text = self.words[self.indexWord].listKana()[0...self.indexChar].reduce("", { (result, str) -> String in

@@ -16,7 +16,9 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var kanaCollectionView: UICollectionView!
     @IBOutlet weak var kanjiLabel: UILabel!
     @IBOutlet weak var englishLabel: UILabel!
+    @IBOutlet weak var speakingIndicatorLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var bgTopView: UIView!
 
     var words: [JapaneseWord]!
     
@@ -43,6 +45,10 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Dispose of any resources that can be recreated.
     }
     
+    func indexTitles(for collectionView: UICollectionView) -> [String]? {
+        return ["Common Japanese Words"]
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         totalChars = words.reduce(0, { (sum, w) -> Int in
             return w.listRomaji().count + sum
@@ -50,7 +56,17 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         spokenChars = 0
         show(word: words[0])
         progressView.progress = 0.0
+        
         self.kanaCollectionView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let gradient = CAGradientLayer()
+        gradient.frame = bgTopView.frame
+        let firstColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        let sndColor = UIColor(red:0.14, green:0.14, blue:0.26, alpha:1.0)
+        gradient.colors = [firstColor.cgColor, sndColor.cgColor]
+        bgTopView.layer.insertSublayer(gradient, at: 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,13 +76,18 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidAppear(_ animated: Bool) {
         soundRecorder.onMadeSound = {data,probabilities in
             let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
-            
+            self.speakingIndicatorLabel.textColor = color
+
             let firstFive = probabilities?.sorted(by: { (a, b) -> Bool in
                 let aValue = (a.value as! NSNumber).floatValue
                 let bValue = (b.value as! NSNumber).floatValue
 
                 return aValue > bValue
             })[0...5]
+            
+            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" })) { // Noise
+                return false
+            }
             
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
                 return self.words[self.indexWord].listRomaji()[self.indexChar] == (a.key as! String)

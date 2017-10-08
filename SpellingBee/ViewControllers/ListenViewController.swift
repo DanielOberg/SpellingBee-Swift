@@ -30,6 +30,13 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         speechSynth.delegate = self
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        let firstColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        let sndColor = UIColor(red:0.16, green:0.16, blue:0.28, alpha:1.0)
+        gradient.colors = [firstColor.cgColor, sndColor.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
         // Do any additional setup after loading the view.
     }
 

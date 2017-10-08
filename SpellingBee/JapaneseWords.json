@@ -1,15 +1,15 @@
 [
   {
-    "kana": "オオカミ",
-    "kanji": "狼",
-    "english": "wolf",
-    "romaji": "ōokami"
-  },
-  {
     "kana": "おちゃ",
     "kanji": "お茶",
     "english": "green tea",
     "romaji": "ocha"
+  },
+  {
+   "kana": "まぐろ",
+   "kanji": "鮪",
+   "english": "tuna",
+   "romaji": "maguro"
   },
   {
     "kana": "にんげん",
@@ -24,12 +24,6 @@
     "romaji": "gyūnyū"
   },
   {
-    "kana": "まぐろ",
-    "kanji": "鮪",
-    "english": "tuna",
-    "romaji": "maguro"
-  },
-  {
     "kana": "およぐ",
     "kanji": "泳ぐ",
     "english": "to swim",
@@ -42,12 +36,6 @@
     "romaji": "inu"
   },
   {
-    "kana": "コーヒー",
-    "kanji": "珈琲",
-    "english": "coffee",
-    "romaji": "kōhī"
-  },
-  {
     "kana": "やさい",
     "kanji": "野菜",
     "english": "vegetable",
@@ -58,12 +46,6 @@
     "kanji": "両親",
     "english": "parents",
     "romaji": "ryoushin"
-  },
-  {
-    "kana": "おっと",
-    "kanji": "夫",
-    "english": "husband",
-    "romaji": "otto"
   },
   {
     "kana": "じんるい",
@@ -89,6 +71,18 @@
     "english": "dragon",
     "romaji": "ryū, tatsu"
   },
+ {
+ "kana": "オオカミ",
+ "kanji": "狼",
+ "english": "wolf",
+ "romaji": "ōokami"
+ },
+ {
+ "kana": "おっと",
+ "kanji": "夫",
+ "english": "husband",
+ "romaji": "otto"
+ },
   {
     "kana": "おとこのひと",
     "kanji": "男の人",
@@ -277,7 +271,7 @@
   },
   {
     "kana": "ひげ",
-    "kanji": "髭、鬚、髯",
+    "kanji": "髭",
     "english": "moustache, beard",
     "romaji": "hige"
   },
@@ -575,6 +569,12 @@
     "english": "nephew",
     "romaji": "oi"
   },
+ {
+ "kana": "コーヒー",
+ "kanji": "珈琲",
+ "english": "coffee",
+ "romaji": "kōhī"
+ },
   {
     "kana": "いきもの",
     "kanji": "生き物",
