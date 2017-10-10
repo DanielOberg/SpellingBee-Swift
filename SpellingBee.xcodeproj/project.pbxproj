@@ -14,6 +14,10 @@
 		652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */; };
 		652E55921F8945410062349B /* SpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55911F8945410062349B /* SpellViewController.swift */; };
 		652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55951F8A93390062349B /* SuccessListenViewController.swift */; };
+		652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 652E55971F8AA0740062349B /* Model.xcdatamodeld */; };
+		652E559D1F8B81320062349B /* JapaneseWordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E559C1F8B81310062349B /* JapaneseWordData.swift */; };
+		652E559F1F8D39980062349B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E559E1F8D39980062349B /* Charts.framework */; };
+		652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */; };
 		654407E31F86873F00108C79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E21F86873F00108C79 /* AppDelegate.swift */; };
 		654407E51F86873F00108C79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E41F86873F00108C79 /* MasterViewController.swift */; };
 		654407EA1F86873F00108C79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407E81F86873F00108C79 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaLetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		652E55911F8945410062349B /* SpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellViewController.swift; sourceTree = "<group>"; };
 		652E55951F8A93390062349B /* SuccessListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessListenViewController.swift; sourceTree = "<group>"; };
+		652E55981F8AA0740062349B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		652E559C1F8B81310062349B /* JapaneseWordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWordData.swift; sourceTree = "<group>"; };
+		652E559E1F8D39980062349B /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		654407DF1F86873F00108C79 /* SpellingBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellingBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654407E21F86873F00108C79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		654407E41F86873F00108C79 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				654407F81F86879D00108C79 /* SpeechFramework.framework in Frameworks */,
+				652E559F1F8D39980062349B /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,11 +126,14 @@
 				652E55931F8A24B60062349B /* Resources */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
 				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
+				652E559C1F8B81310062349B /* JapaneseWordData.swift */,
 				652E55941F8A24DC0062349B /* ViewControllers */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407E81F86873F00108C79 /* Main.storyboard */,
 				654407F01F86873F00108C79 /* Info.plist */,
+				652E55971F8AA0740062349B /* Model.xcdatamodeld */,
+				652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */,
 			);
 			path = SpellingBee;
 			sourceTree = "<group>";
@@ -129,6 +141,7 @@
 		654407F61F86879D00108C79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				652E559E1F8D39980062349B /* Charts.framework */,
 				654407F71F86879D00108C79 /* SpeechFramework.framework */,
 			);
 			name = Frameworks;
@@ -145,6 +158,7 @@
 				654407DC1F86873F00108C79 /* Frameworks */,
 				654407DD1F86873F00108C79 /* Resources */,
 				654407FC1F8689FA00108C79 /* Embed Frameworks */,
+				652E55A01F8D39BE0062349B /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -204,6 +218,25 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		652E55A01F8D39BE0062349B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		654407DB1F86873F00108C79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,12 +244,15 @@
 			files = (
 				654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */,
 				652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */,
+				652E559D1F8B81320062349B /* JapaneseWordData.swift in Sources */,
 				654407E51F86873F00108C79 /* MasterViewController.swift in Sources */,
 				652E55921F8945410062349B /* SpellViewController.swift in Sources */,
 				654407E31F86873F00108C79 /* AppDelegate.swift in Sources */,
 				652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */,
 				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
+				652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */,
 				652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */,
+				652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */,
 				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +395,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -379,6 +416,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -412,6 +450,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		652E55971F8AA0740062349B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				652E55981F8AA0740062349B /* Model.xcdatamodel */,
+			);
+			currentVersion = 652E55981F8AA0740062349B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 654407D71F86873F00108C79 /* Project object */;
 }

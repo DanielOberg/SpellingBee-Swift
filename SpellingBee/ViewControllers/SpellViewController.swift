@@ -84,6 +84,8 @@ class SpellViewController: UIViewController {
                 
                 let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
                 if (isNewWord) {
+                    self.words[self.indexWord].addToDB(type: JapaneseWord.ActionType.spell)
+
                     let isFinished = self.indexWord + 1 >= self.words.count
                     if (!isFinished) {
                         self.indexChar = 0

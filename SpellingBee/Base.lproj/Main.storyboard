@@ -523,14 +523,23 @@
                                     <action selector="repeatAction:" destination="CwX-uY-iJs" eventType="touchUpInside" id="nG4-fq-Ou9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-bU-FII">
+                                <rect key="frame" x="16" y="278" width="343" height="247"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="haL-EH-Uel" firstAttribute="trailing" secondItem="3kp-bU-FII" secondAttribute="trailing" constant="16" id="Czb-vS-u1d"/>
+                            <constraint firstItem="3kp-bU-FII" firstAttribute="leading" secondItem="haL-EH-Uel" secondAttribute="leading" constant="16" id="DvC-mv-yIw"/>
+                            <constraint firstItem="3kp-bU-FII" firstAttribute="top" secondItem="cfm-d2-ftq" secondAttribute="bottom" constant="32" id="Eg2-65-VE3"/>
                             <constraint firstItem="haL-EH-Uel" firstAttribute="trailing" secondItem="smJ-N4-A0r" secondAttribute="trailing" constant="16" id="KYm-Vj-dLA"/>
                             <constraint firstItem="smJ-N4-A0r" firstAttribute="leading" secondItem="haL-EH-Uel" secondAttribute="leading" constant="16" id="ROV-wg-8aG"/>
                             <constraint firstItem="thc-FG-q9Q" firstAttribute="leading" secondItem="haL-EH-Uel" secondAttribute="leading" id="WN4-4f-tGt"/>
                             <constraint firstItem="UEn-zw-JL2" firstAttribute="leading" secondItem="haL-EH-Uel" secondAttribute="leading" constant="16" id="Woe-Ze-Xam"/>
                             <constraint firstItem="thc-FG-q9Q" firstAttribute="trailing" secondItem="haL-EH-Uel" secondAttribute="trailing" id="aGN-T9-FIm"/>
+                            <constraint firstItem="UEn-zw-JL2" firstAttribute="top" secondItem="3kp-bU-FII" secondAttribute="bottom" constant="16" id="aoW-eO-U5w"/>
                             <constraint firstItem="smJ-N4-A0r" firstAttribute="top" secondItem="UEn-zw-JL2" secondAttribute="bottom" constant="8" id="cgN-5w-GiZ"/>
                             <constraint firstItem="cfm-d2-ftq" firstAttribute="top" secondItem="thc-FG-q9Q" secondAttribute="bottom" constant="8" id="gqe-T7-bUe"/>
                             <constraint firstItem="thc-FG-q9Q" firstAttribute="top" secondItem="haL-EH-Uel" secondAttribute="top" id="ihn-2I-DpN"/>
@@ -542,6 +551,7 @@
                         <viewLayoutGuide key="safeArea" id="haL-EH-Uel"/>
                     </view>
                     <connections>
+                        <outlet property="chartBgView" destination="3kp-bU-FII" id="WNy-rc-DI9"/>
                         <segue destination="hvO-Gb-Jl0" kind="unwind" identifier="unwindSegue" unwindAction="prepareForUnwindToMenuWithSegue:" id="z4d-WW-dYm"/>
                         <segue destination="hvO-Gb-Jl0" kind="unwind" identifier="repeatSegue" unwindAction="prepareForUnwindToRepeatWithSegue:" id="pbl-fa-YDz"/>
                     </connections>
