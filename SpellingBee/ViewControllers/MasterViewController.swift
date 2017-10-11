@@ -66,6 +66,11 @@ class MasterViewController: UITableViewController {
         cell.detailTextLabel!.text = object.kana
         cell.accessoryType = UITableViewCellAccessoryType.none
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        if let isSelected = tableView.indexPathsForSelectedRows?.contains(indexPath) {
+            if (isSelected) {
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        }
         return cell
     }
 
