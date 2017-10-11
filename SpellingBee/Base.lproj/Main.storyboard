@@ -326,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf8-ha-Y1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2309.5999999999999" y="-389.05547226386807"/>
+            <point key="canvasLocation" x="2310" y="-389"/>
         </scene>
         <!--Success Path View Controller-->
         <scene sceneID="fsv-lf-bRY">
@@ -491,11 +491,115 @@
                         <outlet property="kanjiLabel" destination="Clu-uD-YH5" id="mi5-I1-UjB"/>
                         <outlet property="progressView" destination="xkB-Y8-2bm" id="yIE-av-Ixn"/>
                         <outlet property="speakingIndicatorLabel" destination="jpi-Qa-DeV" id="mRg-Uc-eR1"/>
+                        <segue destination="UhU-8C-157" kind="presentation" identifier="successSpellSegue" id="y8t-ZK-oMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ap-GZ-CcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304.8000000000002" y="318.89055472263868"/>
+            <point key="canvasLocation" x="2310" y="419"/>
+        </scene>
+        <!--Success Spell View Controller-->
+        <scene sceneID="gCl-7p-DU1">
+            <objects>
+                <viewController id="UhU-8C-157" customClass="SuccessSpellViewController" customModule="SpellingBee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lDc-xp-HYr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Winner" translatesAutoresizingMaskIntoConstraints="NO" id="CLb-BP-oUo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="Cfp-LT-evc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwL-0G-aqA">
+                                <rect key="frame" x="0.0" y="207" width="375" height="39"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofO-id-ttM">
+                                <rect key="frame" x="16" y="600" width="343" height="51"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="menuAction:" destination="UhU-8C-157" eventType="touchUpInside" id="85m-3I-kL9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ss-5X-MaR">
+                                <rect key="frame" x="16" y="541" width="343" height="51"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Repeat">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="repeatAction:" destination="UhU-8C-157" eventType="touchUpInside" id="r4N-rF-9T4"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xY6-yK-Q4C">
+                                <rect key="frame" x="16" y="278" width="343" height="247"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="iwL-0G-aqA" firstAttribute="top" secondItem="CLb-BP-oUo" secondAttribute="bottom" constant="8" id="4S3-Gj-8AJ"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="top" secondItem="5ss-5X-MaR" secondAttribute="bottom" constant="8" id="8hh-6o-Meb"/>
+                            <constraint firstItem="xY6-yK-Q4C" firstAttribute="top" secondItem="iwL-0G-aqA" secondAttribute="bottom" constant="32" id="Bms-ez-pxv"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="top" secondItem="5ss-5X-MaR" secondAttribute="bottom" constant="8" id="LiH-hY-0kz"/>
+                            <constraint firstItem="CLb-BP-oUo" firstAttribute="trailing" secondItem="gBQ-Ev-9Hf" secondAttribute="trailing" id="Txf-3I-hEO"/>
+                            <constraint firstItem="xY6-yK-Q4C" firstAttribute="top" secondItem="iwL-0G-aqA" secondAttribute="bottom" constant="32" id="U61-F4-zHo"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="top" secondItem="5ss-5X-MaR" secondAttribute="bottom" constant="8" id="YIC-ed-f27"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="leading" secondItem="gBQ-Ev-9Hf" secondAttribute="leading" constant="16" id="bI7-0q-Nlz"/>
+                            <constraint firstItem="gBQ-Ev-9Hf" firstAttribute="trailing" secondItem="5ss-5X-MaR" secondAttribute="trailing" constant="16" id="byA-us-Oda"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="top" secondItem="xY6-yK-Q4C" secondAttribute="bottom" constant="16" id="eoK-OD-VCv"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="top" secondItem="xY6-yK-Q4C" secondAttribute="bottom" constant="16" id="f23-Bz-aD7"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="top" secondItem="xY6-yK-Q4C" secondAttribute="bottom" constant="16" id="fbT-e7-uyu"/>
+                            <constraint firstItem="iwL-0G-aqA" firstAttribute="top" secondItem="CLb-BP-oUo" secondAttribute="bottom" constant="8" id="i8e-sW-acA"/>
+                            <constraint firstItem="iwL-0G-aqA" firstAttribute="leading" secondItem="gBQ-Ev-9Hf" secondAttribute="leading" id="iI4-yd-tl6"/>
+                            <constraint firstItem="gBQ-Ev-9Hf" firstAttribute="bottom" secondItem="ofO-id-ttM" secondAttribute="bottom" constant="16" id="ifc-hD-eMl"/>
+                            <constraint firstItem="iwL-0G-aqA" firstAttribute="top" secondItem="CLb-BP-oUo" secondAttribute="bottom" constant="8" id="igM-ug-vcE"/>
+                            <constraint firstItem="iwL-0G-aqA" firstAttribute="trailing" secondItem="gBQ-Ev-9Hf" secondAttribute="trailing" id="io0-kb-iG3"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="top" secondItem="xY6-yK-Q4C" secondAttribute="bottom" constant="16" id="oct-3w-QEY"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="top" secondItem="5ss-5X-MaR" secondAttribute="bottom" constant="8" id="p3e-5Y-6Fe"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="leading" secondItem="gBQ-Ev-9Hf" secondAttribute="leading" constant="16" id="p9M-9b-Smr"/>
+                            <constraint firstItem="CLb-BP-oUo" firstAttribute="leading" secondItem="gBQ-Ev-9Hf" secondAttribute="leading" id="pad-ek-AWa"/>
+                            <constraint firstItem="CLb-BP-oUo" firstAttribute="top" secondItem="gBQ-Ev-9Hf" secondAttribute="top" id="rVe-UC-I2a"/>
+                            <constraint firstItem="5ss-5X-MaR" firstAttribute="top" secondItem="xY6-yK-Q4C" secondAttribute="bottom" constant="16" id="sLp-as-Xf5"/>
+                            <constraint firstItem="ofO-id-ttM" firstAttribute="top" secondItem="5ss-5X-MaR" secondAttribute="bottom" constant="8" id="sXU-c0-iPi"/>
+                            <constraint firstItem="gBQ-Ev-9Hf" firstAttribute="trailing" secondItem="xY6-yK-Q4C" secondAttribute="trailing" constant="16" id="teN-hc-YQO"/>
+                            <constraint firstItem="xY6-yK-Q4C" firstAttribute="leading" secondItem="gBQ-Ev-9Hf" secondAttribute="leading" constant="16" id="vwX-GV-bzJ"/>
+                            <constraint firstItem="gBQ-Ev-9Hf" firstAttribute="trailing" secondItem="ofO-id-ttM" secondAttribute="trailing" constant="16" id="wMg-1z-9kO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gBQ-Ev-9Hf"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartBgView" destination="xY6-yK-Q4C" id="6Se-ck-2lK"/>
+                        <segue destination="pTm-se-EU4" kind="unwind" identifier="unwindToMenuFromSpellSegue" unwindAction="prepareForUnwindToMenuWithSegue:" id="0AY-w4-oU5"/>
+                        <segue destination="pTm-se-EU4" kind="unwind" identifier="repeatSpellingSegue" unwindAction="prepareForUnwindToRepeatSpellingWithSegue:" id="4Z9-yH-feO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdS-QM-QeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pTm-se-EU4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3070" y="419"/>
         </scene>
         <!--Listen-->
         <scene sceneID="mVg-Zx-bP2">

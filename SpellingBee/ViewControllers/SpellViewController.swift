@@ -92,6 +92,8 @@ class SpellViewController: UIViewController {
                         self.indexWord += 1
                         
                         self.show(word: self.words[self.indexWord])
+                    } else {
+                        self.performSegue(withIdentifier: "successSpellSegue", sender: self)
                     }
                 } else {
                     self.indexChar += 1
@@ -103,4 +105,11 @@ class SpellViewController: UIViewController {
         }
         soundRecorder.checkForPermissionAndStart()
     }
+    
+    
+    @IBAction func prepareForUnwindToRepeatSpelling(segue: UIStoryboardSegue){
+        self.indexChar = 0
+        self.indexWord = 0
+    }
+    
 }
