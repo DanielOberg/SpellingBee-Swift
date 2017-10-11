@@ -43,6 +43,9 @@ class SuccessListenViewController: UIViewController {
         barChart?.pinchZoomEnabled = false
         barChart?.doubleTapToZoomEnabled = false
         barChart?.highlighter = nil
+        barChart?.leftAxis.axisMinimum = 0
+        barChart?.xAxis.granularityEnabled = true
+        barChart?.xAxis.granularity = 1.0
         chartBgView.addSubview(barChart!)
         
         barChart!.bindFrameToSuperviewBounds()
@@ -60,25 +63,26 @@ class SuccessListenViewController: UIViewController {
         
         // We want to find dates that match on Sundays at midnight local time
         var comps = DateComponents()
-        comps.hour = 24
+        comps.hour = 1
         
-        var days = 6
+        var days = 0
+        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: Date()).count)))
         // Enumerate all of the dates
         cal.enumerateDates(startingAfter: Date(), matching: comps, matchingPolicy: .previousTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .backward) { (date, match, stop) in
             if let date = date {
                 if date < stopDate {
                     stop = true // We've reached the end, exit the loop
                 } else {
-                    entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: date).count)))
                     days -= 1
+                    entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: date).count)))
                 }
             }
         }
-        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: Date()).count)))
 
         let set = BarChartDataSet(values: entries, label: "days")
         set.colors = [UIColor.white]
         set.valueTextColor = UIColor.white
+        set.valueFormatter = DefaultValueFormatter(decimals: 0)
         barChart?.data = BarChartData(dataSet: set)
         barChart?.animate(yAxisDuration: 1.0)
     }
