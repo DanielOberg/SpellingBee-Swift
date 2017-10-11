@@ -321,11 +321,109 @@
                         <outlet property="kanjiLabel" destination="Afd-Pe-usF" id="1om-yY-fqM"/>
                         <outlet property="progressView" destination="gZ6-8G-2UV" id="2VQ-b5-SYD"/>
                         <outlet property="speakingIndicatorLabel" destination="JNS-5i-jPZ" id="bLE-mk-mGK"/>
+                        <segue destination="3Cm-Cd-jF6" kind="presentation" identifier="successPathSegue" id="Sn3-i4-oWZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf8-ha-Y1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2309.5999999999999" y="-389.05547226386807"/>
+        </scene>
+        <!--Success Path View Controller-->
+        <scene sceneID="fsv-lf-bRY">
+            <objects>
+                <viewController id="3Cm-Cd-jF6" customClass="SuccessPathViewController" customModule="SpellingBee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aVW-6t-3hb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Winner" translatesAutoresizingMaskIntoConstraints="NO" id="F7N-eW-r4t">
+                                <rect key="frame" x="0.0" y="20" width="375" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="uWF-hK-SU0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fe-Xw-eTh">
+                                <rect key="frame" x="0.0" y="207" width="375" height="39"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLU-D1-Bqx">
+                                <rect key="frame" x="16" y="600" width="343" height="51"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="menuAction:" destination="3Cm-Cd-jF6" eventType="touchUpInside" id="fn5-Jp-SbT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-Qu-CoR">
+                                <rect key="frame" x="16" y="541" width="343" height="51"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Repeat">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="repeatAction:" destination="3Cm-Cd-jF6" eventType="touchUpInside" id="1Qc-uC-n4K"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="eGG-36-wxt">
+                                <rect key="frame" x="16" y="278" width="343" height="247"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FJG-sq-4Dm" firstAttribute="trailing" secondItem="eLU-D1-Bqx" secondAttribute="trailing" constant="16" id="1rc-o8-BRb"/>
+                            <constraint firstItem="eGG-36-wxt" firstAttribute="top" secondItem="6fe-Xw-eTh" secondAttribute="bottom" constant="32" id="7Hv-sm-rjT"/>
+                            <constraint firstItem="6fe-Xw-eTh" firstAttribute="trailing" secondItem="FJG-sq-4Dm" secondAttribute="trailing" id="EHB-tA-COS"/>
+                            <constraint firstItem="Usf-Qu-CoR" firstAttribute="top" secondItem="eGG-36-wxt" secondAttribute="bottom" constant="16" id="EbL-Rf-WoK"/>
+                            <constraint firstItem="Usf-Qu-CoR" firstAttribute="top" secondItem="eGG-36-wxt" secondAttribute="bottom" constant="16" id="MQR-7M-Hs0"/>
+                            <constraint firstItem="eLU-D1-Bqx" firstAttribute="top" secondItem="Usf-Qu-CoR" secondAttribute="bottom" constant="8" id="Oxv-Q5-IdJ"/>
+                            <constraint firstItem="FJG-sq-4Dm" firstAttribute="trailing" secondItem="eGG-36-wxt" secondAttribute="trailing" constant="16" id="SB9-83-vnZ"/>
+                            <constraint firstItem="FJG-sq-4Dm" firstAttribute="bottom" secondItem="eLU-D1-Bqx" secondAttribute="bottom" constant="16" id="aNy-Pt-wnR"/>
+                            <constraint firstItem="F7N-eW-r4t" firstAttribute="leading" secondItem="FJG-sq-4Dm" secondAttribute="leading" id="bXb-Le-Q9B"/>
+                            <constraint firstItem="eGG-36-wxt" firstAttribute="leading" secondItem="FJG-sq-4Dm" secondAttribute="leading" constant="16" id="dn4-S6-pRQ"/>
+                            <constraint firstItem="eLU-D1-Bqx" firstAttribute="top" secondItem="Usf-Qu-CoR" secondAttribute="bottom" constant="8" id="hIP-6T-MoT"/>
+                            <constraint firstItem="F7N-eW-r4t" firstAttribute="trailing" secondItem="FJG-sq-4Dm" secondAttribute="trailing" id="ihd-Kc-U00"/>
+                            <constraint firstItem="6fe-Xw-eTh" firstAttribute="top" secondItem="F7N-eW-r4t" secondAttribute="bottom" constant="8" id="jkL-Bp-Xmc"/>
+                            <constraint firstItem="Usf-Qu-CoR" firstAttribute="leading" secondItem="FJG-sq-4Dm" secondAttribute="leading" constant="16" id="kzM-XH-Fdo"/>
+                            <constraint firstItem="Usf-Qu-CoR" firstAttribute="top" secondItem="eGG-36-wxt" secondAttribute="bottom" constant="16" id="m71-cd-hWQ"/>
+                            <constraint firstItem="6fe-Xw-eTh" firstAttribute="top" secondItem="F7N-eW-r4t" secondAttribute="bottom" constant="8" id="mPi-nR-BUd"/>
+                            <constraint firstItem="F7N-eW-r4t" firstAttribute="top" secondItem="FJG-sq-4Dm" secondAttribute="top" id="pBp-tB-115"/>
+                            <constraint firstItem="FJG-sq-4Dm" firstAttribute="trailing" secondItem="Usf-Qu-CoR" secondAttribute="trailing" constant="16" id="s8q-Zb-ces"/>
+                            <constraint firstItem="eLU-D1-Bqx" firstAttribute="leading" secondItem="FJG-sq-4Dm" secondAttribute="leading" constant="16" id="tcz-6N-J2U"/>
+                            <constraint firstItem="6fe-Xw-eTh" firstAttribute="leading" secondItem="FJG-sq-4Dm" secondAttribute="leading" id="xNp-sg-RtD"/>
+                            <constraint firstItem="eLU-D1-Bqx" firstAttribute="top" secondItem="Usf-Qu-CoR" secondAttribute="bottom" constant="8" id="zQa-eD-bsn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FJG-sq-4Dm"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartBgView" destination="eGG-36-wxt" id="Rrs-2W-s5P"/>
+                        <segue destination="oq8-yp-fGH" kind="unwind" identifier="repeatPathSegue" unwindAction="prepareForUnwindToRepeatPathWithSegue:" id="7ys-Sc-2mV"/>
+                        <segue destination="oq8-yp-fGH" kind="unwind" identifier="unwindToMenuFromSegue" unwindAction="prepareForUnwindToMenuWithSegue:" id="Ncf-Tg-hMg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRN-oH-deD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oq8-yp-fGH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3070" y="-389"/>
         </scene>
         <!--Speak-->
         <scene sceneID="fxS-0u-Sh1">

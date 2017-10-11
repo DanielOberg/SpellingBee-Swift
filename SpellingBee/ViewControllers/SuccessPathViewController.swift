@@ -1,5 +1,5 @@
 //
-//  SuccessListenViewController.swift
+//  SuccessPathViewController.swift
 //  SpellingBee
 //
 //  Created by Daniel Oberg on 2017-10-08.
@@ -10,7 +10,7 @@ import UIKit
 
 import Charts
 
-class SuccessListenViewController: UIViewController {
+class SuccessPathViewController: UIViewController {
     
     @IBOutlet weak var chartBgView: UIView!
     
@@ -33,7 +33,7 @@ class SuccessListenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         barChart?.frame.size = self.chartBgView.frame.size
 
-        let entries = JapaneseWord.graphData(type: JapaneseWord.ActionType.listen)
+        let entries = JapaneseWord.graphData(type: JapaneseWord.ActionType.followPath)
         let set = BarChartDataSet(values: entries, label: "days")
         set.colors = [UIColor.white]
         set.valueTextColor = UIColor.white
@@ -43,11 +43,11 @@ class SuccessListenViewController: UIViewController {
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "unwindSegue", sender: self)
+        self.performSegue(withIdentifier: "unwindToMenuFromSegue", sender: self)
     }
     
     @IBAction func repeatAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "repeatSegue", sender: self)
+        self.performSegue(withIdentifier: "repeatPathSegue", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

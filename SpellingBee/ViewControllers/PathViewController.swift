@@ -108,6 +108,8 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                         self.indexWord += 1
                         
                         self.show(word: self.words[self.indexWord])
+                    } else {
+                        self.performSegue(withIdentifier: "successPathSegue", sender: self)
                     }
                 } else {
                     self.indexChar += 1
@@ -158,6 +160,11 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.englishLabel.text = word.english
         
         self.kanaCollectionView.reloadData()
+    }
+    
+    @IBAction func prepareForUnwindToRepeatPath(segue: UIStoryboardSegue){
+        self.indexChar = 0
+        self.indexWord = 0
     }
     
     static func recRandomPath(kanas: ArraySlice<String>, xv: Int, yv: Int, result: [(Int, Int)]) -> [(Int, Int)] {

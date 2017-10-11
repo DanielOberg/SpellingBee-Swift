@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import Charts
 
 extension UIView {
     
@@ -19,5 +20,33 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
+    }
+}
+
+extension BarChartView {
+    func styleChart() {
+        self.backgroundColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        self.tintColor = UIColor.white
+        self.borderColor = UIColor.white
+        self.gridBackgroundColor = UIColor.white
+        self.noDataTextColor = UIColor.white
+        self.chartDescription?.textColor = UIColor.white
+        self.chartDescription?.text = ""
+        self.xAxis.enabled = true
+        self.legend.enabled = false
+        self.xAxis.drawGridLinesEnabled = false
+        self.drawBordersEnabled = true
+        self.getAxis(YAxis.AxisDependency.right).enabled = false
+        self.getAxis(YAxis.AxisDependency.left).enabled = false
+        self.xAxis.labelPosition = .bottom
+        self.xAxis.labelTextColor = UIColor.white
+        self.scaleYEnabled = false
+        self.scaleXEnabled = false
+        self.pinchZoomEnabled = false
+        self.doubleTapToZoomEnabled = false
+        self.highlighter = nil
+        self.leftAxis.axisMinimum = 0
+        self.xAxis.granularityEnabled = true
+        self.xAxis.granularity = 1.0
     }
 }
