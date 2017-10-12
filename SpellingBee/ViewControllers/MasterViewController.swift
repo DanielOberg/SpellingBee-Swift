@@ -25,7 +25,37 @@ class MasterViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func autoSelect() {
+        if let selectedItems = self.tableView.indexPathsForSelectedRows {
+            for indexPath in selectedItems {
+                self.tableView.deselectRow(at: indexPath, animated: true)
+                tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            }
+        }
+        
+        for i in 0...objects.count-1 {
+            let word = objects[i]
+            let shouldTrain = word.shouldTrain()
+            
+            if shouldTrain {
+                self.tableView.selectRow(at: IndexPath(row: i, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.none)
+            }
+            
+            if let count = self.tableView.indexPathsForSelectedRows?.count {
+                if count >= 5 {
+                    break;
+                }
+            }
+        }
+        
+        if let rows = self.tableView.indexPathsForSelectedRows {
+            for path in rows {
+                tableView.cellForRow(at: path)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        }
+        self.nextButton.isEnabled = tableView.indexPathsForSelectedRows != nil
     }
 
     // MARK: - Segues
@@ -87,7 +117,5 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
-
 }
 

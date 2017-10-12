@@ -80,6 +80,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pick words" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Auto Select" id="Ovb-ui-MKn">
+                            <connections>
+                                <action selector="autoSelect" destination="7bK-jq-Zjz" id="ed7-eC-Bbn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="tJi-hq-c01">
                             <connections>
                                 <segue destination="NJh-rG-RTt" kind="show" identifier="nextSegue" id="pJv-pJ-ndd"/>

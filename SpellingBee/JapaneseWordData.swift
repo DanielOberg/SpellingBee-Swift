@@ -62,6 +62,34 @@ extension JapaneseWord {
         }
     }
     
+    func log() -> [RepitionData] {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
+        dataFetch.predicate = NSPredicate(format: "kana == %@ && kanji == %@", kana, kanji)
+        
+        do {
+            let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
+            
+            return fetchedData
+        } catch {
+            fatalError("Failed to fetch Repetition Data: \(error)")
+        }
+    }
+    
+    func shouldTrain() -> Bool {
+        let log = self.log()
+        if log.isEmpty {
+            return true
+        }
+        
+        if self.times() >= 8 {
+            return false
+        }
+        
+        return true
+    }
+    
     func times() -> Int64 {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
