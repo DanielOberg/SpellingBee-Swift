@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import GameplayKit
+import AVKit
 
 import SpeechFramework
 
@@ -28,6 +29,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     var indexChar = 0
     var matrix = [[String]]()
     var soundRecorder = SoundRecorderWrapper()
+    var audioPlayer = AVAudioPlayer()
     
     var spokenChars = 0
     var totalChars = 0
@@ -35,8 +37,13 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-
+        do {
+            let url = URL(fileURLWithPath: Bundle.main.path(forResource: "correct", ofType: "mp3")!)
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+        } catch {
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,6 +101,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let kanaCell = self.kanaCollectionView.cellForItem(at: indexPath as IndexPath) as! KanaLetterCollectionViewCell
                 kanaCell.kanaLetterButton.backgroundColor = UIColor.red;
                 kanaCell.kanaLetterButton.setNeedsDisplay()
+                self.audioPlayer.play()
                 
                 self.spokenChars += 1
                 self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)

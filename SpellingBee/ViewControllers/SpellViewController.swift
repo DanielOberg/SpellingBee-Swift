@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 import SpeechFramework
 
@@ -23,6 +24,7 @@ class SpellViewController: UIViewController {
     var indexWord = 0
     var indexChar = 0
     var soundRecorder = SoundRecorderWrapper()
+    var audioPlayer:AVAudioPlayer? = nil
     
     var spokenChars = 0
     var totalChars = 0
@@ -30,6 +32,13 @@ class SpellViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            let url = URL(fileURLWithPath: Bundle.main.path(forResource: "correct", ofType: "mp3")!)
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+        } catch {
+            
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -81,6 +90,7 @@ class SpellViewController: UIViewController {
                 
                 self.spokenChars += 1
                 self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)
+                self.audioPlayer?.play()
                 
                 let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
                 if (isNewWord) {

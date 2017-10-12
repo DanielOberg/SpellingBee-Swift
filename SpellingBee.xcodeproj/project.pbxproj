@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6511C94F1F8EA0B9004DCCBF /* SuccessPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511C94E1F8EA0B9004DCCBF /* SuccessPathViewController.swift */; };
 		6511C9511F8EA868004DCCBF /* SuccessSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511C9501F8EA868004DCCBF /* SuccessSpellViewController.swift */; };
+		6511C9531F8FB4D3004DCCBF /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6511C9521F8FB2AA004DCCBF /* correct.mp3 */; };
 		652E55871F87C4810062349B /* JapaneseWords.json in Resources */ = {isa = PBXBuildFile; fileRef = 654407FD1F87BEE800108C79 /* JapaneseWords.json */; };
 		652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55881F87CBE90062349B /* MenuTableViewController.swift */; };
 		652E558B1F87CF280062349B /* ListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E558A1F87CF280062349B /* ListenViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		6511C94E1F8EA0B9004DCCBF /* SuccessPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPathViewController.swift; sourceTree = "<group>"; };
 		6511C9501F8EA868004DCCBF /* SuccessSpellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessSpellViewController.swift; sourceTree = "<group>"; };
+		6511C9521F8FB2AA004DCCBF /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		652E55881F87CBE90062349B /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		652E558A1F87CF280062349B /* ListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenViewController.swift; sourceTree = "<group>"; };
 		652E558C1F88EF410062349B /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		652E55931F8A24B60062349B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6511C9521F8FB2AA004DCCBF /* correct.mp3 */,
 				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
 				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
 			);
@@ -219,6 +222,7 @@
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
 				652E55871F87C4810062349B /* JapaneseWords.json in Resources */,
+				6511C9531F8FB4D3004DCCBF /* correct.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
