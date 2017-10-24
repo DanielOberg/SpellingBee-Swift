@@ -235,12 +235,16 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" text="教育" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afd-Pe-usF">
-                                <rect key="frame" x="0.0" y="97.5" width="375" height="26.5"/>
+                                <rect key="frame" x="0.0" y="97.5" width="375" height="29.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=compact" hidden="YES"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-Cf-xk3">
+                                <rect key="frame" x="172.5" y="135" width="30" height="30"/>
+                                <state key="normal" title="Hint"/>
+                            </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gZ6-8G-2UV">
                                 <rect key="frame" x="16" y="529" width="343" height="2"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -305,14 +309,16 @@
                             <constraint firstItem="sTs-Z2-Rqb" firstAttribute="trailing" secondItem="v2G-cB-bDn" secondAttribute="trailing" id="CAh-YO-l4l"/>
                             <constraint firstItem="cOV-L3-kVv" firstAttribute="trailing" secondItem="v2G-cB-bDn" secondAttribute="trailing" id="Imu-gY-yxc"/>
                             <constraint firstItem="cOV-L3-kVv" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" id="M4b-cY-07I"/>
+                            <constraint firstItem="gh2-Cf-xk3" firstAttribute="top" secondItem="Afd-Pe-usF" secondAttribute="bottom" constant="8" id="UOn-wY-tKb"/>
                             <constraint firstItem="LQQ-dz-CqD" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" constant="16" id="WuW-QP-Onz"/>
                             <constraint firstItem="gZ6-8G-2UV" firstAttribute="trailing" secondItem="ayY-fZ-vDd" secondAttribute="trailingMargin" id="d3b-GN-ioe"/>
-                            <constraint firstItem="LQQ-dz-CqD" firstAttribute="top" secondItem="Afd-Pe-usF" secondAttribute="bottom" priority="250" constant="70" id="hSf-Yq-xRC"/>
                             <constraint firstItem="Afd-Pe-usF" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" id="ibx-7d-VzH"/>
+                            <constraint firstItem="gh2-Cf-xk3" firstAttribute="centerX" secondItem="ayY-fZ-vDd" secondAttribute="centerX" id="k14-Yr-uhR"/>
                             <constraint firstItem="LQQ-dz-CqD" firstAttribute="top" secondItem="sTs-Z2-Rqb" secondAttribute="bottom" constant="8" id="kAn-0H-rpB"/>
                             <constraint firstItem="Afd-Pe-usF" firstAttribute="top" secondItem="cOV-L3-kVv" secondAttribute="bottom" constant="8" id="lhG-Zs-wDM"/>
                             <constraint firstItem="JNS-5i-jPZ" firstAttribute="leading" secondItem="v2G-cB-bDn" secondAttribute="leading" id="nMk-xP-aCp"/>
                             <constraint firstItem="cOV-L3-kVv" firstAttribute="top" secondItem="JNS-5i-jPZ" secondAttribute="bottom" constant="4" id="oh4-fq-EIT"/>
+                            <constraint firstItem="LQQ-dz-CqD" firstAttribute="top" secondItem="gh2-Cf-xk3" secondAttribute="bottom" constant="13" id="ow0-MR-anD"/>
                             <constraint firstItem="gZ6-8G-2UV" firstAttribute="top" secondItem="LQQ-dz-CqD" secondAttribute="bottom" constant="8" id="pOg-BW-C9T"/>
                             <constraint firstItem="gZ6-8G-2UV" firstAttribute="leading" secondItem="ayY-fZ-vDd" secondAttribute="leadingMargin" id="voa-bQ-79t"/>
                             <constraint firstItem="v2G-cB-bDn" firstAttribute="trailing" secondItem="LQQ-dz-CqD" secondAttribute="trailing" constant="16" id="wDW-lp-wTP"/>
@@ -331,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf8-ha-Y1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="-389"/>
+            <point key="canvasLocation" x="2309.5999999999999" y="-389.05547226386807"/>
         </scene>
         <!--Success Path View Controller-->
         <scene sceneID="fsv-lf-bRY">

@@ -25,6 +25,21 @@ extension JapaneseWord {
         return dateFrom
     }
     
+    static func recall(lastlyTrained: Date, timesTrained: Int) -> Double {
+        let deltaInMin = lastlyTrained.timeIntervalSinceNow / -60.0
+
+        let min_a = 1878.0
+        let max_a = 70000.0
+        let elem = 15.0
+        let k = (max_a - min_a) / elem
+        let i = max(timesTrained, 15)
+        
+        let x = deltaInMin
+        let y = pow(2.0, -x / ((k * Double(i)) + min_a))
+        
+        return y
+    }
+    
     static func graphData(type: ActionType) -> [Charts.BarChartDataEntry] {
         var entries = [Charts.BarChartDataEntry]()
         
@@ -82,12 +97,14 @@ extension JapaneseWord {
         if log.isEmpty {
             return true
         }
-        
-        if self.times() >= 8 {
-            return false
+        let log_active = log.filter { (data) -> Bool in
+            return (data.type != ActionType.listen.rawValue)
+        }
+        if log_active.isEmpty {
+            return true
         }
         
-        return true
+        return JapaneseWord.recall(lastlyTrained: log_active.last!.date!, timesTrained: log_active.count) < 0.5
     }
     
     func times() -> Int64 {
