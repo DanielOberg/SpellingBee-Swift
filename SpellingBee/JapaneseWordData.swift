@@ -28,14 +28,11 @@ extension JapaneseWord {
     static func recall(lastlyTrained: Date, timesTrained: Int) -> Double {
         let deltaInMin = lastlyTrained.timeIntervalSinceNow / -60.0
 
-        let min_a = 1878.0
-        let max_a = 70000.0
-        let elem = 15.0
-        let k = (max_a - min_a) / elem
-        let i = max(timesTrained, 15)
+        let min_a = 10.0
+        let i = timesTrained
         
         let x = deltaInMin
-        let y = pow(2.0, -x / ((k * Double(i)) + min_a))
+        let y = pow(2.0, -x / ((pow(2.0, Double(i)) * Double(i)) + min_a))
         
         return y
     }
