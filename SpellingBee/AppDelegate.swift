@@ -38,6 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
+        
+        let selected = JapaneseWord.all().filter { (word) -> Bool in
+            return word.shouldTrain()
+        }.prefix(5)
+        
+        controller.words = [JapaneseWord](selected)
+        navigationController?.pushViewController(controller, animated: false)
+
         // Override point for customization after application launch.
         return true
     }
