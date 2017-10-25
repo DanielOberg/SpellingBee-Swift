@@ -60,11 +60,49 @@ extension JapaneseWord {
         return entries
     }
     
+    static func graphData() -> [Charts.BarChartDataEntry] {
+        var entries = [Charts.BarChartDataEntry]()
+        
+        let cal = Calendar.current
+        let stopDate = cal.date(byAdding: .day, value: -6, to: Date())!
+        var comps = DateComponents()
+        comps.hour = 1
+        
+        var days = 0
+        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: Date()).count)))
+        cal.enumerateDates(startingAfter: Date(), matching: comps, matchingPolicy: .previousTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .backward) { (date, match, stop) in
+            if let date = date {
+                if date < stopDate {
+                    stop = true
+                } else {
+                    days -= 1
+                    entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: date).count)))
+                }
+            }
+        }
+        return entries
+    }
+    
+    
     static func onDate(beforeDate: Date, type: ActionType) -> [RepitionData] {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
         dataFetch.predicate = NSPredicate(format: "date < %@ && type == %@", beforeDate as NSDate, type.rawValue)
+        
+        do {
+            let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
+            return fetchedData
+        } catch {
+            fatalError("Failed to fetch Repetition Data: \(error)")
+        }
+    }
+    
+    static func onDate(beforeDate: Date) -> [RepitionData] {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
+        dataFetch.predicate = NSPredicate(format: "date < %@", beforeDate as NSDate)
         
         do {
             let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
@@ -89,10 +127,10 @@ extension JapaneseWord {
         }
     }
     
-    func shouldTrain() -> Bool {
+    func shouldTrain(trainIfNotViewed: Bool) -> Bool {
         let log = self.log()
         if log.isEmpty {
-            return true
+            return trainIfNotViewed
         }
         let log_active = log.filter { (data) -> Bool in
             return (data.type != ActionType.listen.rawValue)

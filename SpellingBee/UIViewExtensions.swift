@@ -48,5 +48,6 @@ extension BarChartView {
         self.leftAxis.axisMinimum = 0
         self.xAxis.granularityEnabled = true
         self.xAxis.granularity = 1.0
+        self.drawBordersEnabled = false
     }
 }

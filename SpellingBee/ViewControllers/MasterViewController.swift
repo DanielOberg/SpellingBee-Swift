@@ -37,7 +37,7 @@ class MasterViewController: UITableViewController {
         
         for i in 0...objects.count-1 {
             let word = objects[i]
-            let shouldTrain = word.shouldTrain()
+            let shouldTrain = word.shouldTrain(trainIfNotViewed: true)
             
             if shouldTrain {
                 self.tableView.selectRow(at: IndexPath(row: i, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.none)

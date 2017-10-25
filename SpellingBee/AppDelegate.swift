@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
-                
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
             }
         })
@@ -44,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
         
         let selected = JapaneseWord.all().filter { (word) -> Bool in
-            return word.shouldTrain()
-        }.prefix(5)
+            return word.shouldTrain(trainIfNotViewed: false)
+        }.prefix(50)
         
         controller.words = [JapaneseWord](selected)
         navigationController?.pushViewController(controller, animated: false)

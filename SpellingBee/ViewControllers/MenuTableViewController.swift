@@ -8,16 +8,38 @@
 
 import UIKit
 
+import Charts
+
 class MenuTableViewController: UITableViewController {
     
     var words: [JapaneseWord]!
+    var barChart: Charts.BarChartView? = nil
 
+    @IBOutlet weak var toGoLabel: UILabel!
+    @IBOutlet weak var rootChartView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        barChart = Charts.BarChartView()
+        barChart?.styleChart()
+        rootChartView.addSubview(barChart!)
+        barChart!.bindFrameToSuperviewBounds()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.toGoLabel.text = String(format:"%d items to go", words.count)
+        let entries = JapaneseWord.graphData()
+        let set = BarChartDataSet(values: entries, label: "days")
+        set.colors = [UIColor.white]
+        set.valueTextColor = UIColor.white
+        set.valueFormatter = DefaultValueFormatter(decimals: 0)
+        barChart?.data = BarChartData(dataSet: set)
+        barChart?.animate(yAxisDuration: 1.0)
     }
     
     @IBAction func prepareForUnwindToMenu(segue: UIStoryboardSegue){

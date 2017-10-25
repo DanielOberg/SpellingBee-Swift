@@ -29,7 +29,8 @@ struct JapaneseWord: Codable {
         while (kanaMutable.length > 0) {
             for r in all {
                 if (kanaMutable.hasPrefix(r)) {
-                    let str = r.applyingTransform(StringTransform.latinToKatakana, reverse: true)?.applyingTransform(StringTransform.latinToHiragana, reverse: true)
+                    var str = r.applyingTransform(StringTransform.latinToKatakana, reverse: true)?.applyingTransform(StringTransform.latinToHiragana, reverse: true)
+                    str = str?.replacingOccurrences(of: "~", with: "x")
                     result.append(str!);
                     kanaMutable.deleteCharacters(in: NSRange(location: 0, length: r.count))
                     break;

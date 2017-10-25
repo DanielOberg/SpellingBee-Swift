@@ -88,12 +88,14 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 return aValue > bValue
             })[0...5]
             
-            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" })) { // Noise
+            let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
+            
+            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" }) && romaji != "xtsu") { // Noise
                 return false
             }
             
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
-                return self.words[self.indexWord].listRomaji()[self.indexChar] == (a.key as! String)
+                return romaji == (a.key as! String)
             })
             
             if (containsRomaji!) {

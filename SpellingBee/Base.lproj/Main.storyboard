@@ -194,6 +194,48 @@
                                             <segue destination="5ht-w2-lhC" kind="show" identifier="spellSegue" id="8Ne-b3-eDy"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="140" id="ZBW-bK-oVH" customClass="StatisticsTableViewCell" customModule="SpellingBee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="420" width="375" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBW-bK-oVH" id="T1h-8v-lbw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9h-wp-5BC">
+                                                    <rect key="frame" x="0.0" y="37" width="375" height="103"/>
+                                                    <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5 items to go" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-bM-wWr">
+                                                    <rect key="frame" x="95" y="0.0" width="272" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="deviceWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0p-N8-vni">
+                                                    <rect key="frame" x="16" y="8" width="71" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="deviceWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="d9h-wp-5BC" secondAttribute="bottom" id="5xc-aR-BW2"/>
+                                                <constraint firstItem="H0p-N8-vni" firstAttribute="leading" secondItem="T1h-8v-lbw" secondAttribute="leadingMargin" constant="8" id="Bc6-DR-d6P"/>
+                                                <constraint firstItem="FgD-bM-wWr" firstAttribute="baseline" secondItem="H0p-N8-vni" secondAttribute="baseline" id="E9D-Rs-OpG"/>
+                                                <constraint firstItem="H0p-N8-vni" firstAttribute="top" secondItem="T1h-8v-lbw" secondAttribute="topMargin" id="LEE-lg-1YQ"/>
+                                                <constraint firstItem="d9h-wp-5BC" firstAttribute="leading" secondItem="T1h-8v-lbw" secondAttribute="leading" id="Ynl-ya-9rA"/>
+                                                <constraint firstAttribute="trailing" secondItem="d9h-wp-5BC" secondAttribute="trailing" id="Zvh-aO-cOF"/>
+                                                <constraint firstItem="d9h-wp-5BC" firstAttribute="top" secondItem="H0p-N8-vni" secondAttribute="bottom" constant="8" id="eIK-Wc-DhS"/>
+                                                <constraint firstItem="FgD-bM-wWr" firstAttribute="top" secondItem="T1h-8v-lbw" secondAttribute="top" id="h02-ue-ys4"/>
+                                                <constraint firstItem="FgD-bM-wWr" firstAttribute="leading" secondItem="H0p-N8-vni" secondAttribute="trailing" constant="8" id="iyG-Eq-aBD"/>
+                                                <constraint firstAttribute="trailing" secondItem="d9h-wp-5BC" secondAttribute="trailing" id="ouT-A0-ubm"/>
+                                                <constraint firstAttribute="trailing" secondItem="FgD-bM-wWr" secondAttribute="trailing" constant="8" id="uBx-4a-ztZ"/>
+                                                <constraint firstItem="H0p-N8-vni" firstAttribute="top" secondItem="T1h-8v-lbw" secondAttribute="topMargin" id="wgt-9S-3E0"/>
+                                                <constraint firstAttribute="bottom" secondItem="d9h-wp-5BC" secondAttribute="bottom" id="wkO-Zh-Rze"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -202,10 +244,14 @@
                             <outlet property="delegate" destination="NJh-rG-RTt" id="g4M-xz-3D6"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="rootChartView" destination="d9h-wp-5BC" id="Tq4-Xq-0MN"/>
+                        <outlet property="toGoLabel" destination="FgD-bM-wWr" id="3fD-5s-yY7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oM-4J-Pkv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="-628"/>
+            <point key="canvasLocation" x="1424.8" y="-628.33583208395805"/>
         </scene>
         <!--Speak-->
         <scene sceneID="A1Y-PI-hR6">
