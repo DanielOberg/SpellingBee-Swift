@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
         
         let selected = JapaneseWord.all().filter { (word) -> Bool in
-            return word.shouldTrain(trainIfNotViewed: false)
-        }.prefix(50)
+            return word.shouldTrain(trainIfNotViewed: true)
+        }.prefix(10)
         
         controller.words = [JapaneseWord](selected)
         navigationController?.pushViewController(controller, animated: false)

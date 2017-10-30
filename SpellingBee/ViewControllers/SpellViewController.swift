@@ -73,17 +73,17 @@ class SpellViewController: UIViewController {
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...5]
+            })[0...2]
             
+            let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
+
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
-                return self.words[self.indexWord].listRomaji()[self.indexChar] == (a.key as! String)
+                return romaji == (a.key as! String)
             })
             
-            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" })) { // Noise
-                return false
-            }
+            let probability = probabilities![romaji] as! NSNumber
             
-            if (containsRomaji!) {
+            if (containsRomaji! && probability.floatValue > 0.10) {
                 self.kanaLabel.text = self.words[self.indexWord].listKana()[0...self.indexChar].reduce("", { (result, str) -> String in
                     return result + str
                 })
@@ -110,7 +110,7 @@ class SpellViewController: UIViewController {
                 }
                 return true
             } else {
-                return false
+                return true
             }
         }
         soundRecorder.checkForPermissionAndStart()

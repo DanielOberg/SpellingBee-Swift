@@ -86,19 +86,20 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let bValue = (b.value as! NSNumber).floatValue
 
                 return aValue > bValue
-            })[0...5]
+            })[0...4]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
-            
-            if (firstFive!.contains(where: { ($0.key as! String) == "xxx" }) && romaji != "xtsu") { // Noise
-                return false
-            }
             
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
                 return romaji == (a.key as! String)
             })
             
-            if (containsRomaji!) {
+            let probability = probabilities![romaji] as! NSNumber
+            
+            NSLog("probability: %@", probability)
+            NSLog("First: %@", firstFive!.debugDescription)
+            
+            if (containsRomaji! && probability.floatValue > 0.10) {
                 let indexPath = NSIndexPath(row: self.path[self.indexChar].1, section: self.path[self.indexChar].0)
                 let kanaCell = self.kanaCollectionView.cellForItem(at: indexPath as IndexPath) as! KanaLetterCollectionViewCell
                 kanaCell.kanaLetterButton.backgroundColor = UIColor.red;
@@ -126,7 +127,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
                 return true
             } else {
-                return false
+                return true
             }
         }
         soundRecorder.checkForPermissionAndStart()
@@ -184,7 +185,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
             return result;
         }
         
-        for  i in 0...directions.count {
+        for  i in 0...directions.count-1 {
             let X = xv + directions[i].0;
             let Y = yv + directions[i].1;
             
