@@ -73,7 +73,7 @@ class SpellViewController: UIViewController {
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...2]
+            })[0...1]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
 
@@ -81,9 +81,9 @@ class SpellViewController: UIViewController {
                 return romaji == (a.key as! String)
             })
             
-            let probability = probabilities![romaji] as! NSNumber
+            _ = probabilities![romaji] as! NSNumber
             
-            if (containsRomaji! && probability.floatValue > 0.10) {
+            if (containsRomaji!) {
                 self.kanaLabel.text = self.words[self.indexWord].listKana()[0...self.indexChar].reduce("", { (result, str) -> String in
                     return result + str
                 })
@@ -116,6 +116,11 @@ class SpellViewController: UIViewController {
         soundRecorder.checkForPermissionAndStart()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.audioPlayer?.stop()
+        self.soundRecorder.stop()
+        self.soundRecorder.onMadeSound = nil
+    }
     
     @IBAction func prepareForUnwindToRepeatSpelling(segue: UIStoryboardSegue){
         self.indexChar = 0

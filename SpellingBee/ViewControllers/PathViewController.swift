@@ -46,6 +46,12 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.audioPlayer.stop()
+        self.soundRecorder.stop()
+        self.soundRecorder.onMadeSound = nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,7 +92,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let bValue = (b.value as! NSNumber).floatValue
 
                 return aValue > bValue
-            })[0...4]
+            })[0...1]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
             
@@ -99,7 +105,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
             NSLog("probability: %@", probability)
             NSLog("First: %@", firstFive!.debugDescription)
             
-            if (containsRomaji! && probability.floatValue > 0.10) {
+            if (containsRomaji!) {
                 let indexPath = NSIndexPath(row: self.path[self.indexChar].1, section: self.path[self.indexChar].0)
                 let kanaCell = self.kanaCollectionView.cellForItem(at: indexPath as IndexPath) as! KanaLetterCollectionViewCell
                 kanaCell.kanaLetterButton.backgroundColor = UIColor.red;

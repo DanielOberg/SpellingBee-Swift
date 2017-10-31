@@ -19,7 +19,6 @@
 		652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55951F8A93390062349B /* SuccessListenViewController.swift */; };
 		652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 652E55971F8AA0740062349B /* Model.xcdatamodeld */; };
 		652E559D1F8B81320062349B /* JapaneseWordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E559C1F8B81310062349B /* JapaneseWordData.swift */; };
-		652E559F1F8D39980062349B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E559E1F8D39980062349B /* Charts.framework */; };
 		652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */; };
 		654407E31F86873F00108C79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E21F86873F00108C79 /* AppDelegate.swift */; };
 		654407E51F86873F00108C79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407E41F86873F00108C79 /* MasterViewController.swift */; };
@@ -30,6 +29,7 @@
 		654407F91F8687A800108C79 /* SpeechFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
 		654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
+		70394CECCAABD0D4CAD8523D /* Pods_SpellingBee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +71,9 @@
 		654407F71F86879D00108C79 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = ../../../../../Library/Frameworks/SpeechFramework.framework; sourceTree = "<group>"; };
 		654407FD1F87BEE800108C79 /* JapaneseWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JapaneseWords.json; sourceTree = "<group>"; };
 		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
+		B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpellingBee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1C5C0FAF88B273EC2CFBBB /* Pods-SpellingBee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpellingBee.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee.release.xcconfig"; sourceTree = "<group>"; };
+		F743031DF4CF3DB7443138F6 /* Pods-SpellingBee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpellingBee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +82,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				654407F81F86879D00108C79 /* SpeechFramework.framework in Frameworks */,
-				652E559F1F8D39980062349B /* Charts.framework in Frameworks */,
+				70394CECCAABD0D4CAD8523D /* Pods_SpellingBee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16EBB8E416D4DC3433681F13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F743031DF4CF3DB7443138F6 /* Pods-SpellingBee.debug.xcconfig */,
+				EA1C5C0FAF88B273EC2CFBBB /* Pods-SpellingBee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		652E55931F8A24B60062349B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +130,7 @@
 				654407E11F86873F00108C79 /* SpellingBee */,
 				654407E01F86873F00108C79 /* Products */,
 				654407F61F86879D00108C79 /* Frameworks */,
+				16EBB8E416D4DC3433681F13 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +165,7 @@
 			children = (
 				652E559E1F8D39980062349B /* Charts.framework */,
 				654407F71F86879D00108C79 /* SpeechFramework.framework */,
+				B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,11 +177,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 654407F31F86873F00108C79 /* Build configuration list for PBXNativeTarget "SpellingBee" */;
 			buildPhases = (
+				2F5294C16A80FD349CDFB532 /* [CP] Check Pods Manifest.lock */,
 				654407DB1F86873F00108C79 /* Sources */,
 				654407DC1F86873F00108C79 /* Frameworks */,
 				654407DD1F86873F00108C79 /* Resources */,
 				654407FC1F8689FA00108C79 /* Embed Frameworks */,
-				652E55A01F8D39BE0062349B /* Run Script */,
+				1992168F4A55F204A1B224F3 /* [CP] Embed Pods Frameworks */,
+				3B9DA4CC222FD701DAA771E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,21 +245,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		652E55A01F8D39BE0062349B /* Run Script */ = {
+		1992168F4A55F204A1B224F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
-			name = "Run Script";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F5294C16A80FD349CDFB532 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B9DA4CC222FD701DAA771E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -400,6 +445,7 @@
 		};
 		654407F41F86873F00108C79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F743031DF4CF3DB7443138F6 /* Pods-SpellingBee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -407,7 +453,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -421,6 +466,7 @@
 		};
 		654407F51F86873F00108C79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA1C5C0FAF88B273EC2CFBBB /* Pods-SpellingBee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,7 +474,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpellingBee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -39,6 +39,11 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         view.layer.insertSublayer(gradient, at: 0)
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.speechSynth.stopSpeaking(at: .immediate)
+        self.speechSynth.delegate = nil
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
