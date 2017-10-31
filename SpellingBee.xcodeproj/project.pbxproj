@@ -29,6 +29,10 @@
 		654407F91F8687A800108C79 /* SpeechFramework.framework in Resources */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; };
 		654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
+		65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */; };
+		65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6441FA9104C00186637 /* JLPT-N3.json */; };
+		65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6431FA9104C00186637 /* JLPT-N4.json */; };
+		65A9C6481FA9120B00186637 /* JLPT-N5.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6451FA9104C00186637 /* JLPT-N5.json */; };
 		70394CECCAABD0D4CAD8523D /* Pods_SpellingBee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,10 @@
 		654407F71F86879D00108C79 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = ../../../../../Library/Frameworks/SpeechFramework.framework; sourceTree = "<group>"; };
 		654407FD1F87BEE800108C79 /* JapaneseWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JapaneseWords.json; sourceTree = "<group>"; };
 		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
+		65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseDeck.swift; sourceTree = "<group>"; };
+		65A9C6431FA9104C00186637 /* JLPT-N4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N4.json"; sourceTree = "<group>"; };
+		65A9C6441FA9104C00186637 /* JLPT-N3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N3.json"; sourceTree = "<group>"; };
+		65A9C6451FA9104C00186637 /* JLPT-N5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N5.json"; sourceTree = "<group>"; };
 		B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpellingBee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1C5C0FAF88B273EC2CFBBB /* Pods-SpellingBee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpellingBee.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee.release.xcconfig"; sourceTree = "<group>"; };
 		F743031DF4CF3DB7443138F6 /* Pods-SpellingBee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpellingBee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpellingBee/Pods-SpellingBee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +111,9 @@
 			children = (
 				6511C9521F8FB2AA004DCCBF /* correct.mp3 */,
 				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
+				65A9C6441FA9104C00186637 /* JLPT-N3.json */,
+				65A9C6431FA9104C00186637 /* JLPT-N4.json */,
+				65A9C6451FA9104C00186637 /* JLPT-N5.json */,
 				654407FD1F87BEE800108C79 /* JapaneseWords.json */,
 			);
 			name = Resources;
@@ -147,15 +158,16 @@
 			children = (
 				652E55931F8A24B60062349B /* Resources */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
+				65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */,
 				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
 				652E559C1F8B81310062349B /* JapaneseWordData.swift */,
+				652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */,
 				652E55941F8A24DC0062349B /* ViewControllers */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407E81F86873F00108C79 /* Main.storyboard */,
 				654407F01F86873F00108C79 /* Info.plist */,
 				652E55971F8AA0740062349B /* Model.xcdatamodeld */,
-				652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */,
 			);
 			path = SpellingBee;
 			sourceTree = "<group>";
@@ -238,6 +250,9 @@
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
 				652E55871F87C4810062349B /* JapaneseWords.json in Resources */,
+				65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */,
+				65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */,
+				65A9C6481FA9120B00186637 /* JLPT-N5.json in Resources */,
 				6511C9531F8FB4D3004DCCBF /* correct.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +324,7 @@
 				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
 				652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */,
 				652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */,
+				65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */,
 				652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */,
 				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,
 			);

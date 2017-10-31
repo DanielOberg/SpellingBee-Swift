@@ -9,17 +9,21 @@
 import Foundation
 
 struct JapaneseWord: Codable {
+    let english: String
     let kana: String
     let kanji: String
-    let english: String
+    let example_sentence_jp: String
+    let example_sentence_en: String
+    let uuid: String
+    let tags: [String]
     let romaji: String
     
     static func all() -> [JapaneseWord] {
-        let jsonData = try! Data(contentsOf: Bundle.main.url(forResource: "JapaneseWords", withExtension: "json")!)
+        let jsonData = try! Data(contentsOf: Bundle.main.url(forResource: "JLPT-N5", withExtension: "json")!)
         let decoder = JSONDecoder()
-        let words = try! decoder.decode([JapaneseWord].self, from: jsonData)
+        let deck = try! decoder.decode(JapaneseDeck.self, from: jsonData)
         
-        return words
+        return deck.notes
     }
     
     func listRomaji() -> [String] {
