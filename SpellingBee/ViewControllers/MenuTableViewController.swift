@@ -12,7 +12,8 @@ import Charts
 
 class MenuTableViewController: UITableViewController {
     
-    var words: [JapaneseWord]!
+    var deck: JapaneseDeck? = nil
+    var words: [JapaneseWord] = [JapaneseWord]()
     var barChart: Charts.BarChartView? = nil
 
     @IBOutlet weak var toGoLabel: UILabel!

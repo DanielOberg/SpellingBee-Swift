@@ -18,14 +18,6 @@ struct JapaneseWord: Codable {
     let tags: [String]
     let romaji: String
     
-    static func all() -> [JapaneseWord] {
-        let jsonData = try! Data(contentsOf: Bundle.main.url(forResource: "JLPT-N5", withExtension: "json")!)
-        let decoder = JSONDecoder()
-        let deck = try! decoder.decode(JapaneseDeck.self, from: jsonData)
-        
-        return deck.notes
-    }
-    
     func listRomaji() -> [String] {
         let all = (JapaneseWord.listAllHiragana()+JapaneseWord.listAllKatakana()).sorted { (a, b) -> Bool in a.count > b.count }
         let kanaMutable = NSMutableString(string: kana)

@@ -51,6 +51,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.speechSynth.delegate = self
         speak(word: words[index])
     }
     
