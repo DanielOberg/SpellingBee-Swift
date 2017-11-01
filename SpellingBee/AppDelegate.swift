@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         controller.words = [JapaneseWord](selected)
         navigationController?.pushViewController(controller, animated: false)
-
+        
         // Override point for customization after application launch.
         return true
     }
