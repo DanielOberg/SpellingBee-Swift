@@ -29,6 +29,8 @@
 		654407FB1F8689FA00108C79 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 654407F71F86879D00108C79 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
 		65A1511B1FAA240500BB328A /* DecksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A1511A1FAA240500BB328A /* DecksTableViewController.swift */; };
+		65A1511E1FAB724900BB328A /* WordFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A1511D1FAB724900BB328A /* WordFrequency.swift */; };
+		65A1511F1FAB76E800BB328A /* Word-Frequency.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A1511C1FAB721F00BB328A /* Word-Frequency.json */; };
 		65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */; };
 		65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6441FA9104C00186637 /* JLPT-N3.json */; };
 		65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6431FA9104C00186637 /* JLPT-N4.json */; };
@@ -75,6 +77,8 @@
 		654407FD1F87BEE800108C79 /* JapaneseWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JapaneseWords.json; sourceTree = "<group>"; };
 		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
 		65A1511A1FAA240500BB328A /* DecksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewController.swift; sourceTree = "<group>"; };
+		65A1511C1FAB721F00BB328A /* Word-Frequency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Word-Frequency.json"; sourceTree = "<group>"; };
+		65A1511D1FAB724900BB328A /* WordFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFrequency.swift; sourceTree = "<group>"; };
 		65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseDeck.swift; sourceTree = "<group>"; };
 		65A9C6431FA9104C00186637 /* JLPT-N4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N4.json"; sourceTree = "<group>"; };
 		65A9C6441FA9104C00186637 /* JLPT-N3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N3.json"; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			children = (
 				6511C9521F8FB2AA004DCCBF /* correct.mp3 */,
 				652E558C1F88EF410062349B /* fontawesome-webfont.ttf */,
+				65A1511C1FAB721F00BB328A /* Word-Frequency.json */,
 				65A9C6441FA9104C00186637 /* JLPT-N3.json */,
 				65A9C6431FA9104C00186637 /* JLPT-N4.json */,
 				65A9C6451FA9104C00186637 /* JLPT-N5.json */,
@@ -158,6 +163,7 @@
 			children = (
 				652E55931F8A24B60062349B /* Resources */,
 				654407E21F86873F00108C79 /* AppDelegate.swift */,
+				65A1511D1FAB724900BB328A /* WordFrequency.swift */,
 				65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */,
 				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
 				652E559C1F8B81310062349B /* JapaneseWordData.swift */,
@@ -249,6 +255,7 @@
 				654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */,
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
+				65A1511F1FAB76E800BB328A /* Word-Frequency.json in Resources */,
 				652E55871F87C4810062349B /* JapaneseWords.json in Resources */,
 				65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */,
 				65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */,
@@ -324,6 +331,7 @@
 				65A1511B1FAA240500BB328A /* DecksTableViewController.swift in Sources */,
 				652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */,
 				652E55961F8A933A0062349B /* SuccessListenViewController.swift in Sources */,
+				65A1511E1FAB724900BB328A /* WordFrequency.swift in Sources */,
 				65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */,
 				652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */,
 				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,

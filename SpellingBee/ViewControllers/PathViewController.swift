@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import GameplayKit
 import AVKit
+import BulletinBoard
 
 import SpeechFramework
 
@@ -33,6 +34,45 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var spokenChars = 0
     var totalChars = 0
+    
+    var bulletinManager: BulletinManager? = nil
+    
+    
+    @IBAction func hintAction(_ sender: Any) {
+        var bigText = words[indexWord].kana
+        if words[indexWord].kanji != "" {
+            bigText = words[indexWord].kana + "(" + words[indexWord].kanji + ")"
+        }
+        
+        let page = PageBulletinItem(title: bigText)
+        
+        page.descriptionText = String(format: "%@\n%@",words[indexWord].example_sentence_jp,words[indexWord].example_sentence_en)
+        page.actionButtonTitle = "Set As Hard"
+        page.alternativeButtonTitle = "Not now"
+        
+        page.alternativeHandler = { (item: PageBulletinItem) in
+            item.manager?.dismissBulletin(animated:true)
+        }
+        
+        page.actionHandler = { (item: PageBulletinItem) in
+            item.manager?.dismissBulletin(animated:true)
+            
+            let isFinished = self.indexWord + 1 >= self.words.count
+            if (!isFinished) {
+                self.indexChar = 0
+                self.indexWord += 1
+                
+                self.show(word: self.words[self.indexWord])
+            } else {
+                self.performSegue(withIdentifier: "successPathSegue", sender: self)
+            }
+        }
+        
+        bulletinManager = BulletinManager(rootItem: page)
+        bulletinManager?.backgroundViewStyle = .blurredExtraLight
+        bulletinManager?.prepare()
+        bulletinManager?.presentBulletin(above: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

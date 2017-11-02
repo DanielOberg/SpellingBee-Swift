@@ -279,6 +279,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-Cf-xk3">
                                 <rect key="frame" x="172.5" y="135" width="30" height="30"/>
                                 <state key="normal" title="Hint"/>
+                                <connections>
+                                    <action selector="hintAction:" destination="nv5-wr-Z9q" eventType="touchUpInside" id="sH0-2G-czY"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gZ6-8G-2UV">
                                 <rect key="frame" x="16" y="529" width="343" height="2"/>
