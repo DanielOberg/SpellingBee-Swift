@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 
 import SwiftRichString
+import BulletinBoard
 
 import SpeechFramework
 
@@ -20,6 +21,9 @@ class SpellViewController: UIViewController {
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var progressView: UIProgressView!
+    
+    @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var speakerButton: UIButton!
     
     var deck: JapaneseDeck!
     var words: [JapaneseWord]!
@@ -36,8 +40,9 @@ class SpellViewController: UIViewController {
     
     var speakerOn = true
     var microphoneOn = true
-    @IBOutlet weak var microphoneButton: UIButton!
-    @IBOutlet weak var speakerButton: UIButton!
+    
+    var bulletinManager: BulletinManager? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,23 +133,7 @@ class SpellViewController: UIViewController {
         self.shouldShowHint = true
         showCharacters(shouldShowHint: self.shouldShowHint)
     }
-    
-    @IBAction func nextAction(_ sender: Any) {
-        self.shouldShowHint = false
-        let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
-        self.words[self.indexWord].addToDB(level: level!, type: JapaneseWord.ActionType.spell)
-        
-        let isFinished = self.indexWord + 1 >= self.words.count
-        if (!isFinished) {
-            self.indexChar = 0
-            self.indexWord += 1
-            
-            self.show(word: self.words[self.indexWord])
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
+
     @IBAction func valueChangedAction(_ sender: Any) {
         self.shouldShowHint = false
         let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
@@ -154,6 +143,8 @@ class SpellViewController: UIViewController {
         if (!isFinished) {
             self.indexChar = 0
             self.indexWord += 1
+            
+            self.showNewAwards()
             
             self.show(word: self.words[self.indexWord])
         } else {
@@ -225,4 +216,35 @@ class SpellViewController: UIViewController {
         self.indexWord = 0
     }
     
+    func showNewAwards() {
+        var pages = [PageBulletinItem]()
+        for award in Awards.notShownButAwarded(words: (self.deck?.notes)!) {
+            let page = PageBulletinItem(title: award.name)
+            page.image = award.blackImage()
+            page.descriptionText = award.desc.string
+            page.actionButtonTitle = "Done"
+            
+            page.actionHandler = { (item: PageBulletinItem) in
+                award.setShown()
+                if item.nextItem == nil {
+                    item.manager?.dismissBulletin(animated: true)
+                } else {
+                    item.displayNextItem()
+                }
+            }
+            pages.append(page)
+        }
+        if pages.isEmpty {
+            return
+        }
+        
+        for i in pages.indices.dropLast() {
+            pages[i].nextItem = pages[i+1]
+        }
+        
+        bulletinManager = BulletinManager(rootItem: pages.first!)
+        bulletinManager?.backgroundViewStyle = .blurredExtraLight
+        bulletinManager?.prepare()
+        bulletinManager?.presentBulletin(above: self)
+    }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 import Charts
 import SwiftRichString
+import BulletinBoard
 
 
 class MenuTableViewController: UITableViewController {
@@ -29,6 +30,9 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var latestAwardTitle: UILabel!
     @IBOutlet weak var latestAwardImage: UIImageView!
     @IBOutlet weak var latestAwardDesc: UILabel!
+    
+    var bulletinManager: BulletinManager? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +70,7 @@ class MenuTableViewController: UITableViewController {
     
     func reviewsToday() {
         let count = JapaneseWord.onDate(date: Date(), type: .spell).count
-        self.reviewsTodayLabel.text = String(format:"Today \t\t%d", count)
+        self.reviewsTodayLabel.text = String(format:"Today: %d", count)
     }
     
     func reviewsAverage() {
@@ -92,8 +96,8 @@ class MenuTableViewController: UITableViewController {
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
         let avg = Double(count) / Double(components.day!+1)
-        self.reviewsAverageLabel.text = String(format:"Average \t%.0f", avg)
-        self.reviewsTotalLabel.text = String(format:"Total  \t\t%d", count)
+        self.reviewsAverageLabel.text = String(format:"Average: %.0f", avg)
+        self.reviewsTotalLabel.text = String(format:"Total: %d", count)
     }
     
     func setReviewChart() {
@@ -130,6 +134,42 @@ class MenuTableViewController: UITableViewController {
         barLevelsChart?.animate(yAxisDuration: 1.0)
     }
     
+    func showNewAwards() {
+        var pages = [PageBulletinItem]()
+        for award in Awards.notShownButAwarded(words: (self.deck?.notes)!) {
+            let page = PageBulletinItem(title: award.name)
+            page.image = award.blackImage()
+            page.descriptionText = award.desc.string
+            page.actionButtonTitle = "Done"
+            
+            page.actionHandler = { (item: PageBulletinItem) in
+                award.setShown()
+                if item.nextItem == nil {
+                    item.manager?.dismissBulletin(animated: true)
+                } else {
+                    item.displayNextItem()
+                }
+            }
+            pages.append(page)
+        }
+        if pages.isEmpty {
+            return
+        }
+        
+        for i in pages.indices.dropLast() {
+            pages[i].nextItem = pages[i+1]
+        }
+        
+        bulletinManager = BulletinManager(rootItem: pages.first!)
+        bulletinManager?.backgroundViewStyle = .blurredExtraLight
+        bulletinManager?.prepare()
+        bulletinManager?.presentBulletin(above: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        showNewAwards()
+    }
+    
     @IBAction func prepareForUnwindToMenu(segue: UIStoryboardSegue){
         
     }
@@ -145,6 +185,9 @@ class MenuTableViewController: UITableViewController {
             controller?.deck = self.deck
         } else if segue.identifier == "spellSegue" {
             let controller = segue.destination as? SpellViewController
+            controller?.deck = self.deck
+        } else if segue.identifier == "awardsSegue" {
+            let controller = segue.destination as? AwardsTableViewController
             controller?.deck = self.deck
         }
     }

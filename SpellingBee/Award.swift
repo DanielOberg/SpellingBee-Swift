@@ -19,6 +19,7 @@ protocol Award {
     var logo: String {get}
     var desc: NSAttributedString {get}
     
+    func progress(words: [JapaneseWord]) -> Double
     func check(words: [JapaneseWord]) -> Bool
 }
 
@@ -144,6 +145,10 @@ class BeginnerAward: Award {
         return true
     }
     
+    func progress(words: [JapaneseWord]) -> Double {
+        return 1.0
+    }
+    
     init(uuid: UUID) {
         self.uuid = uuid
         self.name = "Beginner Award"
@@ -152,6 +157,7 @@ class BeginnerAward: Award {
 }
 
 class ReviewedXTimesAward: Award {
+    
     let uuid: UUID
     let times: Int
     let logo: String = ""
@@ -166,6 +172,16 @@ class ReviewedXTimesAward: Award {
         }
         
         return count >= times
+    }
+    
+    func progress(words: [JapaneseWord]) -> Double {
+        let count = words.reduce(0) { (result, word) -> Int in
+            return result + word.log().filter({ (rep) -> Bool in
+                rep.type == JapaneseWord.ActionType.spell.rawValue
+            }).count
+        }
+        
+        return min(1.0, Double(count)/Double(times))
     }
     
     init(uuid: UUID, times: Int) {
@@ -193,6 +209,16 @@ class ListenedXTimesAward: Award {
         return count >= times
     }
     
+    func progress(words: [JapaneseWord]) -> Double {
+        let count = words.reduce(0) { (result, word) -> Int in
+            return result + word.log().filter({ (rep) -> Bool in
+                rep.type == JapaneseWord.ActionType.listen.rawValue
+            }).count
+        }
+        
+        return min(1.0, Double(count)/Double(times))
+    }
+    
     init(uuid: UUID, times: Int) {
         self.uuid = uuid
         self.times = times
@@ -211,11 +237,21 @@ class AnimalInterestAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + 1}
+            else { return result + min(1, word.log().count) }
         }
         
         return count >= 5
     }
+    
+    func progress(words: [JapaneseWord]) -> Double {
+        let count = words.reduce(0) { (result, word) -> Int in
+            if !word.tags.contains("animal") { return result + 0 }
+            else { return result + min(1, word.log().count) }
+        }
+        
+        return min(1.0, Double(count)/5.0)
+    }
+    
     init(uuid: UUID) {
         self.uuid = uuid
     }
@@ -230,10 +266,19 @@ class AnimalLoverAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + 1}
+            else { return result + min(1, word.log().count) }
         }
         
         return count >= 15
+    }
+    
+    func progress(words: [JapaneseWord]) -> Double {
+        let count = words.reduce(0) { (result, word) -> Int in
+            if !word.tags.contains("animal") { return result + 0 }
+            else { return result + min(1, word.log().count) }
+        }
+        
+        return min(1.0, Double(count)/15.0)
     }
     
     init(uuid: UUID) {
@@ -250,10 +295,19 @@ class SushiLoverAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("sushi") { return result + 0 }
-            else { return result + 1}
+            else { return result + min(1, word.log().count) }
         }
         
         return count >= 5
+    }
+    
+    func progress(words: [JapaneseWord]) -> Double {
+        let count = words.reduce(0) { (result, word) -> Int in
+            if !word.tags.contains("sushi") { return result + 0 }
+            else { return result + min(1, word.log().count) }
+        }
+        
+        return min(1.0, Double(count)/5.0)
     }
     
     init(uuid: UUID) {
