@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AwardData" representedClassName="AwardData" syncable="YES" codeGenerationType="class">
+        <attribute name="shown" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shownDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="RepitionData" representedClassName="RepitionData" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="kana" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,6 +13,7 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="AwardData" positionX="-54" positionY="54" width="128" height="90"/>
         <element name="RepitionData" positionX="-54" positionY="18" width="128" height="120"/>
     </elements>
 </model>

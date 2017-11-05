@@ -16,10 +16,10 @@ struct JapaneseDeck: Codable {
     static func all() -> [JapaneseDeck] {
         var result = [JapaneseDeck]()
         
-        for filename in ["JapaneseWords", "JLPT-N5", "JLPT-N4", "JLPT-N3"] {
+        for filename in ["CommonWords", "JLPT-N5", "JLPT-N4", "JLPT-N3"] {
             let jsonData = try! Data(contentsOf: Bundle.main.url(forResource: filename, withExtension: "json")!)
             let decoder = JSONDecoder()
-            if var deck = try? decoder.decode(JapaneseDeck.self, from: jsonData) {
+            if let deck = try? decoder.decode(JapaneseDeck.self, from: jsonData) {
                 result.append(deck)
             }
         }
@@ -31,5 +31,11 @@ struct JapaneseDeck: Codable {
         return [JapaneseWord](self.notes.filter { (word) -> Bool in
                         return word.shouldTrain(trainIfNotViewed: trainIfNotViewed)
                     }.prefix(amount))
+    }
+    
+    func checkForAwards() -> [Award] {
+        return Awards.all.filter({ (award) -> Bool in
+            return award.check(words: self.notes)
+        })
     }
 }

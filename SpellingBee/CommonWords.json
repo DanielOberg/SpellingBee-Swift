@@ -2005,7 +2005,7 @@
 		"kana": "いぬ",
 		"uuid": "7DE88DFF-771F-4D8C-B6BB-9DA86FC17AF3",
 		"english": "dog",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "犬"
 	}, {
 		"romaji": "mittsu",
@@ -2266,7 +2266,7 @@
 		"kana": "とり",
 		"uuid": "10A08538-18C8-42DD-9765-3B7A83D2F76C",
 		"english": "bird",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鳥"
 	}, {
 		"romaji": "doa",
@@ -2698,7 +2698,7 @@
 		"kana": "うし",
 		"uuid": "FCD616D4-5C39-40F9-9F00-EC52C9617E75",
 		"english": "cow",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "牛"
 	}, {
 		"romaji": "shio",
@@ -2734,7 +2734,7 @@
 		"kana": "とら",
 		"uuid": "58B14AA7-B962-45C1-8D58-40D288B6895D",
 		"english": "tiger",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "虎"
 	}, {
 		"romaji": "ban",
@@ -2860,7 +2860,7 @@
 		"kana": "ねこ",
 		"uuid": "679BED7D-91CE-4E4B-BD64-1F39A9462B06",
 		"english": "cat",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "猫"
 	}, {
 		"romaji": "mukō",
@@ -3562,7 +3562,7 @@
 		"kana": "ひつじ",
 		"uuid": "1C3A1FEA-2906-4B1B-BB76-AAAE18CA27EB",
 		"english": "sheep",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "羊"
 	}, {
 		"romaji": "yōfuku",
@@ -3670,7 +3670,7 @@
 		"kana": "ぶた",
 		"uuid": "8D098656-38BE-4160-B9AD-EED029312F2B",
 		"english": "pig",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "豚"
 	}, {
 		"romaji": "shimeru",
@@ -3805,7 +3805,7 @@
 		"kana": "さる",
 		"uuid": "84F9ADF6-9A8D-4A41-AA1A-383031D8BC6D",
 		"english": "monkey",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "猿"
 	}, {
 		"romaji": "nashi",
@@ -3841,7 +3841,7 @@
 		"kana": "にわとり",
 		"uuid": "EF37122B-549D-4ABC-A6EB-236764D0980A",
 		"english": "chicken",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鶏"
 	}, {
 		"romaji": "zō",
@@ -3850,7 +3850,7 @@
 		"kana": "ぞう",
 		"uuid": "5F0373F9-5080-40FB-BCFF-875F06C1259D",
 		"english": "elephant",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "象"
 	}, {
 		"romaji": "hieru",
@@ -4102,7 +4102,7 @@
 		"kana": "ちょう",
 		"uuid": "63998349-4FA3-4837-B223-E02BEAA8C701",
 		"english": "butterfly",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蝶"
 	}, {
 		"romaji": "tekubi",
@@ -4138,7 +4138,7 @@
 		"kana": "オオカミ",
 		"uuid": "120D61AF-99D8-461B-88BD-584E3A00A96D",
 		"english": "wolf",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "狼"
 	}, {
 		"romaji": "kutsushita",
@@ -4318,7 +4318,7 @@
 		"kana": "からす",
 		"uuid": "26113C15-94EA-4933-A125-76C5D402C17D",
 		"english": "crow, raven",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "烏"
 	}, {
 		"romaji": "basutei",
@@ -4489,7 +4489,7 @@
 		"kana": "たい",
 		"uuid": "1FE6A434-5A20-49D9-8487-8D86BE679A64",
 		"english": "red snapper",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鯛"
 	}, {
 		"romaji": "shōyu",
@@ -4534,7 +4534,7 @@
 		"kana": "うさぎ",
 		"uuid": "84AE11C7-4639-432D-AA4D-193552B3DA19",
 		"english": "rabbit",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "兎"
 	}, {
 		"romaji": "yasashii",
@@ -4561,7 +4561,7 @@
 		"kana": "かえる",
 		"uuid": "993CA3BE-DCCC-4528-A245-FFBC9F54BC41",
 		"english": "frog",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蛙"
 	}, {
 		"romaji": "kōhī",
@@ -4615,7 +4615,7 @@
 		"kana": "ねずみ",
 		"uuid": "0432D2DC-5CED-4DEB-8645-F2551CC0F00E",
 		"english": "mouse, rat",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鼠"
 	}, {
 		"romaji": "kumo",
@@ -4624,7 +4624,7 @@
 		"kana": "クモ",
 		"uuid": "0E4464BD-6269-4808-BA35-DF0BE37DFC8E",
 		"english": "spider",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蜘蛛"
 	}, {
 		"romaji": "ringo",
@@ -4849,7 +4849,7 @@
 		"kana": "さば",
 		"uuid": "26E69AF3-DDB4-464B-9643-4B5DF9F70B9C",
 		"english": "mackerel",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鯖"
 	}, {
 		"romaji": "keru",
@@ -4867,7 +4867,7 @@
 		"kana": "トンボ",
 		"uuid": "BC1AD70F-B5CD-4B0E-A5F3-EED57831F97E",
 		"english": "dragonfly",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蜻蛉"
 	}, {
 		"romaji": "nara",
@@ -4939,7 +4939,7 @@
 		"kana": "いわし",
 		"uuid": "F3F83D4D-6B62-4E29-B858-3345FD50C2B5",
 		"english": "sardine",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "鰯"
 	}, {
 		"romaji": "momo",
@@ -4966,7 +4966,7 @@
 		"kana": "ナメクジ",
 		"uuid": "DEAE0ECD-6C09-4836-A8E8-7220F0E8F0C7",
 		"english": "slug",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蛞蝓"
 	}, {
 		"romaji": "tokage",
@@ -4975,7 +4975,7 @@
 		"kana": "トカゲ",
 		"uuid": "4E795046-E923-4721-B5D7-AF6D0202201B",
 		"english": "lizard",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蜥蜴"
 	}, {
 		"romaji": "mikan",
@@ -5182,7 +5182,7 @@
 		"kana": "イカ",
 		"uuid": "30DF36CD-53B6-432D-AA4B-20F8D04FF07E",
 		"english": "squid",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "烏賊"
 	}, {
 		"romaji": "chōsengo, kankokugo",
@@ -5299,7 +5299,7 @@
 		"kana": "ミミズ",
 		"uuid": "4873F10C-5EEB-43AE-87ED-9772E795188E",
 		"english": "earthworm",
-		"tags": [],
+		"tags": ["animal"],
 		"kanji": "蚯蚓"
 	}, {
 		"romaji": "ashi",

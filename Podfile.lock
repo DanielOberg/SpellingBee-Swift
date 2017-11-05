@@ -3,12 +3,14 @@ PODS:
   - Charts (3.0.4):
     - Charts/Core (= 3.0.4)
   - Charts/Core (3.0.4)
+  - FontAwesome.swift (1.3.1)
   - SwiftRichString (1.0.1)
   - TKSwarmAlert (1.0.4)
 
 DEPENDENCIES:
   - BulletinBoard (~> 1.3)
   - Charts (~> 3.0)
+  - FontAwesome.swift
   - SwiftRichString (from `https://github.com/malcommac/SwiftRichString.git`, commit `5e8bd1f`)
   - TKSwarmAlert (from `https://github.com/entotsu/TKSwarmAlert.git`, commit `251b642`)
 
@@ -31,9 +33,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BulletinBoard: 23c9d98cac654fd484d76f2a0655669974e9bd9c
   Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  FontAwesome.swift: 050a75c6b94db0b082f39bde5b111c5c64d62a83
   SwiftRichString: a6a64470d8620c8b4f63a1b82c8523b6082e042a
   TKSwarmAlert: ab34152af48391d8aa80b2386b5e6fe9f335ace7
 
-PODFILE CHECKSUM: 1d638202e0d5112fe86e150cf32156468c9d980b
+PODFILE CHECKSUM: 3ee40fc460c927e48cd9419b6cee90748f86d624
 
 COCOAPODS: 1.3.1

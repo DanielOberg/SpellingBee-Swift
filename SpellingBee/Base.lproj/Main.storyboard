@@ -11,15 +11,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="FontAwesome.otf">
+            <string>FontAwesome</string>
+        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Medium</string>
         </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Thin</string>
-        </array>
-        <array key="fontawesome-webfont.ttf">
-            <string>FontAwesome</string>
         </array>
     </customFonts>
     <scenes>
@@ -284,35 +284,62 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zp4-WJ-Lbm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp0-hD-Tyb">
-                                                            <rect key="frame" x="8" y="8" width="184" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp0-hD-Tyb">
+                                                            <rect key="frame" x="8" y="8" width="184" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="184" id="i9B-Y6-V9O"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <state key="normal" title="Latest Award ⟩"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qne-XW-vdO">
-                                                            <rect key="frame" x="8" y="80" width="133" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="Beginner Award  ⟩"/>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-Sl-qi8">
-                                                            <rect key="frame" x="149" y="60" width="77" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="64"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="deviceWhite"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EG5-lj-jWR">
+                                                            <rect key="frame" x="8" y="60" width="72" height="72"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="EG5-lj-jWR" secondAttribute="height" multiplier="1:1" id="5ab-sI-mx4"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awarded to monkies la la la la la la la laldfs alasd f fdsa" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oNM-xA-Ncz">
+                                                            <rect key="frame" x="88" y="89" width="279" height="43"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="43" id="KXW-rp-twC"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginner Award" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoM-3L-Uru">
+                                                            <rect key="frame" x="88" y="60" width="279" height="21"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="HoM-3L-Uru" firstAttribute="centerY" secondItem="Zp4-WJ-Lbm" secondAttribute="centerY" id="3uu-Qy-NMO"/>
+                                                        <constraint firstItem="HoM-3L-Uru" firstAttribute="top" secondItem="tp0-hD-Tyb" secondAttribute="bottom" constant="8" id="GtL-YH-rtI"/>
+                                                        <constraint firstItem="tp0-hD-Tyb" firstAttribute="top" secondItem="Zp4-WJ-Lbm" secondAttribute="top" constant="8" id="JCk-Ab-IJi"/>
+                                                        <constraint firstItem="HoM-3L-Uru" firstAttribute="leading" secondItem="EG5-lj-jWR" secondAttribute="trailing" constant="8" id="JN5-2k-zNp"/>
+                                                        <constraint firstItem="oNM-xA-Ncz" firstAttribute="top" secondItem="HoM-3L-Uru" secondAttribute="bottom" constant="8" id="TJq-Rl-Dn1"/>
+                                                        <constraint firstItem="HoM-3L-Uru" firstAttribute="trailing" secondItem="oNM-xA-Ncz" secondAttribute="trailing" id="VsI-fX-Ebd"/>
+                                                        <constraint firstItem="oNM-xA-Ncz" firstAttribute="leading" secondItem="EG5-lj-jWR" secondAttribute="trailing" constant="8" id="XDM-6h-F44"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oNM-xA-Ncz" secondAttribute="trailing" constant="8" id="cfy-bu-4U6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oNM-xA-Ncz" secondAttribute="bottom" constant="8" id="hCj-Lh-2T1"/>
+                                                        <constraint firstItem="EG5-lj-jWR" firstAttribute="top" secondItem="tp0-hD-Tyb" secondAttribute="bottom" constant="8" id="q6q-hw-ucC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EG5-lj-jWR" secondAttribute="bottom" constant="8" id="qT2-kw-G8q"/>
+                                                        <constraint firstItem="tp0-hD-Tyb" firstAttribute="leading" secondItem="Zp4-WJ-Lbm" secondAttribute="leading" constant="8" id="qmj-oq-SyT"/>
+                                                        <constraint firstItem="oNM-xA-Ncz" firstAttribute="top" secondItem="HoM-3L-Uru" secondAttribute="bottom" constant="8" id="zE1-UE-elw"/>
+                                                        <constraint firstItem="EG5-lj-jWR" firstAttribute="leading" secondItem="Zp4-WJ-Lbm" secondAttribute="leading" constant="8" id="zxV-iy-XjB"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Zp4-WJ-Lbm" secondAttribute="bottom" id="HWJ-ho-eCw"/>
-                                                <constraint firstItem="Zp4-WJ-Lbm" firstAttribute="top" secondItem="Nio-8Z-FXA" secondAttribute="top" id="SWw-kB-fWh"/>
-                                                <constraint firstAttribute="bottom" secondItem="Zp4-WJ-Lbm" secondAttribute="bottom" id="c23-Y8-bd7"/>
-                                                <constraint firstAttribute="trailing" secondItem="Zp4-WJ-Lbm" secondAttribute="trailing" id="hyh-jw-8kg"/>
-                                                <constraint firstItem="Zp4-WJ-Lbm" firstAttribute="leading" secondItem="Nio-8Z-FXA" secondAttribute="leading" id="maX-4p-78m"/>
-                                                <constraint firstAttribute="trailing" secondItem="Zp4-WJ-Lbm" secondAttribute="trailing" id="nFf-Or-kns"/>
+                                                <constraint firstItem="Zp4-WJ-Lbm" firstAttribute="top" secondItem="Nio-8Z-FXA" secondAttribute="top" id="1J6-8B-B7n"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zp4-WJ-Lbm" secondAttribute="bottom" id="MmD-wr-Vfo"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zp4-WJ-Lbm" secondAttribute="trailing" id="k87-Oq-hGQ"/>
+                                                <constraint firstItem="Zp4-WJ-Lbm" firstAttribute="leading" secondItem="Nio-8Z-FXA" secondAttribute="leading" id="leM-3m-yxG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -326,6 +353,9 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="latestAwardDesc" destination="oNM-xA-Ncz" id="vA0-2a-wGp"/>
+                        <outlet property="latestAwardImage" destination="EG5-lj-jWR" id="FTL-fM-og8"/>
+                        <outlet property="latestAwardTitle" destination="HoM-3L-Uru" id="OP0-If-9J9"/>
                         <outlet property="reviewsAverageLabel" destination="sc1-6t-cQJ" id="MGy-rL-I7t"/>
                         <outlet property="reviewsTodayLabel" destination="xRw-0v-rvO" id="os8-YD-gil"/>
                         <outlet property="reviewsTotalLabel" destination="hwL-sU-1Cf" id="GPO-kL-Z3I"/>

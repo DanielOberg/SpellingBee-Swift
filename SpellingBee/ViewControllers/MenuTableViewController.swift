@@ -9,6 +9,8 @@
 import UIKit
 
 import Charts
+import SwiftRichString
+
 
 class MenuTableViewController: UITableViewController {
     
@@ -24,6 +26,10 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var reviewsAverageLabel: UILabel!
     @IBOutlet weak var reviewsTotalLabel: UILabel!
 
+    @IBOutlet weak var latestAwardTitle: UILabel!
+    @IBOutlet weak var latestAwardImage: UIImageView!
+    @IBOutlet weak var latestAwardDesc: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +53,15 @@ class MenuTableViewController: UITableViewController {
         setReviewChart()
         reviewsToday()
         reviewsAverage()
+        latestAward()
+    }
+    
+    func latestAward() {
+        let award = Awards.latestAward(words: self.deck!.notes).first!
+        self.latestAwardImage.image = award.whiteImage()
+        self.latestAwardTitle.text = award.name
+        
+        self.latestAwardDesc.text = award.desc.string
     }
     
     func reviewsToday() {
