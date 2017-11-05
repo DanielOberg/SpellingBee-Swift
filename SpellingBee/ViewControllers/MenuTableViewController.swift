@@ -88,7 +88,7 @@ class MenuTableViewController: UITableViewController {
         set.valueTextColor = UIColor.white
         set.valueFormatter = DefaultValueFormatter(decimals: 0)
         
-        let weekdays = [
+        var weekdays = [
             "Sunday",
             "Monday",
             "Tuesday",
@@ -97,6 +97,7 @@ class MenuTableViewController: UITableViewController {
             "Friday",
             "Saturday",
         ]
+        weekdays += weekdays
         
         barReviewChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: weekdays)
         
@@ -123,10 +124,10 @@ class MenuTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "listenSegue" {
             let controller = segue.destination as? ListenViewController
-//            controller?.words = words
+            controller?.deck = self.deck
         } else if segue.identifier == "pathSegue" {
             let controller = segue.destination as? PathViewController
-//            controller?.words = words
+            controller?.deck = self.deck
         } else if segue.identifier == "spellSegue" {
             let controller = segue.destination as? SpellViewController
             controller?.deck = self.deck

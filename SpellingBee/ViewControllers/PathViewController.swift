@@ -22,6 +22,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var bgTopView: UIView!
 
+    var deck: JapaneseDeck? = nil
     var words: [JapaneseWord] = []
     
     static let MAX_SQUARES = 3;
@@ -47,8 +48,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         let page = PageBulletinItem(title: bigText)
         
         page.descriptionText = String(format: "%@\n%@",words[indexWord].example_sentence_jp,words[indexWord].example_sentence_en)
-        page.actionButtonTitle = "Set As Hard"
-        page.alternativeButtonTitle = "Not now"
+        page.actionButtonTitle = "Ok"
         
         page.alternativeHandler = { (item: PageBulletinItem) in
             item.manager?.dismissBulletin(animated:true)
@@ -98,6 +98,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
         totalChars = words.reduce(0, { (sum, w) -> Int in
             return w.listRomaji().count + sum
         })
@@ -120,6 +121,13 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewWillDisappear(_ animated: Bool) {
         soundRecorder.onMadeSound = nil
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        self.indexChar = 0
+        self.indexWord += 1
+        
+        self.show(word: self.words[self.indexWord])
     }
     
     override func viewDidAppear(_ animated: Bool) {

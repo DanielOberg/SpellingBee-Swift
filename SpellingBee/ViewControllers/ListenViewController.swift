@@ -17,7 +17,8 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBOutlet weak var englishLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    var words: [JapaneseWord]!
+    var deck: JapaneseDeck? = nil
+    var words: [JapaneseWord] = []
     
     let speechSynth = AVSpeechSynthesizer()
     let speechSynthVoiceJP = AVSpeechSynthesisVoice(language: "ja-JP")
@@ -51,6 +52,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
         self.speechSynth.delegate = self
         speak(word: words[index])
     }

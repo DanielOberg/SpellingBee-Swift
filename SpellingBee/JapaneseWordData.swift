@@ -140,13 +140,19 @@ extension JapaneseWord {
         var comps = DateComponents()
         comps.hour = 23
         
+        var day = -1
         cal.enumerateDates(startingAfter: startDate, matching: comps, matchingPolicy: .nextTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .forward) { (date, match, stop) in
             if let date = date {
+                let nr = date.dayNumberOfWeek()!
+
+                if day == -1 {
+                    day = nr
+                }
                 if date > stopDate {
                     stop = true
                 } else {
-                    let nr = Double(date.dayNumberOfWeek()!)
-                    entries.append(BarChartDataEntry(x: nr, y: Double(JapaneseWord.onDate(date: date, type: type).count)))
+                    entries.append(BarChartDataEntry(x: Double(day), y: Double(JapaneseWord.onDate(date: date, type: type).count)))
+                    day += 1
                 }
             }
         }
