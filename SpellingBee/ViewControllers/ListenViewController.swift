@@ -58,6 +58,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
         show(word: words[index])
         progressView.progress = 0.0
     }
@@ -106,7 +107,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
                 speak(word: words[index])
                 show(word: words[index])
             }  else {
-                performSegue(withIdentifier: "successSegue", sender: self)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
