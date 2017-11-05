@@ -23,14 +23,14 @@ struct JapaneseDeck: Codable {
                 result.append(deck)
             }
         }
-
+        
         return result
     }
     
     func trainingList(amount: Int, trainIfNotViewed: Bool) -> [JapaneseWord] {
         return [JapaneseWord](self.notes.filter { (word) -> Bool in
-                        return word.shouldTrain(trainIfNotViewed: trainIfNotViewed)
-                    }.prefix(amount))
+            return word.shouldTrain(trainIfNotViewed: trainIfNotViewed)
+            }.prefix(amount))
     }
     
     func checkForAwards() -> [Award] {

@@ -87,20 +87,20 @@ class Awards {
     static let all: [Award] = [
         BeginnerAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d601")!),
         ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d701")!, times: 5),
-            ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d702")!, times: 15),
-            ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d703")!, times: 30),
-            ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d704")!, times: 100),
-            ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d705")!, times: 300),
-            ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d706")!, times: 1000),
-            ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d707")!, times: 10),
-            ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d708")!, times: 20),
-            ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d709")!, times: 150),
-            ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d710")!, times: 400),
-            ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d711")!, times: 750),
-            AnimalInterestAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d712")!),
-            AnimalLoverAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d713")!),
-            SushiLoverAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d714")!)
-        ]
+        ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d702")!, times: 15),
+        ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d703")!, times: 30),
+        ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d704")!, times: 100),
+        ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d705")!, times: 300),
+        ReviewedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d706")!, times: 1000),
+        ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d707")!, times: 10),
+        ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d708")!, times: 20),
+        ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d709")!, times: 150),
+        ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d710")!, times: 400),
+        ListenedXTimesAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d711")!, times: 750),
+        AnimalInterestAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d712")!),
+        AnimalLoverAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d713")!),
+        SushiLoverAward(uuid: UUID(uuidString:"78481eec-c238-11e7-b781-06006d28d714")!)
+    ]
     
     static let defStyle = Style("default", {
         $0.font = FontAttribute(FontName.HelveticaNeue_ThinItalic, size: 16)

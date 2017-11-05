@@ -18,14 +18,14 @@ class MenuTableViewController: UITableViewController {
     
     var barLevelsChart: Charts.BarChartView? = nil
     var barReviewChart: Charts.BarChartView? = nil
-
+    
     @IBOutlet weak var rootLevelsChartView: UIView!
     @IBOutlet weak var rootReviewsChartView: UIView!
     
     @IBOutlet weak var reviewsTodayLabel: UILabel!
     @IBOutlet weak var reviewsAverageLabel: UILabel!
     @IBOutlet weak var reviewsTotalLabel: UILabel!
-
+    
     @IBOutlet weak var latestAwardTitle: UILabel!
     @IBOutlet weak var latestAwardImage: UIImageView!
     @IBOutlet weak var latestAwardDesc: UILabel!
@@ -43,7 +43,7 @@ class MenuTableViewController: UITableViewController {
         rootReviewsChartView.addSubview(barReviewChart!)
         barReviewChart!.bindFrameToSuperviewBounds()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -111,7 +111,7 @@ class MenuTableViewController: UITableViewController {
             "Thursday",
             "Friday",
             "Saturday",
-        ]
+            ]
         weekdays += weekdays
         
         barReviewChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: weekdays)

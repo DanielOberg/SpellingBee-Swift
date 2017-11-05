@@ -27,7 +27,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var enLastSpeechUtterance: AVSpeechUtterance?
     
     var index = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         speechSynth.delegate = self
@@ -45,7 +45,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.speechSynth.stopSpeaking(at: .immediate)
         self.speechSynth.delegate = nil
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,7 +95,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         englishLabel.text = word.english
         romajiLabel.text = word.romaji
     }
-
+    
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if (enLastSpeechUtterance == utterance) {
             words[index].addToDB(level: .good, type: JapaneseWord.ActionType.listen)
@@ -111,5 +111,5 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
             }
         }
     }
-
+    
 }

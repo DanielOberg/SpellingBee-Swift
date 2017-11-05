@@ -21,7 +21,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var speakingIndicatorLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var bgTopView: UIView!
-
+    
     var deck: JapaneseDeck? = nil
     var words: [JapaneseWord] = []
     
@@ -134,11 +134,11 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         soundRecorder.onMadeSound = {data,probabilities in
             let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
             self.speakingIndicatorLabel.textColor = color
-
+            
             let firstFive = probabilities?.sorted(by: { (a, b) -> Bool in
                 let aValue = (a.value as! NSNumber).floatValue
                 let bValue = (b.value as! NSNumber).floatValue
-
+                
                 return aValue > bValue
             })[0...1]
             
@@ -166,7 +166,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
                 if (isNewWord) {
                     self.words[self.indexWord].addToDB(level: .good, type: JapaneseWord.ActionType.followPath)
-
+                    
                     let isFinished = self.indexWord + 1 >= self.words.count
                     if (!isFinished) {
                         self.indexChar = 0

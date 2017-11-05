@@ -50,7 +50,7 @@ extension JapaneseWord {
     
     static func recall(lastlyTrained: Date, timesTrainedSinceFailureOrHard: Int, currentLevel: LevelType) -> Double {
         let deltaInMin = lastlyTrained.timeIntervalSinceNow / -60.0
-
+        
         let min_a = 10.0
         let i = timesTrainedSinceFailureOrHard
         
@@ -144,7 +144,7 @@ extension JapaneseWord {
         cal.enumerateDates(startingAfter: startDate, matching: comps, matchingPolicy: .nextTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .forward) { (date, match, stop) in
             if let date = date {
                 let nr = date.dayNumberOfWeek()!
-
+                
                 if day == -1 {
                     day = nr
                 }

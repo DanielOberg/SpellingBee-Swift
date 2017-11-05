@@ -48,10 +48,10 @@ class SpellViewController: UIViewController {
         } catch {
             
         }
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -184,7 +184,7 @@ class SpellViewController: UIViewController {
             })[0...2]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
-
+            
             let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
                 return romaji == (a.key as! String)
             })
