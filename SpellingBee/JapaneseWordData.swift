@@ -11,6 +11,29 @@ import UIKit
 import CoreData
 import Charts
 
+extension Date {
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+    
+    var endOfDay: Date? {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: startOfDay)
+    }
+    
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+    
+    func dayOfTheWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+}
+
 extension JapaneseWord {
     enum ActionType: String {
         case listen = "LISTENED"
@@ -18,23 +41,94 @@ extension JapaneseWord {
         case spell = "SPELLED"
     }
     
-    static func startOfDay(beforeDate: Date) -> Date {
-        var calendar = Calendar.current
-        calendar.timeZone = NSTimeZone.local
-        let dateFrom = calendar.startOfDay(for: beforeDate)
-        return dateFrom
+    enum LevelType: Int16 {
+        case fail = 1
+        case hard = 2
+        case good = 3
+        case easy = 4
     }
     
-    static func recall(lastlyTrained: Date, timesTrained: Int) -> Double {
+    static func recall(lastlyTrained: Date, timesTrainedSinceFailureOrHard: Int, currentLevel: LevelType) -> Double {
         let deltaInMin = lastlyTrained.timeIntervalSinceNow / -60.0
 
         let min_a = 10.0
-        let i = timesTrained
+        let i = timesTrainedSinceFailureOrHard
         
         let x = deltaInMin
-        let y = pow(2.0, -x / ((pow(2.0, Double(i)) * Double(i)) + min_a))
+        var y = pow(2.0, -x / ((pow(2.0, Double(i)) * Double(i)) + min_a))
+        
+        if currentLevel == .easy {
+            y = min(1.0, y * 1.5)
+        } else if currentLevel == .good {
+            y = min(1.0, y * 1.0)
+        } else if currentLevel == .hard {
+            y = min(1.0, y * 0.51)
+        } else if currentLevel == .fail {
+            y = min(1.0, y * 0.10)
+        }
         
         return y
+    }
+    
+    static func recall(repitionData: [RepitionData]) -> Double {
+        var data = repitionData.filter { (data) -> Bool in
+            return (data.type == ActionType.spell.rawValue)
+        }
+        if data.isEmpty {
+            return 0.0
+        }
+        let lastlyTrained = data.last!.date!
+        let currentLevel = data.last!.level
+        var timesTrainedSinceFailureOrHard = 0
+        
+        for i in data.indices {
+            if (data[i].level == LevelType.hard.rawValue || data[i].level == LevelType.fail.rawValue) {
+                timesTrainedSinceFailureOrHard = 0
+            } else {
+                timesTrainedSinceFailureOrHard += 1
+            }
+        }
+        return recall(lastlyTrained: lastlyTrained, timesTrainedSinceFailureOrHard: timesTrainedSinceFailureOrHard, currentLevel: JapaneseWord.LevelType(rawValue: currentLevel)!)
+    }
+    
+    static func graphDataLevels(japaneseDeck: JapaneseDeck) -> [Charts.BarChartDataEntry] {
+        var levels = [0, 0, 0, 0, 0, 0, 0]
+        var entries = [Charts.BarChartDataEntry]()
+        
+        for word in japaneseDeck.notes {
+            let log = word.log()
+            if log.isEmpty {
+                levels[0] += 1
+                continue
+            }
+            let recall_ = JapaneseWord.recall(repitionData: log)
+            let level = JapaneseWord.levelFromRecall(recall: recall_)
+            levels[level] += 1
+        }
+        
+        for i in levels.indices {
+            let level = levels[i]
+            let entry_ = BarChartDataEntry(x: Double(i), y: Double(level))
+            entries.append(entry_)
+        }
+        
+        return entries
+    }
+    
+    static func levelFromRecall(recall: Double) -> Int {
+        if (recall <= 0.5) {
+            return 1
+        } else if (recall <= 0.6) {
+            return 2
+        } else if (recall <= 0.7) {
+            return 3
+        } else if (recall <= 0.8) {
+            return 4
+        } else if (recall <= 0.9) {
+            return 5
+        }
+        
+        return 6
     }
     
     static func graphData(type: ActionType) -> [Charts.BarChartDataEntry] {
@@ -43,40 +137,17 @@ extension JapaneseWord {
         let cal = Calendar.current
         let stopDate = cal.date(byAdding: .day, value: -6, to: Date())!
         var comps = DateComponents()
-        comps.hour = 1
+        comps.hour = 0
         
         var days = 0
-        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: Date(), type: type).count)))
+        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(date: Date(), type: type).count)))
         cal.enumerateDates(startingAfter: Date(), matching: comps, matchingPolicy: .previousTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .backward) { (date, match, stop) in
             if let date = date {
                 if date < stopDate {
                     stop = true
                 } else {
                     days -= 1
-                    entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: date, type: type).count)))
-                }
-            }
-        }
-        return entries
-    }
-    
-    static func graphData() -> [Charts.BarChartDataEntry] {
-        var entries = [Charts.BarChartDataEntry]()
-        
-        let cal = Calendar.current
-        let stopDate = cal.date(byAdding: .day, value: -6, to: Date())!
-        var comps = DateComponents()
-        comps.hour = 1
-        
-        var days = 0
-        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: Date()).count)))
-        cal.enumerateDates(startingAfter: Date(), matching: comps, matchingPolicy: .previousTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .backward) { (date, match, stop) in
-            if let date = date {
-                if date < stopDate {
-                    stop = true
-                } else {
-                    days -= 1
-                    entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(beforeDate: date).count)))
+                    entries.append(BarChartDataEntry(x: abs(Double(days)), y: Double(JapaneseWord.onDate(date: date, type: type).count)))
                 }
             }
         }
@@ -84,25 +155,14 @@ extension JapaneseWord {
     }
     
     
-    static func onDate(beforeDate: Date, type: ActionType) -> [RepitionData] {
+    static func onDate(date: Date, type: ActionType) -> [RepitionData] {
+        let startOfDay = date.startOfDay
+        let endOfDay = date.endOfDay!
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
-        dataFetch.predicate = NSPredicate(format: "date < %@ && type == %@", beforeDate as NSDate, type.rawValue)
-        
-        do {
-            let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
-            return fetchedData
-        } catch {
-            fatalError("Failed to fetch Repetition Data: \(error)")
-        }
-    }
-    
-    static func onDate(beforeDate: Date) -> [RepitionData] {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
-        dataFetch.predicate = NSPredicate(format: "date < %@", beforeDate as NSDate)
+        dataFetch.predicate = NSPredicate(format: "date > %@ && date < %@ && type == %@", startOfDay as NSDate, endOfDay as NSDate, type.rawValue)
         
         do {
             let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
@@ -133,35 +193,16 @@ extension JapaneseWord {
             return trainIfNotViewed
         }
         let log_active = log.filter { (data) -> Bool in
-            return (data.type != ActionType.listen.rawValue)
+            return (data.type == ActionType.spell.rawValue)
         }
         if log_active.isEmpty {
             return true
         }
         
-        return JapaneseWord.recall(lastlyTrained: log_active.last!.date!, timesTrained: log_active.count) < 0.5
+        return JapaneseWord.recall(repitionData: log_active) < 0.5
     }
     
-    func times() -> Int64 {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
-        dataFetch.predicate = NSPredicate(format: "kana == %@ && kanji == %@", kana, kanji)
-        
-        do {
-            let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
-            
-            let times = fetchedData.reduce(0, { (result, d) -> Int64 in
-                return max(result, d.times)
-            })
-            
-            return times
-        } catch {
-            fatalError("Failed to fetch Repetition Data: \(error)")
-        }
-    }
-    
-    func addToDB(type: ActionType) {
+    func addToDB(level: LevelType,type: ActionType) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let data = RepitionData(context: context)
@@ -169,8 +210,8 @@ extension JapaneseWord {
         data.kana = self.kana
         data.kanji = self.kanji
         data.type = type.rawValue
-        data.times = self.times() + 1
-
+        data.level = level.rawValue
+        
         do {
             try context.save()
         } catch {

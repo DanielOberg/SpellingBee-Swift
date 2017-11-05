@@ -95,7 +95,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if (enLastSpeechUtterance == utterance) {
-            words[index].addToDB(type: JapaneseWord.ActionType.listen)
+            words[index].addToDB(level: .good, type: JapaneseWord.ActionType.listen)
             index += 1
             
             progressView.progress = Float(index) / Float(words.count)

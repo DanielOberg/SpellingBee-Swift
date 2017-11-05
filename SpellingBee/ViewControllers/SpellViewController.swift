@@ -12,14 +12,17 @@ import AVKit
 import SpeechFramework
 
 class SpellViewController: UIViewController {
-    @IBOutlet weak var kanjiLabel: UILabel!
     @IBOutlet weak var kanaLabel: UILabel!
     @IBOutlet weak var englishLabel: UILabel!
     @IBOutlet weak var speakingIndicatorLabel: UILabel!
-
+    @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var progressView: UIProgressView!
     
+    var deck: JapaneseDeck!
     var words: [JapaneseWord]!
+    
+    var shouldShowHint = false
     
     var indexWord = 0
     var indexChar = 0
@@ -28,7 +31,6 @@ class SpellViewController: UIViewController {
     
     var spokenChars = 0
     var totalChars = 0
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class SpellViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        words = deck.trainingList(amount: 10, trainIfNotViewed: true)
         totalChars = words.reduce(0, { (sum, w) -> Int in
             return w.listRomaji().count + sum
         })
@@ -57,14 +60,75 @@ class SpellViewController: UIViewController {
         progressView.progress = 0.0
     }
     
+    func showCharacters(shouldShowHint: Bool) {
+        let kanas = self.words[self.indexWord].listKana()
+        var textBlack = ""
+        if (0 <= self.indexChar-1) {
+            textBlack = kanas[0...self.indexChar-1].reduce("", { (result, str) -> String in
+                return result + str
+            })
+        }
+        
+        var textGray = ""
+        
+        if self.indexChar <= kanas.count-1 && shouldShowHint {
+            textGray = kanas[self.indexChar...kanas.count-1].reduce("", { (result, str) -> String in
+                return result + str
+            })
+        }
+        
+        let attributedString = NSAttributedString(html: "<center><font color=\"black\">\(textBlack)</font><font color=\"gray\">\(textGray)</font></center>")
+        self.kanaLabel.attributedText = attributedString
+    }
+    
+    @IBAction func showAction(_ sender: Any) {
+        self.shouldShowHint = true
+        showCharacters(shouldShowHint: self.shouldShowHint)
+    }
+    
+    @IBAction func nextAction(_ sender: Any) {
+        self.shouldShowHint = false
+        let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
+        self.words[self.indexWord].addToDB(level: level!, type: JapaneseWord.ActionType.spell)
+        
+        let isFinished = self.indexWord + 1 >= self.words.count
+        if (!isFinished) {
+            self.indexChar = 0
+            self.indexWord += 1
+            
+            self.show(word: self.words[self.indexWord])
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func valueChangedAction(_ sender: Any) {
+        self.shouldShowHint = false
+        let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
+        self.words[self.indexWord].addToDB(level: level!, type: JapaneseWord.ActionType.spell)
+        
+        let isFinished = self.indexWord + 1 >= self.words.count
+        if (!isFinished) {
+            self.indexChar = 0
+            self.indexWord += 1
+            
+            self.show(word: self.words[self.indexWord])
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     func show(word: JapaneseWord) {
-        self.kanjiLabel.text = word.kanji
         self.englishLabel.text = word.english
         self.kanaLabel.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
         soundRecorder.onMadeSound = {data,probabilities in
+            let isNewWord = self.indexChar >= self.words[self.indexWord].listRomaji().count
+            if isNewWord {
+                return true
+            }
+            
             let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
             self.speakingIndicatorLabel.textColor = color
             
@@ -73,7 +137,7 @@ class SpellViewController: UIViewController {
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...1]
+            })[0...2]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
 
@@ -81,33 +145,20 @@ class SpellViewController: UIViewController {
                 return romaji == (a.key as! String)
             })
             
-            _ = probabilities![romaji] as! NSNumber
+            let probability = probabilities![romaji] as! NSNumber
+            
+            NSLog("probability: %@", probability)
+            NSLog("First: %@", firstFive!.debugDescription)
             
             if (containsRomaji!) {
-                self.kanaLabel.text = self.words[self.indexWord].listKana()[0...self.indexChar].reduce("", { (result, str) -> String in
-                    return result + str
-                })
-                
                 self.spokenChars += 1
                 self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)
                 self.audioPlayer?.play()
                 
-                let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
-                if (isNewWord) {
-                    self.words[self.indexWord].addToDB(type: JapaneseWord.ActionType.spell)
-
-                    let isFinished = self.indexWord + 1 >= self.words.count
-                    if (!isFinished) {
-                        self.indexChar = 0
-                        self.indexWord += 1
-                        
-                        self.show(word: self.words[self.indexWord])
-                    } else {
-                        self.performSegue(withIdentifier: "successSpellSegue", sender: self)
-                    }
-                } else {
-                    self.indexChar += 1
-                }
+                self.indexChar += 1
+                
+                self.showCharacters(shouldShowHint: self.shouldShowHint)
+                
                 return true
             } else {
                 return true

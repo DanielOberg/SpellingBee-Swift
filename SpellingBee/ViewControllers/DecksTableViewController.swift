@@ -89,9 +89,9 @@ class DecksTableViewController: UITableViewController {
             let controller = segue.destination as? MenuTableViewController
             if let row = self.tableView.indexPathForSelectedRow?.row {
                 controller?.deck = decks[row]
-                controller?.words = [JapaneseWord](decks[row].notes.filter { (word) -> Bool in
-                    return word.shouldTrain(trainIfNotViewed: true)
-                    }.prefix(10))
+//                controller?.words = [JapaneseWord](decks[row].notes.filter { (word) -> Bool in
+//                    return word.shouldTrain(trainIfNotViewed: true)
+//                    }.prefix(10))
             }
         }
     }

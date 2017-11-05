@@ -157,7 +157,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
                 if (isNewWord) {
-                    self.words[self.indexWord].addToDB(type: JapaneseWord.ActionType.followPath)
+                    self.words[self.indexWord].addToDB(level: .good, type: JapaneseWord.ActionType.followPath)
 
                     let isFinished = self.indexWord + 1 >= self.words.count
                     if (!isFinished) {
