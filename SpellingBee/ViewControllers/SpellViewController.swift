@@ -9,6 +9,8 @@
 import UIKit
 import AVKit
 
+import SwiftRichString
+
 import SpeechFramework
 
 class SpellViewController: UIViewController {
@@ -31,7 +33,12 @@ class SpellViewController: UIViewController {
     
     var spokenChars = 0
     var totalChars = 0
-
+    
+    var speakerOn = true
+    var microphoneOn = true
+    @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var speakerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +67,29 @@ class SpellViewController: UIViewController {
         progressView.progress = 0.0
     }
     
+    @IBAction func microphoneAction(_ sender: Any) {
+        microphoneOn = !microphoneOn
+        
+        if microphoneOn {
+            soundRecorder.setPaused(false)
+            self.microphoneButton.setTitle("", for: .normal)
+        } else {
+            soundRecorder.setPaused(true)
+            self.microphoneButton.setTitle("", for: .normal)
+        }
+    }
+    
+    @IBAction func muteAction(_ sender: Any) {
+        speakerOn = !speakerOn
+        
+        if speakerOn {
+            self.speakerButton.setTitle("", for: .normal)
+        } else {
+            self.audioPlayer?.pause()
+            self.speakerButton.setTitle("", for: .normal)
+        }
+    }
+    
     func showCharacters(shouldShowHint: Bool) {
         let kanas = self.words[self.indexWord].listKana()
         var textBlack = ""
@@ -77,7 +107,20 @@ class SpellViewController: UIViewController {
             })
         }
         
-        let attributedString = NSAttributedString(html: "<center><font color=\"black\">\(textBlack)</font><font color=\"gray\">\(textGray)</font></center>")
+        // Define your own used styles
+        let black = Style("black", {
+            $0.font = FontAttribute(FontName.HiraginoSans_W6, size: 30) // font + size
+            $0.color = UIColor.black // text color
+            $0.align = .center // align on center
+        })
+        
+        let gray = Style("gray", {
+            $0.font = FontAttribute(FontName.HiraginoSans_W6, size: 30) // font + size
+            $0.color = UIColor.gray
+            $0.align = .center // align on center
+        })
+        
+        let attributedString = textBlack.set(style: black) + textGray.set(style: gray)
         self.kanaLabel.attributedText = attributedString
     }
     
@@ -117,6 +160,7 @@ class SpellViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
     func show(word: JapaneseWord) {
         self.englishLabel.text = word.english
         self.kanaLabel.text = ""
@@ -153,7 +197,10 @@ class SpellViewController: UIViewController {
             if (containsRomaji!) {
                 self.spokenChars += 1
                 self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)
-                self.audioPlayer?.play()
+                
+                if self.speakerOn {
+                    self.audioPlayer?.play()
+                }
                 
                 self.indexChar += 1
                 

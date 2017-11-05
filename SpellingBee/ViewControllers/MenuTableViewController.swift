@@ -76,10 +76,7 @@ class MenuTableViewController: UITableViewController {
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
-        var avg = 0.0
-        if components.day != nil && components.day != 0 {
-            avg = Double(count) / Double(components.day!)
-        }
+        let avg = Double(count) / Double(components.day!+1)
         self.reviewsAverageLabel.text = String(format:"Average \t%.0f", avg)
         self.reviewsTotalLabel.text = String(format:"Total  \t\t%d", count)
     }
@@ -91,24 +88,17 @@ class MenuTableViewController: UITableViewController {
         set.valueTextColor = UIColor.white
         set.valueFormatter = DefaultValueFormatter(decimals: 0)
         
-        let cal = Calendar.current
-        let startDate = cal.date(byAdding: .day, value: -7, to: Date())!
-        let stopDate = cal.date(byAdding: .day, value: 0, to: Date())!
-        var comps = DateComponents()
-        comps.hour=00
+        let weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ]
         
-        var days = [String]()
-        cal.enumerateDates(startingAfter: startDate, matching: comps, matchingPolicy: .strict, repeatedTimePolicy: .last, direction: .forward) { (date, match, stop) in
-            if let date = date {
-                if date > stopDate {
-                    stop = true
-                } else {
-                    days.append(date.dayOfTheWeek()!)
-                }
-            }
-        }
-        
-        barReviewChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
+        barReviewChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: weekdays)
         
         barReviewChart?.data = BarChartData(dataSet: set)
         barReviewChart?.animate(yAxisDuration: 1.0)

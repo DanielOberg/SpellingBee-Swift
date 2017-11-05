@@ -24,7 +24,7 @@ extension Date {
     }
     
     func dayNumberOfWeek() -> Int? {
-        return Calendar.current.dateComponents([.weekday], from: self).weekday
+        return Calendar.current.dateComponents([.weekday], from: self).weekday! - 1
     }
     
     func dayOfTheWeek() -> String? {
@@ -135,19 +135,18 @@ extension JapaneseWord {
         var entries = [Charts.BarChartDataEntry]()
         
         let cal = Calendar.current
-        let stopDate = cal.date(byAdding: .day, value: -6, to: Date())!
+        let stopDate = cal.date(byAdding: .day, value: +1, to: Date())!
+        let startDate = cal.date(byAdding: .day, value: -6, to: Date())!
         var comps = DateComponents()
-        comps.hour = 0
+        comps.hour = 23
         
-        var days = 0
-        entries.append(BarChartDataEntry(x: Double(days), y: Double(JapaneseWord.onDate(date: Date(), type: type).count)))
-        cal.enumerateDates(startingAfter: Date(), matching: comps, matchingPolicy: .previousTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .backward) { (date, match, stop) in
+        cal.enumerateDates(startingAfter: startDate, matching: comps, matchingPolicy: .nextTimePreservingSmallerComponents, repeatedTimePolicy: .first, direction: .forward) { (date, match, stop) in
             if let date = date {
-                if date < stopDate {
+                if date > stopDate {
                     stop = true
                 } else {
-                    days -= 1
-                    entries.append(BarChartDataEntry(x: abs(Double(days)), y: Double(JapaneseWord.onDate(date: date, type: type).count)))
+                    let nr = Double(date.dayNumberOfWeek()!)
+                    entries.append(BarChartDataEntry(x: nr, y: Double(JapaneseWord.onDate(date: date, type: type).count)))
                 }
             }
         }
