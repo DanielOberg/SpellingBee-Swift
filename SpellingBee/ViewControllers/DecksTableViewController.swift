@@ -47,6 +47,10 @@ class DecksTableViewController: UITableViewController {
             let controller = segue.destination as? MenuTableViewController
             if let row = self.tableView.indexPathForSelectedRow?.row {
                 controller?.deck = decks[row]
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.saveActivePack(pack: UUID(uuidString:decks[row].uuid)!)
+                
             }
         }
     }

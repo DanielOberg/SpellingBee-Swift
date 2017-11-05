@@ -33,6 +33,13 @@ struct JapaneseDeck: Codable {
             }.prefix(amount))
     }
     
+    func trainingListHardOnes() -> [JapaneseWord] {
+        return [JapaneseWord](self.notes.filter { (word) -> Bool in
+                let level = word.log().last?.level ?? 0
+                return word.shouldTrain(trainIfNotViewed: false) && (level == JapaneseWord.LevelType.fail.rawValue || level == JapaneseWord.LevelType.hard.rawValue)
+            })
+    }
+    
     func checkForAwards() -> [Award] {
         return Awards.all.filter({ (award) -> Bool in
             return award.check(words: self.notes)

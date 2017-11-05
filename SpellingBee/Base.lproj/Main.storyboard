@@ -11,15 +11,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="FontAwesome.otf">
-            <string>FontAwesome</string>
-        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue-Medium</string>
         </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Thin</string>
+        </array>
+        <array key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
         </array>
     </customFonts>
     <scenes>
@@ -94,8 +94,8 @@
         <scene sceneID="oAb-aR-7JJ">
             <objects>
                 <tableViewController storyboardIdentifier="MenuTableViewController" title="Voicefy" id="NJh-rG-RTt" customClass="MenuTableViewController" customModule="SpellingBee" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GkA-pW-gzZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GkA-pW-gzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <sections>
@@ -122,11 +122,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="U7N-gC-sF2">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="U7N-gC-sF2">
+                                        <rect key="frame" x="0.0" y="140" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U7N-gC-sF2" id="raf-CC-sfV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88r-rN-lVq">
@@ -142,6 +142,7 @@
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="deviceWhite"/>
                                                                 <font key="NSFont" size="11" name=".AppleSystemUIFont"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -167,11 +168,11 @@
                                                 <constraint firstItem="hwL-sU-1Cf" firstAttribute="leading" secondItem="sc1-6t-cQJ" secondAttribute="trailing" constant="8" id="SnZ-Jk-3v2"/>
                                                 <constraint firstItem="88r-rN-lVq" firstAttribute="top" secondItem="raf-CC-sfV" secondAttribute="topMargin" id="V2v-5T-J1D"/>
                                                 <constraint firstItem="sc1-6t-cQJ" firstAttribute="width" secondItem="xRw-0v-rvO" secondAttribute="width" id="XF7-cL-fNb"/>
-                                                <constraint firstItem="88r-rN-lVq" firstAttribute="leading" secondItem="xRw-0v-rvO" secondAttribute="leading" id="bBv-kw-Wej"/>
                                                 <constraint firstItem="xRw-0v-rvO" firstAttribute="top" secondItem="88r-rN-lVq" secondAttribute="bottom" constant="8" id="bsN-5u-rVX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hwL-sU-1Cf" secondAttribute="trailing" constant="8" id="dH7-PM-22X"/>
                                                 <constraint firstItem="sc1-6t-cQJ" firstAttribute="leading" secondItem="xRw-0v-rvO" secondAttribute="trailing" constant="8" id="dRJ-3b-Udh"/>
                                                 <constraint firstAttribute="trailing" secondItem="88r-rN-lVq" secondAttribute="trailing" id="gHi-QZ-Nse"/>
+                                                <constraint firstItem="88r-rN-lVq" firstAttribute="leading" secondItem="raf-CC-sfV" secondAttribute="leading" constant="16" id="l5x-sR-zpV"/>
                                                 <constraint firstItem="hwL-sU-1Cf" firstAttribute="width" secondItem="xRw-0v-rvO" secondAttribute="width" id="xEE-SK-NEt"/>
                                                 <constraint firstItem="hwL-sU-1Cf" firstAttribute="top" secondItem="88r-rN-lVq" secondAttribute="bottom" constant="8" id="y8J-4f-wNc"/>
                                             </constraints>
@@ -179,7 +180,7 @@
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" editingAccessoryType="disclosureIndicator" textLabel="g3t-ns-BAY" detailTextLabel="8WS-4W-7iJ" rowHeight="140" style="IBUITableViewCellStyleSubtitle" id="lTe-NT-KJL">
-                                        <rect key="frame" x="0.0" y="220" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="210" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lTe-NT-KJL" id="TIS-fj-AQ4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -207,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="HSX-jR-9Ee" detailTextLabel="Zz7-ho-MBO" rowHeight="140" style="IBUITableViewCellStyleSubtitle" id="1Qm-0C-lGZ">
-                                        <rect key="frame" x="0.0" y="360" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="350" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Qm-0C-lGZ" id="97h-IJ-9Ws">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -235,7 +236,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="7vM-HX-Xhv" detailTextLabel="Tho-UH-hXE" rowHeight="140" style="IBUITableViewCellStyleSubtitle" id="yH5-hg-k7h">
-                                        <rect key="frame" x="0.0" y="500" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="490" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yH5-hg-k7h" id="0Zp-P9-eyk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -263,7 +264,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="140" id="ZBW-bK-oVH">
-                                        <rect key="frame" x="0.0" y="640" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="630" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBW-bK-oVH" id="T1h-8v-lbw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -286,7 +287,7 @@
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="140" id="wH7-Av-RNo">
-                                        <rect key="frame" x="0.0" y="780" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="770" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wH7-Av-RNo" id="Nio-8Z-FXA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>

@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+import BulletinBoard
+
 class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     @IBOutlet weak var kanjiLabel: UILabel!
@@ -27,6 +29,9 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var enLastSpeechUtterance: AVSpeechUtterance?
     
     var index = 0
+    
+    var bulletinManager: BulletinManager? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +57,35 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
         self.speechSynth.delegate = self
-        speak(word: words[index])
+        if !words.isEmpty {
+            speak(word: words[index])
+        } else {
+            let page = PageBulletinItem(title: "No difficult items left")
+            
+            page.descriptionText = "You have no words left tagged as hard or failed."
+            page.actionButtonTitle = "Go back"
+            
+            page.image = UIImage.fontAwesomeIcon(name: .info, textColor: UIColor.black, size: CGSize.init(width: 128, height: 128), backgroundColor: UIColor.white, borderWidth: 1.0, borderColor: UIColor.black)
+            
+            page.actionHandler = { (item: PageBulletinItem) in
+                item.manager?.dismissBulletin(animated:true)
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            bulletinManager = BulletinManager(rootItem: page)
+            bulletinManager?.backgroundViewStyle = .blurredExtraLight
+            bulletinManager?.prepare()
+            bulletinManager?.presentBulletin(above: self)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
+        words = (deck?.trainingListHardOnes())!
+        if words.isEmpty {
+            return
+        }
         show(word: words[index])
         progressView.progress = 0.0
     }

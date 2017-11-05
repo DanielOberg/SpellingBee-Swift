@@ -37,20 +37,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //        let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let uuid = self.activePack() {
+            let deck = JapaneseDeck.all().first(where: { (deck) -> Bool in
+                UUID(uuidString:deck.uuid) == uuid
+            }) ?? JapaneseDeck.all().first!
+            
+            self.saveActivePack(pack: UUID(uuidString:deck.uuid)!)
+            
+            let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        //        let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
-        //
-        //        let selected = JapaneseWord.all().filter { (word) -> Bool in
-        //            return word.shouldTrain(trainIfNotViewed: true)
-        //        }.prefix(10)
-        //
-        //        controller.words = [JapaneseWord](selected)
-        //        navigationController?.pushViewController(controller, animated: false)
+            let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
+            controller.deck = deck
+            navigationController?.pushViewController(controller, animated: false)
+        }
         
         // Override point for customization after application launch.
         return true
+    }
+    
+    func activePack() -> UUID? {
+        return UUID(uuidString: UserDefaults.standard.string(forKey: "activePack") ?? "")
+    }
+    
+    func saveActivePack(pack: UUID) {
+        UserDefaults.standard.set(pack.uuidString, forKey: "activePack")
+        UserDefaults.standard.synchronize()
+    }
+    
+    
+    
+    func isOnboardingFinished() -> Bool {
+        return UserDefaults.standard.bool(forKey: "onboarding")
+    }
+    
+    class func saveOnboardingFinished() {
+        UserDefaults.standard.set(true, forKey: "onboarding")
+        UserDefaults.standard.synchronize()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

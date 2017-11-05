@@ -23,6 +23,25 @@ extension UIView {
     }
 }
 
+extension UIImage {
+    func addRoundedBorder() -> UIImage? {
+        let borderWidth: CGFloat = 4.0
+        UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
+        let rect = CGRect(x: 0.0, y: 0.0, width: self.size.width, height: self.size.height)
+        let path = UIBezierPath(roundedRect: rect.insetBy(dx: borderWidth / 2, dy: borderWidth / 2), cornerRadius: 10.0)
+        let context = UIGraphicsGetCurrentContext()
+        context!.saveGState()
+        path.addClip()
+        self.draw(in: rect)
+        UIColor.gray.setStroke()
+        path.lineWidth = borderWidth
+        path.stroke()
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage
+    }
+}
+
 extension BarChartView {
     func styleChart() {
         self.backgroundColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
