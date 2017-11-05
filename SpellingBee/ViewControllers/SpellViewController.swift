@@ -42,7 +42,7 @@ class SpellViewController: UIViewController {
     var microphoneOn = true
     
     var bulletinManager: BulletinManager? = nil
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +133,7 @@ class SpellViewController: UIViewController {
         self.shouldShowHint = true
         showCharacters(shouldShowHint: self.shouldShowHint)
     }
-
+    
     @IBAction func valueChangedAction(_ sender: Any) {
         self.shouldShowHint = false
         let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
@@ -203,6 +203,25 @@ class SpellViewController: UIViewController {
             }
         }
         soundRecorder.checkForPermissionAndStart()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if !appDelegate.isOnboardingFinished() {
+            let page = PageBulletinItem(title: "Welcome")
+            page.image = UIImage.fontAwesomeIcon(name: .info, textColor: UIColor.black, size: CGSize.init(width: 128, height: 128), backgroundColor: UIColor.white, borderWidth: 1.0, borderColor: UIColor.black)
+            page.descriptionText = "You can either start by speaking into the microphone (slowly speak each hiragana with a pause in between) or use this as a normal flashcard app. Try to figure out the word and then click show. After you've seen the result you must rate how hard it was to remember to get to the next word."
+            page.shouldCompactDescriptionText = true
+            page.actionButtonTitle = "Let's do this"
+            
+            page.actionHandler = { (item: PageBulletinItem) in
+                appDelegate.saveOnboardingFinished()
+                item.manager?.dismissBulletin(animated: true)
+            }
+            
+            bulletinManager = BulletinManager(rootItem: page)
+            bulletinManager?.backgroundViewStyle = .blurredExtraLight
+            bulletinManager?.prepare()
+            bulletinManager?.presentBulletin(above: self)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

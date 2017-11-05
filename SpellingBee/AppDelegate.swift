@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return UserDefaults.standard.bool(forKey: "onboarding")
     }
     
-    class func saveOnboardingFinished() {
+    func saveOnboardingFinished() {
         UserDefaults.standard.set(true, forKey: "onboarding")
         UserDefaults.standard.synchronize()
     }
