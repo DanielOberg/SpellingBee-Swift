@@ -32,7 +32,6 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     var bulletinManager: BulletinManager? = nil
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         speechSynth.delegate = self

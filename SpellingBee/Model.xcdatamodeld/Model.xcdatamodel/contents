@@ -11,9 +11,10 @@
         <attribute name="kanji" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
         <element name="AwardData" positionX="-54" positionY="54" width="128" height="90"/>
-        <element name="RepitionData" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="RepitionData" positionX="-54" positionY="18" width="128" height="135"/>
     </elements>
 </model>

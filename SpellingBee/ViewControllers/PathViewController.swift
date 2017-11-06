@@ -56,16 +56,6 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         page.actionHandler = { (item: PageBulletinItem) in
             item.manager?.dismissBulletin(animated:true)
-            
-            let isFinished = self.indexWord + 1 >= self.words.count
-            if (!isFinished) {
-                self.indexChar = 0
-                self.indexWord += 1
-                
-                self.show(word: self.words[self.indexWord])
-            } else {
-                self.performSegue(withIdentifier: "successPathSegue", sender: self)
-            }
         }
         
         bulletinManager = BulletinManager(rootItem: page)
@@ -140,7 +130,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...1]
+            })[0...3]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
             
@@ -174,7 +164,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                         
                         self.show(word: self.words[self.indexWord])
                     } else {
-                        self.performSegue(withIdentifier: "successPathSegue", sender: self)
+                        self.navigationController?.popViewController(animated: true)
                     }
                 } else {
                     self.indexChar += 1

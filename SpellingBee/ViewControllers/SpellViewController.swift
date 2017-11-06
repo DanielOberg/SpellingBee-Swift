@@ -172,7 +172,7 @@ class SpellViewController: UIViewController {
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...2]
+            })[0...3]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
             
@@ -203,6 +203,8 @@ class SpellViewController: UIViewController {
             }
         }
         soundRecorder.checkForPermissionAndStart()
+        soundRecorder.setPaused(true)
+        self.microphoneButton.setTitle("", for: .normal)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if !appDelegate.isOnboardingFinished() {

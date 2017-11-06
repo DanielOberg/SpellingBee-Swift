@@ -192,6 +192,28 @@ extension JapaneseWord {
         }
     }
     
+    static var cache = [String : [RepitionData]]()
+    
+    func cachedLog() -> [RepitionData] {
+        if JapaneseWord.cache[self.uuid] == nil {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            let dataFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "RepitionData")
+            dataFetch.predicate = NSPredicate(format: "uuid == %@", self.uuid)
+            
+            do {
+                let fetchedData = try context.fetch(dataFetch) as! [RepitionData]
+                
+                JapaneseWord.cache[self.uuid] = fetchedData
+                
+                return fetchedData
+            } catch {
+                fatalError("Failed to fetch Repetition Data: \(error)")
+            }
+        }
+        return JapaneseWord.cache[self.uuid] ?? [RepitionData]()
+    }
+    
     func shouldTrain(trainIfNotViewed: Bool) -> Bool {
         let log = self.log()
         if log.isEmpty {
@@ -216,6 +238,7 @@ extension JapaneseWord {
         data.kanji = self.kanji
         data.type = type.rawValue
         data.level = level.rawValue
+        data.uuid = UUID(uuidString: self.uuid)
         
         do {
             try context.save()

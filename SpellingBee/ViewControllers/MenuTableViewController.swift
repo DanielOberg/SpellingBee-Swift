@@ -95,7 +95,7 @@ class MenuTableViewController: UITableViewController {
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
-        let avg = Double(count) / Double(components.day!+1)
+        let avg = Double(count) / Double(abs(components.day!)+1)
         self.reviewsAverageLabel.text = String(format:"Average: %.0f", avg)
         self.reviewsTotalLabel.text = String(format:"Total: %d", count)
     }

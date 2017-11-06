@@ -110,17 +110,20 @@ class Awards {
     })
     
     static func notShownButAwarded(words: [JapaneseWord]) -> [Award] {
+        JapaneseWord.cache = [String : [RepitionData]]()
         return notShown().filter({ (award) -> Bool in
             return award.check(words: words)
         })
     }
     
     static func notShown() -> [Award] {
+        JapaneseWord.cache = [String : [RepitionData]]()
         return all.filter { (award) -> Bool in
             return !award.hasBeenShown()
         }
     }
     static func shown() -> [Award] {
+        JapaneseWord.cache = [String : [RepitionData]]()
         return all.filter { (award) -> Bool in
             return award.hasBeenShown()
         }
@@ -166,7 +169,7 @@ class ReviewedXTimesAward: Award {
     
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
-            return result + word.log().filter({ (rep) -> Bool in
+            return result + word.cachedLog().filter({ (rep) -> Bool in
                 rep.type == JapaneseWord.ActionType.spell.rawValue
             }).count
         }
@@ -176,7 +179,7 @@ class ReviewedXTimesAward: Award {
     
     func progress(words: [JapaneseWord]) -> Double {
         let count = words.reduce(0) { (result, word) -> Int in
-            return result + word.log().filter({ (rep) -> Bool in
+            return result + word.cachedLog().filter({ (rep) -> Bool in
                 rep.type == JapaneseWord.ActionType.spell.rawValue
             }).count
         }
@@ -201,7 +204,7 @@ class ListenedXTimesAward: Award {
     
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
-            return result + word.log().filter({ (rep) -> Bool in
+            return result + word.cachedLog().filter({ (rep) -> Bool in
                 rep.type == JapaneseWord.ActionType.listen.rawValue
             }).count
         }
@@ -211,7 +214,7 @@ class ListenedXTimesAward: Award {
     
     func progress(words: [JapaneseWord]) -> Double {
         let count = words.reduce(0) { (result, word) -> Int in
-            return result + word.log().filter({ (rep) -> Bool in
+            return result + word.cachedLog().filter({ (rep) -> Bool in
                 rep.type == JapaneseWord.ActionType.listen.rawValue
             }).count
         }
@@ -237,7 +240,7 @@ class AnimalInterestAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return count >= 5
@@ -246,7 +249,7 @@ class AnimalInterestAward: Award {
     func progress(words: [JapaneseWord]) -> Double {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return min(1.0, Double(count)/5.0)
@@ -266,7 +269,7 @@ class AnimalLoverAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return count >= 15
@@ -275,7 +278,7 @@ class AnimalLoverAward: Award {
     func progress(words: [JapaneseWord]) -> Double {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("animal") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return min(1.0, Double(count)/15.0)
@@ -295,7 +298,7 @@ class SushiLoverAward: Award {
     func check(words: [JapaneseWord]) -> Bool {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("sushi") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return count >= 5
@@ -304,7 +307,7 @@ class SushiLoverAward: Award {
     func progress(words: [JapaneseWord]) -> Double {
         let count = words.reduce(0) { (result, word) -> Int in
             if !word.tags.contains("sushi") { return result + 0 }
-            else { return result + min(1, word.log().count) }
+            else { return result + min(1, word.cachedLog().count) }
         }
         
         return min(1.0, Double(count)/5.0)
