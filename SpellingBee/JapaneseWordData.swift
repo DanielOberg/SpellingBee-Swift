@@ -226,7 +226,7 @@ extension JapaneseWord {
             return true
         }
         
-        return JapaneseWord.recall(repitionData: log_active) < 0.5
+        return JapaneseWord.recall(repitionData: log_active) <= 0.5
     }
     
     func addToDB(level: LevelType,type: ActionType) {
