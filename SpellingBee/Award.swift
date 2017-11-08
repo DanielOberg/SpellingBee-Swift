@@ -191,7 +191,7 @@ class ReviewedXTimesAward: Award {
         self.uuid = uuid
         self.times = times
         self.name = "\(times) Reviews Award"
-        self.desc = "Given to those who have made \(times) reviews".set(style: Awards.defStyle)
+        self.desc = "Given to those who have seen \(times) reviews".set(style: Awards.defStyle)
     }
 }
 
@@ -226,7 +226,7 @@ class ListenedXTimesAward: Award {
         self.uuid = uuid
         self.times = times
         self.name = "\(times) Listened Award"
-        self.desc = "Given to those who have made listened to \(times) words".set(style: Awards.defStyle)
+        self.desc = "Given to those who have listened to \(times) words".set(style: Awards.defStyle)
         
     }
 }
