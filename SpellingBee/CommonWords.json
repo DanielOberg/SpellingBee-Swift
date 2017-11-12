@@ -64,33 +64,6 @@
 		"tags": [],
 		"kanji": "人"
 	}, {
-		"romaji": "kono",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "この",
-		"uuid": "2769E4C4-4598-4FF4-BC37-60CB4ACA9D84",
-		"english": "this",
-		"tags": [],
-		"kanji": ""
-	}, {
-		"romaji": "sono",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "その",
-		"uuid": "1910FD26-7000-4C59-9A37-C1497A364855",
-		"english": "that",
-		"tags": [],
-		"kanji": ""
-	}, {
-		"romaji": "kore",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "これ",
-		"uuid": "950C216A-DD2F-46D6-B79A-3DAD350967CB",
-		"english": "this, it",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "mae",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -181,15 +154,6 @@
 		"tags": [],
 		"kanji": "会議"
 	}, {
-		"romaji": "sō",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "そう",
-		"uuid": "5212E72D-C4DD-4C3C-952A-CD6BD4F7D538",
-		"english": "like that",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "miru",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -198,15 +162,6 @@
 		"english": "to see",
 		"tags": [],
 		"kanji": "見る"
-	}, {
-		"romaji": "sore",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "それ",
-		"uuid": "FB21CB4C-E0A1-4F85-A34B-4533BC0DF2D0",
-		"english": "that",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "jikan",
 		"example_sentence_jp": "",
@@ -244,15 +199,6 @@
 		"tags": [],
 		"kanji": "必要"
 	}, {
-		"romaji": "yori",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "より",
-		"uuid": "D76D4A9D-7180-49A6-86A1-57128CFAB948",
-		"english": "than",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "motsu",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -285,7 +231,7 @@
 		"example_sentence_en": "",
 		"kana": "きん",
 		"uuid": "34CE1072-F8B8-4520-8121-2DD3B9E11377",
-		"english": "gold [Au]; money",
+		"english": "gold",
 		"tags": [],
 		"kanji": "金"
 	}, {
@@ -325,15 +271,6 @@
 		"tags": [],
 		"kanji": "社会"
 	}, {
-		"romaji": "genzai",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "げんざい",
-		"uuid": "7F58769A-0CFE-4993-8285-40CD3256F93D",
-		"english": "now",
-		"tags": [],
-		"kanji": "現在"
-	}, {
 		"romaji": "ichi",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -342,15 +279,6 @@
 		"english": "one",
 		"tags": [],
 		"kanji": "一"
-	}, {
-		"romaji": "yaru",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "やる",
-		"uuid": "CCE9F5F0-BC80-4839-9525-33ABCD9F0C26",
-		"english": "to do",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "kimeru",
 		"example_sentence_jp": "",
@@ -396,15 +324,6 @@
 		"english": "children, child",
 		"tags": [],
 		"kanji": "子供"
-	}, {
-		"romaji": "node",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "ので",
-		"uuid": "DFABFD77-CE7B-4033-B650-D51859446C3A",
-		"english": "so",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "jōhō",
 		"example_sentence_jp": "",
@@ -576,15 +495,6 @@
 		"english": "water",
 		"tags": [],
 		"kanji": "水"
-	}, {
-		"romaji": "shika",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "しか",
-		"uuid": "F3B63CD8-9802-486F-8F1E-3FA229A89D2B",
-		"english": "only",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "michi",
 		"example_sentence_jp": "",
@@ -766,15 +676,6 @@
 		"tags": [],
 		"kanji": ""
 	}, {
-		"romaji": "soshite",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "そして",
-		"uuid": "7BCB97B0-A702-4EB6-870F-2DCB37FA81D8",
-		"english": "and then, Then…",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "tatsu",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -918,15 +819,6 @@
 		"english": "to put",
 		"tags": [],
 		"kanji": "置く"
-	}, {
-		"romaji": "soko",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "そこ",
-		"uuid": "1E91F1D1-322B-4A9A-8DEA-FD60634928DF",
-		"english": "there",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "muzukashii",
 		"example_sentence_jp": "",
@@ -1090,15 +982,6 @@
 		"tags": [],
 		"kanji": "女"
 	}, {
-		"romaji": "kaeru",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "かえる",
-		"uuid": "37081DE8-731C-4C51-8C10-D91171163709",
-		"english": "to changetr",
-		"tags": [],
-		"kanji": "変える"
-	}, {
 		"romaji": "yomu",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -1113,7 +996,7 @@
 		"example_sentence_en": "",
 		"kana": "ぎん",
 		"uuid": "1210F572-B578-4A25-8EAC-22ED515CABE7",
-		"english": "silver [Ag]; wealth",
+		"english": "silver; wealth",
 		"tags": [],
 		"kanji": "銀"
 	}, {
@@ -1234,15 +1117,6 @@
 		"tags": [],
 		"kanji": "食べる"
 	}, {
-		"romaji": "atsumaru",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "あつまる",
-		"uuid": "3C74212F-33C4-4B1E-B565-82B0708D112A",
-		"english": "to gatherin",
-		"tags": [],
-		"kanji": "集まる"
-	}, {
 		"romaji": "byō",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -1302,7 +1176,7 @@
 		"example_sentence_en": "",
 		"kana": "はば",
 		"uuid": "E55EC571-9451-4906-A5DA-F78DE983B18F",
-		"english": "hem, piece, strip",
+		"english": "piece, strip",
 		"tags": [],
 		"kanji": "幅"
 	}, {
@@ -2256,7 +2130,7 @@
 		"example_sentence_en": "",
 		"kana": "てつ",
 		"uuid": "8D5D48BF-F51F-4E83-A6BF-72DF5FC3F305",
-		"english": "iron [Fe]",
+		"english": "iron",
 		"tags": [],
 		"kanji": "鉄"
 	}, {
@@ -2917,15 +2791,6 @@
 		"tags": [],
 		"kanji": "背中"
 	}, {
-		"romaji": "ā",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "ああ",
-		"uuid": "2CBD9A19-16C8-43F9-9224-0E115D11A1A6",
-		"english": "Oh!, Ah!",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "i",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -3241,15 +3106,6 @@
 		"tags": [],
 		"kanji": "理科"
 	}, {
-		"romaji": "wakareru",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "わかれる",
-		"uuid": "983D8051-0880-49B6-BF2E-C5B4E37BD784",
-		"english": "to partin, to separatein, to break upin",
-		"tags": [],
-		"kanji": "別れる"
-	}, {
 		"romaji": "kaeru",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -3276,15 +3132,6 @@
 		"english": "pink",
 		"tags": [],
 		"kanji": ""
-	}, {
-		"romaji": "oru",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "おる",
-		"uuid": "51B164F5-6ED8-4052-AF48-8FE6D19FF3A0",
-		"english": "to breaktr, to foldtr",
-		"tags": [],
-		"kanji": "折る"
 	}, {
 		"romaji": "hai",
 		"example_sentence_jp": "",
@@ -3678,7 +3525,7 @@
 		"example_sentence_en": "",
 		"kana": "しめる",
 		"uuid": "4A374643-7F15-4449-B53D-1F7525E3E499",
-		"english": "to closetr",
+		"english": "to close",
 		"tags": [],
 		"kanji": "閉める"
 	}, {
@@ -3915,15 +3762,6 @@
 		"english": "to wear [on the lower body]",
 		"tags": [],
 		"kanji": "履く"
-	}, {
-		"romaji": "dano",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "だの",
-		"uuid": "B066A2D7-6EC8-4D45-9B68-940C62DEC004",
-		"english": "things like <list of things>, including, such things as",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "hare",
 		"example_sentence_jp": "",
@@ -4186,15 +4024,6 @@
 		"tags": [],
 		"kanji": "曇り"
 	}, {
-		"romaji": "achira, acchi",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "あちら",
-		"uuid": "2A89FCC9-01F3-4E01-B451-9689FB19515A",
-		"english": "that direction, thing, person, or place over there",
-		"tags": [],
-		"kanji": "あっち"
-	}, {
 		"romaji": "nomimono",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -4393,15 +4222,6 @@
 		"tags": [],
 		"kanji": "消しゴム"
 	}, {
-		"romaji": "sochira, socchi",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "そちら",
-		"uuid": "54E71316-4083-4134-A9D8-772ADF75D012",
-		"english": "that direction, thing, person, or place",
-		"tags": [],
-		"kanji": "そっち"
-	}, {
 		"romaji": "hotaru",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -4410,15 +4230,6 @@
 		"english": "firefly",
 		"tags": [],
 		"kanji": "蛍"
-	}, {
-		"romaji": "narabini",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "ならびに",
-		"uuid": "B2775651-ED63-4AA1-8932-48F38415A0B7",
-		"english": "as well as",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "hiza",
 		"example_sentence_jp": "",
@@ -4870,15 +4681,6 @@
 		"tags": ["animal"],
 		"kanji": "蜻蛉"
 	}, {
-		"romaji": "nara",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "なら",
-		"uuid": "D3448BFF-953E-48C8-9FE5-6EE9873CC252",
-		"english": "if [for verbs]; subject marker [for nouns]",
-		"tags": [],
-		"kanji": ""
-	}, {
 		"romaji": "kayui",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -5094,15 +4896,6 @@
 		"english": "to return",
 		"tags": [],
 		"kanji": "帰る、返る"
-	}, {
-		"romaji": "o",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "を",
-		"uuid": "9073514B-3D15-42A7-B05F-C58666E1F4BF",
-		"english": "direct object marker",
-		"tags": [],
-		"kanji": ""
 	}, {
 		"romaji": "toru",
 		"example_sentence_jp": "",
@@ -5338,24 +5131,6 @@
 		"tags": [],
 		"kanji": "釣り銭、おつり、お釣り"
 	}, {
-		"romaji": "toki, ji",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "とき",
-		"uuid": "61EADA75-F75A-4BBE-B88A-5FB5C143FE65",
-		"english": "~hours",
-		"tags": [],
-		"kanji": "じ、時"
-	}, {
-		"romaji": "te-no-hira",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "てのひら",
-		"uuid": "05BD5D1D-B695-43D7-A486-10772687BE2F",
-		"english": "palm of hand",
-		"tags": [],
-		"kanji": "掌、手の平"
-	}, {
 		"romaji": "kangoshi",
 		"example_sentence_jp": "",
 		"example_sentence_en": "",
@@ -5373,15 +5148,6 @@
 		"english": "grasshopper",
 		"tags": [],
 		"kanji": "飛蝗"
-	}, {
-		"romaji": "hi, nichi",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "ひ",
-		"uuid": "6D0D7F72-C70C-48AB-BE90-529D80E04EE9",
-		"english": "day",
-		"tags": [],
-		"kanji": "にち、日"
 	}, {
 		"romaji": "banana, kanshō",
 		"example_sentence_jp": "",
@@ -5535,15 +5301,6 @@
 		"english": "Japanese [language]",
 		"tags": [],
 		"kanji": "日本語 （こくご、国語）"
-	}, {
-		"romaji": "chakku, fasunā, jippā",
-		"example_sentence_jp": "",
-		"example_sentence_en": "",
-		"kana": "チャック",
-		"uuid": "A1158CDA-3A42-40A3-9664-C83518580914",
-		"english": "zipper, zipper fastener",
-		"tags": [],
-		"kanji": "ファスナー、ジッパー"
 	}, {
 		"romaji": "rei, zero",
 		"example_sentence_jp": "",
