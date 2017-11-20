@@ -51,11 +51,9 @@ extension JapaneseWord {
     static func recall(lastlyTrained: Date, timesTrainedSinceFailureOrHard: Int, currentLevel: LevelType) -> Double {
         let deltaInMin = lastlyTrained.timeIntervalSinceNow / -60.0
         
-        let min_a = 10.0
-        let i = timesTrainedSinceFailureOrHard
-        
+        let i = timesTrainedSinceFailureOrHard + 1
         let x = deltaInMin
-        var y = pow(2.0, -x / ((pow(2.0, Double(i)) * Double(i)) + min_a))
+        var y = pow(12.0, -x / ((pow(12.0, Double(i)) * Double(i))))
         
         if currentLevel == .easy {
             y = min(1.0, y * 1.5)
