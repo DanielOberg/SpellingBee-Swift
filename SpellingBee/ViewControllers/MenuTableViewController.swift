@@ -11,6 +11,7 @@ import UIKit
 import Charts
 import SwiftRichString
 import BulletinBoard
+import FacebookCore
 
 
 class MenuTableViewController: UITableViewController {
@@ -168,6 +169,7 @@ class MenuTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         showNewAwards()
+        AppEventsLogger.log("MenuShown")
     }
     
     @IBAction func prepareForUnwindToMenu(segue: UIStoryboardSegue){

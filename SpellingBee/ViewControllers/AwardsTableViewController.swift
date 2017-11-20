@@ -8,6 +8,8 @@
 
 import UIKit
 
+import FacebookCore
+
 class AwardsTableViewController: UITableViewController {
     
     var deck: JapaneseDeck!
@@ -39,6 +41,10 @@ class AwardsTableViewController: UITableViewController {
         cell.set(award: awards[indexPath.section][indexPath.row], words: deck.notes)
 
         return cell
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AppEventsLogger.log("AwardsShown")
     }
 
 }

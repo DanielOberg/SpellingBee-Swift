@@ -12,6 +12,7 @@ import GameplayKit
 import AVKit
 import BulletinBoard
 
+import FacebookCore
 import SpeechFramework
 
 class PathViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -121,6 +122,8 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        AppEventsLogger.log("PathShown")
+
         soundRecorder.onMadeSound = {data,probabilities in
             let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
             self.speakingIndicatorLabel.textColor = color

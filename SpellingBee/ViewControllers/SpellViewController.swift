@@ -11,19 +11,16 @@ import AVKit
 
 import SwiftRichString
 import BulletinBoard
+import FacebookCore
 
 import SpeechFramework
 
 class SpellViewController: UIViewController {
     @IBOutlet weak var kanaLabel: UILabel!
     @IBOutlet weak var englishLabel: UILabel!
-    @IBOutlet weak var speakingIndicatorLabel: UILabel!
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var progressView: UIProgressView!
-    
-    @IBOutlet weak var microphoneButton: UIButton!
-    @IBOutlet weak var speakerButton: UIButton!
     
     var deck: JapaneseDeck!
     var words: [JapaneseWord]!
@@ -37,9 +34,6 @@ class SpellViewController: UIViewController {
     
     var spokenChars = 0
     var totalChars = 0
-    
-    var speakerOn = true
-    var microphoneOn = true
     
     var bulletinManager: BulletinManager? = nil
     
@@ -70,29 +64,6 @@ class SpellViewController: UIViewController {
         spokenChars = 0
         show(word: words[0])
         progressView.progress = 0.0
-    }
-    
-    @IBAction func microphoneAction(_ sender: Any) {
-        microphoneOn = !microphoneOn
-        
-        if microphoneOn {
-            soundRecorder.setPaused(false)
-            self.microphoneButton.setTitle("", for: .normal)
-        } else {
-            soundRecorder.setPaused(true)
-            self.microphoneButton.setTitle("", for: .normal)
-        }
-    }
-    
-    @IBAction func muteAction(_ sender: Any) {
-        speakerOn = !speakerOn
-        
-        if speakerOn {
-            self.speakerButton.setTitle("", for: .normal)
-        } else {
-            self.audioPlayer?.pause()
-            self.speakerButton.setTitle("", for: .normal)
-        }
     }
     
     func showCharacters(shouldShowHint: Bool) {
@@ -158,59 +129,13 @@ class SpellViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        soundRecorder.onMadeSound = {data,probabilities in
-            let isNewWord = self.indexChar >= self.words[self.indexWord].listRomaji().count
-            if isNewWord {
-                return true
-            }
-            
-            let color = UIColor(hue: CGFloat(drand48()), saturation: 1.0, brightness: 1.0, alpha: 1.0)
-            self.speakingIndicatorLabel.textColor = color
-            
-            let firstFive = probabilities?.sorted(by: { (a, b) -> Bool in
-                let aValue = (a.value as! NSNumber).floatValue
-                let bValue = (b.value as! NSNumber).floatValue
-                
-                return aValue > bValue
-            })[0...3]
-            
-            let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
-            
-            let containsRomaji = firstFive?.contains(where: { (a) -> Bool in
-                return romaji == (a.key as! String)
-            })
-            
-            let probability = probabilities![romaji] as! NSNumber
-            
-            NSLog("probability: %@", probability)
-            NSLog("First: %@", firstFive!.debugDescription)
-            
-            if (containsRomaji!) {
-                self.spokenChars += 1
-                self.progressView.progress = Float(self.spokenChars)/Float(self.totalChars)
-                
-                if self.speakerOn {
-                    self.audioPlayer?.play()
-                }
-                
-                self.indexChar += 1
-                
-                self.showCharacters(shouldShowHint: self.shouldShowHint)
-                
-                return true
-            } else {
-                return true
-            }
-        }
-        soundRecorder.checkForPermissionAndStart()
-        soundRecorder.setPaused(true)
-        self.microphoneButton.setTitle("", for: .normal)
-        
+        AppEventsLogger.log("SpellShown")
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if !appDelegate.isOnboardingFinished() {
             let page = PageBulletinItem(title: "Welcome")
             page.image = UIImage.fontAwesomeIcon(name: .info, textColor: UIColor.black, size: CGSize.init(width: 128, height: 128), backgroundColor: UIColor.white, borderWidth: 1.0, borderColor: UIColor.black)
-            page.descriptionText = "You can either start by speaking into the microphone (slowly speak each hiragana with a pause in between) or use this as a normal flashcard app. Try to figure out the word and then click show. After you've seen the result you must rate how hard it was to remember to get to the next word."
+            page.descriptionText = "Try to figure out the word and then click show. After you've seen the result you must rate how hard it was to remember to get to the next word."
             page.shouldCompactDescriptionText = true
             page.actionButtonTitle = "Let's do this"
             
@@ -228,8 +153,6 @@ class SpellViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         self.audioPlayer?.stop()
-        self.soundRecorder.stop()
-        self.soundRecorder.onMadeSound = nil
     }
     
     @IBAction func prepareForUnwindToRepeatSpelling(segue: UIStoryboardSegue){

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+import FacebookCore
 import BulletinBoard
 
 class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
@@ -56,6 +57,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        AppEventsLogger.log("ListenShown")
         self.speechSynth.delegate = self
         if !words.isEmpty {
             speak(word: words[index])

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+
 
 class DecksTableViewController: UITableViewController {
     
@@ -51,6 +53,8 @@ class DecksTableViewController: UITableViewController {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.saveActivePack(pack: UUID(uuidString:decks[row].uuid)!)
                 
+                let event = AppEvent(name: "DeckChosen", parameters: [.custom("Deck Name"): decks[row].name, .custom("Deck UUID"): decks[row].uuid], valueToSum: nil)
+                AppEventsLogger.log(event)
             }
         }
     }
