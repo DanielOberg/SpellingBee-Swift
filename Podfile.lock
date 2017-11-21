@@ -1,15 +1,29 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - BulletinBoard (1.3.0)
   - Charts (3.0.4):
     - Charts/Core (= 3.0.4)
   - Charts/Core (3.0.4)
+  - FacebookCore (0.3.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.27)
+  - FBSDKCoreKit (4.28.0):
+    - Bolts (~> 1.7)
   - FontAwesome.swift (1.3.1)
+  - IBAnimatable (5.0.0)
   - SwiftRichString (1.0.1)
 
 DEPENDENCIES:
   - BulletinBoard (~> 1.3)
   - Charts (~> 3.0)
+  - FacebookCore
   - FontAwesome.swift
+  - IBAnimatable (~> 5.0)
   - SwiftRichString (from `https://github.com/malcommac/SwiftRichString.git`, commit `5e8bd1f`)
 
 EXTERNAL SOURCES:
@@ -23,11 +37,15 @@ CHECKOUT OPTIONS:
     :git: https://github.com/malcommac/SwiftRichString.git
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BulletinBoard: 23c9d98cac654fd484d76f2a0655669974e9bd9c
   Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
   FontAwesome.swift: 050a75c6b94db0b082f39bde5b111c5c64d62a83
+  IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
   SwiftRichString: a6a64470d8620c8b4f63a1b82c8523b6082e042a
 
-PODFILE CHECKSUM: 160e94c15b2485ecf38a19efc8232e7e9eda2b47
+PODFILE CHECKSUM: 9174fe3e384b4772fea90cc72df9708074b30a17
 
 COCOAPODS: 1.3.1
