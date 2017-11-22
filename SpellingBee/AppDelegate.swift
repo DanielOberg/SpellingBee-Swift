@@ -68,8 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UserDefaults.standard.synchronize()
     }
     
-    
-    
     func isOnboardingFinished() -> Bool {
         return UserDefaults.standard.bool(forKey: "onboarding")
     }

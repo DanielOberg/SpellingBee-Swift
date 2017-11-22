@@ -8,10 +8,13 @@
 
 import UIKit
 
+import FacebookCore
 import TGLParallaxCarousel
 
-class ChooseDeckViewController: UIViewController {
-    
+class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
+
+    @IBOutlet weak var parallaxCarousel: TGLParallaxCarousel!
+
     var scrollView: UIScrollView!
     var stackView: UIStackView!
     
@@ -25,56 +28,59 @@ class ChooseDeckViewController: UIViewController {
         imgTitleView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imgTitleView
         
-        scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scrollView)
-        
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|", options: .alignAllCenterX, metrics: nil, views: ["scrollView": scrollView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-30-[scrollView]|", options: .alignAllCenterX, metrics: nil, views: ["scrollView": scrollView]))
-        
-        stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 0.0
-        let spacing = (self.view.frame.size.width - CardView().intrinsicContentSize.width) / 2.0
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: 0)
-        stackView.isLayoutMarginsRelativeArrangement = true
-        scrollView.addSubview(stackView)
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
-        scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
-        
-        let colors = [CardColor.blue, .green, .yellow, .purple, .orange]
-        for i in 0 ..< decks.count {
-            let card = CardView()
-            card.frame.size = CGSize(width: 320, height: 420)
-            card.setColor(color: colors[i])
-            card.titleLabel.text = decks[i].name
-            card.bigLabel.text = decks[i].short_name
-            card.descriptionLabel.text = "\(decks[i].notes.count) notes"
-            stackView.addArrangedSubview(card)
-        }
+        parallaxCarousel.delegate = self
+        parallaxCarousel.margin = 0
+        parallaxCarousel.selectedIndex = 0
+        parallaxCarousel.carouselType = .threeDimensional
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    func carouselView(_ carouselView: TGLParallaxCarousel, itemForRowAtIndex index: Int) -> TGLParallaxCarouselItem {
+        let colors = [CardColor.blue, .green, .yellow, .purple, .orange]
+        
+        let card = CardView()
+        card.frame.size = CGSize(width: 320, height: 420)
+        card.setColor(color: colors[index])
+        card.titleLabel.text = decks[index].name
+        card.bigLabel.text = decks[index].short_name
+        card.descriptionLabel.text = "\(decks[index].notes.count) notes"
+        return card
+    }
+    
+    func carouselView(_ carouselView: TGLParallaxCarousel, didSelectItemAtIndex index: Int) {
+        self.performSegue(withIdentifier: "menuSegue", sender: self.parallaxCarousel)
+    }
+    
+    func carouselView(_ carouselView: TGLParallaxCarousel, willDisplayItem item: TGLParallaxCarouselItem, forIndex index: Int) {
+    }
+    
+    func numberOfItemsInCarouselView(_ carouselView: TGLParallaxCarousel) -> Int {
+        return decks.count
+    }
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "menuSegue" {
+            let controller = segue.destination as? MenuTableViewController
+            let row = self.parallaxCarousel.selectedIndex
+            controller?.deck = decks[row]
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.saveActivePack(pack: UUID(uuidString:decks[row].uuid)!)
+            
+            let event = AppEvent(name: "DeckChosen", parameters: [.custom("Deck Name"): decks[row].name, .custom("Deck UUID"): decks[row].uuid], valueToSum: nil)
+            AppEventsLogger.log(event)
+            
+        }
     }
-    */
-
 }

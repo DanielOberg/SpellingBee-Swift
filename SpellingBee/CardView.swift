@@ -19,7 +19,7 @@ enum CardColor: String {
 }
 
 @IBDesignable
-class CardView: UIView {
+class CardView: TGLParallaxCarouselItem {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var bigLabel: UILabel!
