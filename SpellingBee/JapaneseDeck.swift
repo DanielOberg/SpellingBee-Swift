@@ -11,6 +11,7 @@ import Foundation
 struct JapaneseDeck: Codable {
     let uuid: String
     let name: String
+    let short_name: String
     var notes: [JapaneseWord]
     
     static func all() -> [JapaneseDeck] {

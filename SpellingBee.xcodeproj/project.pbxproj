@@ -23,6 +23,8 @@
 		654407EC1F86873F00108C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654407EB1F86873F00108C79 /* Assets.xcassets */; };
 		654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654407ED1F86873F00108C79 /* LaunchScreen.storyboard */; };
 		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
+		6549C0271FC463AB00A0ED00 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6549C0261FC463AB00A0ED00 /* CardView.xib */; };
+		6549C02A1FC47C0D00A0ED00 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549C0291FC47C0D00A0ED00 /* CardView.swift */; };
 		658008A01FAF7A2900AA5A41 /* AwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */; };
 		658008A21FAF7B8C00AA5A41 /* AwardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */; };
 		65A1511B1FAA240500BB328A /* DecksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A1511A1FAA240500BB328A /* DecksTableViewController.swift */; };
@@ -30,6 +32,7 @@
 		65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6441FA9104C00186637 /* JLPT-N3.json */; };
 		65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6431FA9104C00186637 /* JLPT-N4.json */; };
 		65A9C6481FA9120B00186637 /* JLPT-N5.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6451FA9104C00186637 /* JLPT-N5.json */; };
+		65B8D70E1FC4496A00107E01 /* ChooseDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */; };
 		65D2E9571FAF425600321C96 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2E9561FAF425600321C96 /* Award.swift */; };
 		65EB1CE91FB074AD00D14C12 /* SpeechFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */; };
 		65EB1CEA1FB074AD00D14C12 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,6 +82,8 @@
 		654407F01F86873F00108C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		654407FD1F87BEE800108C79 /* CommonWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CommonWords.json; sourceTree = "<group>"; };
 		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
+		6549C0261FC463AB00A0ED00 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		6549C0291FC47C0D00A0ED00 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTableViewCell.swift; sourceTree = "<group>"; };
 		658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTableViewController.swift; sourceTree = "<group>"; };
 		65A1511A1FAA240500BB328A /* DecksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 		65A9C6431FA9104C00186637 /* JLPT-N4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N4.json"; sourceTree = "<group>"; };
 		65A9C6441FA9104C00186637 /* JLPT-N3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N3.json"; sourceTree = "<group>"; };
 		65A9C6451FA9104C00186637 /* JLPT-N5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N5.json"; sourceTree = "<group>"; };
+		65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeckViewController.swift; sourceTree = "<group>"; };
 		65D2E9561FAF425600321C96 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		65EB1CDE1FB072E100D14C12 /* SpeechFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeechFramework.xcodeproj; path = ../../../SpeechFramework/SpeechFramework.xcodeproj; sourceTree = "<group>"; };
 		65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = "../../../Library/Developer/Xcode/DerivedData/SpellingBee-fxxxucwenlsojubptivuudyonbwa/Build/Products/Release-iphoneos/SpeechFramework.framework"; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				65A1511A1FAA240500BB328A /* DecksTableViewController.swift */,
 				6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */,
 				658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */,
+				65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,10 +181,12 @@
 				654407FE1F87BF7200108C79 /* JapaneseWord.swift */,
 				652E559C1F8B81310062349B /* JapaneseWordData.swift */,
 				652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */,
+				6549C0291FC47C0D00A0ED00 /* CardView.swift */,
 				652E55941F8A24DC0062349B /* ViewControllers */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407E81F86873F00108C79 /* Main.storyboard */,
+				6549C0261FC463AB00A0ED00 /* CardView.xib */,
 				654407F01F86873F00108C79 /* Info.plist */,
 				652E55971F8AA0740062349B /* Model.xcdatamodeld */,
 			);
@@ -281,6 +290,7 @@
 			files = (
 				654407EF1F86873F00108C79 /* LaunchScreen.storyboard in Resources */,
 				654407EC1F86873F00108C79 /* Assets.xcassets in Resources */,
+				6549C0271FC463AB00A0ED00 /* CardView.xib in Resources */,
 				654407EA1F86873F00108C79 /* Main.storyboard in Resources */,
 				651B662A1FAE2EC50006973A /* fontawesome-webfont.ttf in Resources */,
 				652E55871F87C4810062349B /* CommonWords.json in Resources */,
@@ -309,6 +319,7 @@
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftRichString/SwiftRichString.framework",
+				"${BUILT_PRODUCTS_DIR}/TGLParallaxCarousel/TGLParallaxCarousel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -320,6 +331,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRichString.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TGLParallaxCarousel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -366,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B8D70E1FC4496A00107E01 /* ChooseDeckViewController.swift in Sources */,
 				654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */,
 				652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */,
 				652E559D1F8B81320062349B /* JapaneseWordData.swift in Sources */,
@@ -380,6 +393,7 @@
 				65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */,
 				652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */,
 				658008A21FAF7B8C00AA5A41 /* AwardsTableViewController.swift in Sources */,
+				6549C02A1FC47C0D00A0ED00 /* CardView.swift in Sources */,
 				652E558E1F88F52A0062349B /* PathViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

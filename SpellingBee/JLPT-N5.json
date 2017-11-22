@@ -1,5 +1,6 @@
 {
 	"name": "JLPT N5",
+	"short_name": "N5",
 	"notes": [{
 		"romaji": "suru",
 		"example_sentence_jp": "コンピューターばかり 相手[あいて]にしていると 複雑[ふくざつ]な 人間関係[にんげんかんけい]を 回避[かいひ]するようになる。",

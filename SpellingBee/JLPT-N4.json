@@ -1,5 +1,6 @@
 {
 	"name": "JLPT N4",
+	"short_name": "N4",
 	"notes": [{
 		"romaji": "iru",
 		"example_sentence_jp": "犬[いぬ]なんかいなくたっていい。",
