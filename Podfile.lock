@@ -17,6 +17,7 @@ PODS:
   - FontAwesome.swift (1.3.1)
   - IBAnimatable (5.0.0)
   - SwiftRichString (1.0.1)
+  - TGLParallaxCarousel (1.0.0)
 
 DEPENDENCIES:
   - BulletinBoard (~> 1.3)
@@ -25,16 +26,23 @@ DEPENDENCIES:
   - FontAwesome.swift
   - IBAnimatable (~> 5.0)
   - SwiftRichString (from `https://github.com/malcommac/SwiftRichString.git`, commit `5e8bd1f`)
+  - TGLParallaxCarousel (from `https://github.com/niamh-power/TGLParallaxCarousel.git`, commit `d236888`)
 
 EXTERNAL SOURCES:
   SwiftRichString:
     :commit: 5e8bd1f
     :git: https://github.com/malcommac/SwiftRichString.git
+  TGLParallaxCarousel:
+    :commit: d236888
+    :git: https://github.com/niamh-power/TGLParallaxCarousel.git
 
 CHECKOUT OPTIONS:
   SwiftRichString:
     :commit: 5e8bd1f
     :git: https://github.com/malcommac/SwiftRichString.git
+  TGLParallaxCarousel:
+    :commit: d236888
+    :git: https://github.com/niamh-power/TGLParallaxCarousel.git
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -45,7 +53,8 @@ SPEC CHECKSUMS:
   FontAwesome.swift: 050a75c6b94db0b082f39bde5b111c5c64d62a83
   IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
   SwiftRichString: a6a64470d8620c8b4f63a1b82c8523b6082e042a
+  TGLParallaxCarousel: 94c8b4f271f0c1a1a3d973da1206f31771255e44
 
-PODFILE CHECKSUM: 9174fe3e384b4772fea90cc72df9708074b30a17
+PODFILE CHECKSUM: dc86567a5b8634c8a8c4edca31fd0d97bdaea373
 
 COCOAPODS: 1.3.1
