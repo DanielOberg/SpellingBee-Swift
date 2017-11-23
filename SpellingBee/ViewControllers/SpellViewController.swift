@@ -37,6 +37,11 @@ class SpellViewController: UIViewController {
     
     var bulletinManager: BulletinManager? = nil
     
+    var showKana: Bool { get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate.showKana()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,20 +72,10 @@ class SpellViewController: UIViewController {
     }
     
     func showCharacters(shouldShowHint: Bool) {
-        let kanas = self.words[self.indexWord].listKana()
-        var textBlack = ""
-        if (0 <= self.indexChar-1) {
-            textBlack = kanas[0...self.indexChar-1].reduce("", { (result, str) -> String in
-                return result + str
-            })
-        }
+        var toShow = self.words[self.indexWord].romaji
         
-        var textGray = ""
-        
-        if self.indexChar <= kanas.count-1 && shouldShowHint {
-            textGray = kanas[self.indexChar...kanas.count-1].reduce("", { (result, str) -> String in
-                return result + str
-            })
+        if (self.showKana) {
+            toShow = self.words[self.indexWord].kana
         }
         
         // Define your own used styles
@@ -90,13 +85,7 @@ class SpellViewController: UIViewController {
             $0.align = .center // align on center
         })
         
-        let gray = Style("gray", {
-            $0.font = FontAttribute(FontName.HiraginoSans_W6, size: 30) // font + size
-            $0.color = UIColor.gray
-            $0.align = .center // align on center
-        })
-        
-        let attributedString = textBlack.set(style: black) + textGray.set(style: gray)
+        let attributedString = toShow.set(style: black)
         self.kanaLabel.attributedText = attributedString
     }
     

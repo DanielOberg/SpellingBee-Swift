@@ -39,7 +39,12 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var bulletinManager: BulletinManager? = nil
     
-    
+    var showKana: Bool { get {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.showKana()
+        }
+    }
+
     @IBAction func hintAction(_ sender: Any) {
         var bigText = words[indexWord].kana
         if words[indexWord].kanji != "" {
@@ -198,15 +203,31 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let path = PathViewController.recRandomPath(kanas: wordSplitted[...], xv: Int(startX), yv: Int(startY), result: [])
         
+        let showKana = self.showKana
+
         for i in 0...path.count-1 {
             let p = path[i];
             squares[p.0][p.1] = wordSplitted[i];
+            
+            if !showKana {
+                let r = NSMutableString(string: squares[p.0][p.1])
+                var str = r.applyingTransform(StringTransform.latinToKatakana, reverse: true)?.applyingTransform(StringTransform.latinToHiragana, reverse: true)
+                str = str?.replacingOccurrences(of: "~", with: "")
+                squares[p.0][p.1] = str!
+            }
         }
         
         for i in 0...PathViewController.MAX_SQUARES-1 {
             for j in 0...PathViewController.MAX_SQUARES-1 {
                 if (squares[i][j] == "") {
                     squares[i][j] = shuffledKana[j + (i * PathViewController.MAX_SQUARES)] as! String;
+                    
+                    if !showKana {
+                        let r = NSMutableString(string: squares[i][j])
+                        var str = r.applyingTransform(StringTransform.latinToKatakana, reverse: true)?.applyingTransform(StringTransform.latinToHiragana, reverse: true)
+                        str = str?.replacingOccurrences(of: "~", with: "")
+                        squares[i][j] = str!
+                    }
                 }
             }
         }

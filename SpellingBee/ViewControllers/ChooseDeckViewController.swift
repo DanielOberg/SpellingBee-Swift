@@ -10,8 +10,12 @@ import UIKit
 
 import FacebookCore
 import TGLParallaxCarousel
+import BulletinBoard
+
 
 class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
+
+    var bulletinManager: BulletinManager? = nil
 
     @IBOutlet weak var parallaxCarousel: TGLParallaxCarousel!
 
@@ -59,6 +63,29 @@ class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
     
     func numberOfItemsInCarouselView(_ carouselView: TGLParallaxCarousel) -> Int {
         return decks.count
+    }
+    
+    @IBAction func showSettings() {
+        let page = PageBulletinItem(title: "Beginner or Intermediate")
+        page.descriptionText = "If you can read Hiragana and Katakana then choose Intermediate."
+        page.actionButtonTitle = "Beginner"
+        page.alternativeButtonTitle = "Intermediate"
+            
+        page.actionHandler = { (item: PageBulletinItem) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.setShowKana(showRomaji: false)
+            self.bulletinManager?.dismissBulletin(animated: true)
+        }
+        page.alternativeHandler = { (item: PageBulletinItem) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.setShowKana(showRomaji: true)
+            self.bulletinManager?.dismissBulletin(animated: true)
+        }
+        
+        bulletinManager = BulletinManager(rootItem: page)
+        bulletinManager?.backgroundViewStyle = .blurredExtraLight
+        bulletinManager?.prepare()
+        bulletinManager?.presentBulletin(above: self)
     }
     
     // MARK: - Navigation

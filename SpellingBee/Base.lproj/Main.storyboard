@@ -69,7 +69,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DN8-TT-mXT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Deck" id="ozM-bW-bcj"/>
+                    <navigationItem key="navigationItem" title="Choose Deck" id="ozM-bW-bcj">
+                        <barButtonItem key="rightBarButtonItem" image="Cog" style="plain" id="dnd-ql-lNI">
+                            <connections>
+                                <action selector="showSettings" destination="Itc-xG-fkB" id="IaP-z7-Tfz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="parallaxCarousel" destination="02W-QJ-aFi" id="jSq-0k-sMt"/>
                         <segue destination="NJh-rG-RTt" kind="show" identifier="menuSegue" id="bIl-Hi-wgI"/>
@@ -748,6 +754,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cog" width="25" height="25"/>
         <image name="LogoBottom" width="635" height="176"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

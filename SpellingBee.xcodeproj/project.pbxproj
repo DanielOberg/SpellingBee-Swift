@@ -27,7 +27,6 @@
 		6549C02A1FC47C0D00A0ED00 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549C0291FC47C0D00A0ED00 /* CardView.swift */; };
 		658008A01FAF7A2900AA5A41 /* AwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */; };
 		658008A21FAF7B8C00AA5A41 /* AwardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */; };
-		65A1511B1FAA240500BB328A /* DecksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A1511A1FAA240500BB328A /* DecksTableViewController.swift */; };
 		65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */; };
 		65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6441FA9104C00186637 /* JLPT-N3.json */; };
 		65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6431FA9104C00186637 /* JLPT-N4.json */; };
@@ -86,7 +85,6 @@
 		6549C0291FC47C0D00A0ED00 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTableViewCell.swift; sourceTree = "<group>"; };
 		658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTableViewController.swift; sourceTree = "<group>"; };
-		65A1511A1FAA240500BB328A /* DecksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksTableViewController.swift; sourceTree = "<group>"; };
 		65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseDeck.swift; sourceTree = "<group>"; };
 		65A9C6431FA9104C00186637 /* JLPT-N4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N4.json"; sourceTree = "<group>"; };
 		65A9C6441FA9104C00186637 /* JLPT-N3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N3.json"; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				652E558D1F88F52A0062349B /* PathViewController.swift */,
 				652E558F1F8921D90062349B /* KanaLetterCollectionViewCell.swift */,
 				652E55911F8945410062349B /* SpellViewController.swift */,
-				65A1511A1FAA240500BB328A /* DecksTableViewController.swift */,
 				6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */,
 				658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */,
 				65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */,
@@ -387,7 +384,6 @@
 				652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */,
 				652E558B1F87CF280062349B /* ListenViewController.swift in Sources */,
 				65D2E9571FAF425600321C96 /* Award.swift in Sources */,
-				65A1511B1FAA240500BB328A /* DecksTableViewController.swift in Sources */,
 				658008A01FAF7A2900AA5A41 /* AwardTableViewCell.swift in Sources */,
 				652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */,
 				65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */,
