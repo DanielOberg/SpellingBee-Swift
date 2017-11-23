@@ -22,12 +22,7 @@ class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let logoImage:UIImage = UIImage(named: "SmallLogo")!
-        let imgTitleView = UIImageView(image: logoImage)
-        imgTitleView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imgTitleView
-        
+                
         parallaxCarousel.delegate = self
         parallaxCarousel.margin = 0
         parallaxCarousel.selectedIndex = 0
