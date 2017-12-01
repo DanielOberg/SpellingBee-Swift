@@ -44,12 +44,12 @@ extension UIImage {
 
 extension BarChartView {
     func styleChart() {
-        self.backgroundColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
-        self.tintColor = UIColor.white
-        self.borderColor = UIColor.white
-        self.gridBackgroundColor = UIColor.white
-        self.noDataTextColor = UIColor.white
-        self.chartDescription?.textColor = UIColor.white
+        self.backgroundColor = UIColor.white
+        self.tintColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        self.borderColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        self.gridBackgroundColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        self.noDataTextColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
+        self.chartDescription?.textColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
         self.chartDescription?.text = ""
         self.xAxis.enabled = true
         self.legend.enabled = false
@@ -82,3 +82,4 @@ extension NSAttributedString {
         self.init(attributedString: attributedString)
     }
 }
+

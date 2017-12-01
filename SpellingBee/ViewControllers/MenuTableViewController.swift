@@ -21,12 +21,10 @@ class MenuTableViewController: UITableViewController {
     var barLevelsChart: Charts.BarChartView? = nil
     var barReviewChart: Charts.BarChartView? = nil
     
-    @IBOutlet weak var rootLevelsChartView: UIView!
-    @IBOutlet weak var rootReviewsChartView: UIView!
+    @IBOutlet weak var rootLevelsChartView: CardViewWhite!
+    @IBOutlet weak var rootReviewsChartView: CardViewWhite!
     
     @IBOutlet weak var reviewsTodayLabel: UILabel!
-    @IBOutlet weak var reviewsAverageLabel: UILabel!
-    @IBOutlet weak var reviewsTotalLabel: UILabel!
     
     @IBOutlet weak var latestAwardTitle: UILabel!
     @IBOutlet weak var latestAwardImage: UIImageView!
@@ -40,12 +38,14 @@ class MenuTableViewController: UITableViewController {
         
         barLevelsChart = Charts.BarChartView()
         barLevelsChart?.styleChart()
-        rootLevelsChartView.addSubview(barLevelsChart!)
+        rootLevelsChartView.middleView.addSubview(barLevelsChart!)
+        rootLevelsChartView.bigLabel.text = "Level"
         barLevelsChart!.bindFrameToSuperviewBounds()
         
         barReviewChart = Charts.BarChartView()
         barReviewChart?.styleChart()
-        rootReviewsChartView.addSubview(barReviewChart!)
+        rootReviewsChartView.middleView.addSubview(barReviewChart!)
+        rootReviewsChartView.bigLabel.text = "Per Day"
         barReviewChart!.bindFrameToSuperviewBounds()
     }
     
@@ -57,7 +57,6 @@ class MenuTableViewController: UITableViewController {
         setLevelsChart()
         setReviewChart()
         reviewsToday()
-        reviewsAverage()
         latestAward()
     }
     
@@ -70,11 +69,6 @@ class MenuTableViewController: UITableViewController {
     }
     
     func reviewsToday() {
-        let count = JapaneseWord.onDate(date: Date(), type: .spell).count
-        self.reviewsTodayLabel.text = String(format:"Today: %d", count)
-    }
-    
-    func reviewsAverage() {
         var startDate = Date()
         var count = 0
         for word in self.deck!.notes {
@@ -97,30 +91,36 @@ class MenuTableViewController: UITableViewController {
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         
         let avg = Double(count) / Double(abs(components.day!)+1)
-        self.reviewsAverageLabel.text = String(format:"Average: %.0f", avg)
-        self.reviewsTotalLabel.text = String(format:"Total: %d", count)
+        
+        let todaysCount = JapaneseWord.onDate(date: Date(), type: .spell).count
+        let avgStr = String(format:"%.0f", avg)
+        let totalStr = String(format:"%d", count)
+        
+        self.reviewsTodayLabel.text = "Today you've done \(todaysCount) reviews, on average \(avgStr) reviews and in total \(totalStr) reviews.";
+        
+        rootReviewsChartView.titleLabel.text = "\(todaysCount) reviews today"
     }
     
     func setReviewChart() {
         let entries = JapaneseWord.graphData(type: .spell)
         let set = BarChartDataSet(values: entries, label: "days")
-        set.colors = [UIColor.white]
-        set.valueTextColor = UIColor.white
+        set.colors = [UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)]
+        set.valueTextColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
         set.valueFormatter = DefaultValueFormatter(decimals: 0)
         
         var weekdays = [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
             ]
         weekdays += weekdays
         
         barReviewChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: weekdays)
-        
+        barReviewChart?.xAxis.labelTextColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
         barReviewChart?.data = BarChartData(dataSet: set)
         barReviewChart?.animate(yAxisDuration: 1.0)
     }
@@ -128,11 +128,14 @@ class MenuTableViewController: UITableViewController {
     func setLevelsChart() {
         let entries = JapaneseWord.graphDataLevels(japaneseDeck: deck!)
         let set = BarChartDataSet(values: entries, label: "level")
-        set.colors = [UIColor.white]
-        set.valueTextColor = UIColor.white
+        set.colors = [UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)]
+        set.valueTextColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
         barLevelsChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: ["New", "F", "E", "D", "C", "B", "A"])
+        barLevelsChart?.xAxis.labelTextColor = UIColor(red:0.21, green:0.21, blue:0.33, alpha:1.0)
         barLevelsChart?.data = BarChartData(dataSet: set)
         barLevelsChart?.animate(yAxisDuration: 1.0)
+        
+        rootLevelsChartView.titleLabel.text = "\(Int(entries.first!.y)) to go"
     }
     
     func showNewAwards() {

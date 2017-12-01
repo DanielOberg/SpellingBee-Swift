@@ -26,6 +26,8 @@ class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
                 
         parallaxCarousel.delegate = self
         parallaxCarousel.margin = 0

@@ -25,6 +25,8 @@
 		654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654407FE1F87BF7200108C79 /* JapaneseWord.swift */; };
 		6549C0271FC463AB00A0ED00 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6549C0261FC463AB00A0ED00 /* CardView.xib */; };
 		6549C02A1FC47C0D00A0ED00 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549C0291FC47C0D00A0ED00 /* CardView.swift */; };
+		65567B3A1FD1D84A006290C6 /* CardViewWhite.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65567B391FD1D84A006290C6 /* CardViewWhite.xib */; };
+		65567B3D1FD1DBBE006290C6 /* CardViewWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65567B3C1FD1DBBE006290C6 /* CardViewWhite.swift */; };
 		658008A01FAF7A2900AA5A41 /* AwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */; };
 		658008A21FAF7B8C00AA5A41 /* AwardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */; };
 		65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */; };
@@ -83,6 +85,8 @@
 		654407FE1F87BF7200108C79 /* JapaneseWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseWord.swift; sourceTree = "<group>"; };
 		6549C0261FC463AB00A0ED00 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		6549C0291FC47C0D00A0ED00 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		65567B391FD1D84A006290C6 /* CardViewWhite.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewWhite.xib; sourceTree = "<group>"; };
+		65567B3C1FD1DBBE006290C6 /* CardViewWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewWhite.swift; sourceTree = "<group>"; };
 		6580089F1FAF7A2900AA5A41 /* AwardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTableViewCell.swift; sourceTree = "<group>"; };
 		658008A11FAF7B8C00AA5A41 /* AwardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTableViewController.swift; sourceTree = "<group>"; };
 		65A9C6411FA8F86F00186637 /* JapaneseDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseDeck.swift; sourceTree = "<group>"; };
@@ -179,11 +183,13 @@
 				652E559C1F8B81310062349B /* JapaneseWordData.swift */,
 				652E55A11F8D5ADA0062349B /* UIViewExtensions.swift */,
 				6549C0291FC47C0D00A0ED00 /* CardView.swift */,
+				65567B3C1FD1DBBE006290C6 /* CardViewWhite.swift */,
 				652E55941F8A24DC0062349B /* ViewControllers */,
 				654407EB1F86873F00108C79 /* Assets.xcassets */,
 				654407ED1F86873F00108C79 /* LaunchScreen.storyboard */,
 				654407E81F86873F00108C79 /* Main.storyboard */,
 				6549C0261FC463AB00A0ED00 /* CardView.xib */,
+				65567B391FD1D84A006290C6 /* CardViewWhite.xib */,
 				654407F01F86873F00108C79 /* Info.plist */,
 				652E55971F8AA0740062349B /* Model.xcdatamodeld */,
 			);
@@ -293,6 +299,7 @@
 				652E55871F87C4810062349B /* CommonWords.json in Resources */,
 				65A9C6461FA9120500186637 /* JLPT-N3.json in Resources */,
 				65A9C6471FA9120800186637 /* JLPT-N4.json in Resources */,
+				65567B3A1FD1D84A006290C6 /* CardViewWhite.xib in Resources */,
 				65A9C6481FA9120B00186637 /* JLPT-N5.json in Resources */,
 				6511C9531F8FB4D3004DCCBF /* correct.mp3 in Resources */,
 			);
@@ -386,6 +393,7 @@
 				65D2E9571FAF425600321C96 /* Award.swift in Sources */,
 				658008A01FAF7A2900AA5A41 /* AwardTableViewCell.swift in Sources */,
 				652E55991F8AA0740062349B /* Model.xcdatamodeld in Sources */,
+				65567B3D1FD1DBBE006290C6 /* CardViewWhite.swift in Sources */,
 				65A9C6421FA8F86F00186637 /* JapaneseDeck.swift in Sources */,
 				652E55A21F8D5ADA0062349B /* UIViewExtensions.swift in Sources */,
 				658008A21FAF7B8C00AA5A41 /* AwardsTableViewController.swift in Sources */,
