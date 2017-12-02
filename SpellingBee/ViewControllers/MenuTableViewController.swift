@@ -24,6 +24,8 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var rootLevelsChartView: CardViewWhite!
     @IBOutlet weak var rootReviewsChartView: CardViewWhite!
     
+    @IBOutlet weak var rootAwardsScrollView: UIScrollView!
+    @IBOutlet weak var rootAwards: UIStackView!
     @IBOutlet weak var reviewsTodayLabel: UILabel!
     
     @IBOutlet weak var latestAwardTitle: UILabel!
@@ -63,11 +65,22 @@ class MenuTableViewController: UITableViewController {
     }
     
     func latestAward() {
-        let award = Awards.latestAward(words: self.deck!.notes).first!
-        self.latestAwardImage.image = award.whiteImage()
-        self.latestAwardTitle.text = award.name
+        while let v = self.rootAwards.subviews.first {
+            self.rootAwards.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
         
-        self.latestAwardDesc.text = award.desc.string
+        let awards = Awards.latestAward(words: self.deck!.notes)
+        
+        self.rootAwardsScrollView.contentSize = CGSize(width: 206*awards.count, height: 196)
+
+        for award in awards {
+            let v = AwardCardView()
+            v.bigLabel.text = award.name
+            v.titleLabel.text = award.desc.string
+            v.middleView.image = award.blackImage()
+            self.rootAwards.addArrangedSubview(v)
+        }
     }
     
     func reviewsToday() {

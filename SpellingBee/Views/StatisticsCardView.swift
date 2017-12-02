@@ -35,14 +35,14 @@ class CardViewWhite: UIView {
         let view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleWidth.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue)))
-//        view.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: 258.0, height: 321.0)
 
+        view.backgroundColor = UIColor.clear
         self.addSubview(view)
     }
     
     func loadViewFromNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "CardViewWhite", bundle: bundle)
+        let nib = UINib(nibName: "StatisticsCardView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
