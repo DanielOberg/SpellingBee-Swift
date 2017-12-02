@@ -36,6 +36,8 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         barLevelsChart = Charts.BarChartView()
         barLevelsChart?.styleChart()
         rootLevelsChartView.middleView.addSubview(barLevelsChart!)

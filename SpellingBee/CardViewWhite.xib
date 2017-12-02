@@ -18,7 +18,11 @@
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewWhite" customModule="SpellingBee" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="cardImage" value="CardWhiteStats"/>
+            </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="bgImg" destination="lae-kR-J77" id="3TH-EE-Qzy"/>
                 <outlet property="bigLabel" destination="Rwf-Yq-uV6" id="ZM0-Wh-Cto"/>
                 <outlet property="middleView" destination="sAI-AF-cHf" id="o8d-BP-4oV"/>
                 <outlet property="titleLabel" destination="Thr-dZ-vML" id="ABC-sL-NT9"/>

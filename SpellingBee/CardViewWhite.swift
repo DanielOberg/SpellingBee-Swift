@@ -10,10 +10,13 @@ import UIKit
 
 @IBDesignable
 class CardViewWhite: UIView {
-    
+    @IBOutlet weak var bgImg: UIImageView?
+
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var bigLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBInspectable var cardImage: UIImage = #imageLiteral(resourceName: "CardWhiteStats") { didSet { self.bgImg?.image = cardImage } }
     
     override var intrinsicContentSize: CGSize { get { return CGSize(width: 258.0, height: 321.0) } }
 
