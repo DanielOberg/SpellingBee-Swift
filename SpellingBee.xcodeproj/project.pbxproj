@@ -339,6 +339,7 @@
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftRichString/SwiftRichString.framework",
 				"${BUILT_PRODUCTS_DIR}/TGLParallaxCarousel/TGLParallaxCarousel.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -351,6 +352,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRichString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TGLParallaxCarousel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -1,21 +1,22 @@
 PODS:
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
+  - Bolts/Tasks (1.9.0)
   - BulletinBoard (1.3.0)
-  - Charts (3.0.4):
-    - Charts/Core (= 3.0.4)
-  - Charts/Core (3.0.4)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
-  - FBSDKCoreKit (4.28.0):
+  - FBSDKCoreKit (4.29.0):
     - Bolts (~> 1.7)
-  - FontAwesome.swift (1.3.1)
+  - FontAwesome.swift (1.3.2)
   - IBAnimatable (5.0.0)
+  - paper-onboarding (3.0.1)
   - SwiftRichString (1.0.1)
   - TGLParallaxCarousel (1.0.0)
 
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - FacebookCore
   - FontAwesome.swift
   - IBAnimatable (~> 5.0)
+  - paper-onboarding
   - SwiftRichString (from `https://github.com/malcommac/SwiftRichString.git`, commit `5e8bd1f`)
   - TGLParallaxCarousel (from `https://github.com/niamh-power/TGLParallaxCarousel.git`, commit `d236888`)
 
@@ -45,16 +47,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/niamh-power/TGLParallaxCarousel.git
 
 SPEC CHECKSUMS:
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BulletinBoard: 23c9d98cac654fd484d76f2a0655669974e9bd9c
-  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
-  FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
-  FontAwesome.swift: 050a75c6b94db0b082f39bde5b111c5c64d62a83
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FontAwesome.swift: b4e4c8ccbbecb12f9b592bc533ff237af3706667
   IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
+  paper-onboarding: 0aa1746d820fcf44371d41ee521aa3d8e5679263
   SwiftRichString: a6a64470d8620c8b4f63a1b82c8523b6082e042a
   TGLParallaxCarousel: 94c8b4f271f0c1a1a3d973da1206f31771255e44
 
-PODFILE CHECKSUM: dc86567a5b8634c8a8c4edca31fd0d97bdaea373
+PODFILE CHECKSUM: b4c70005feb04c753ae66cdc2eada0b5502ec0d6
 
 COCOAPODS: 1.3.1

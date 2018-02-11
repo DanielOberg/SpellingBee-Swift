@@ -32,7 +32,7 @@ class ChooseDeckViewController: UIViewController, TGLParallaxCarouselDelegate {
         parallaxCarousel.delegate = self
         parallaxCarousel.margin = 0
         parallaxCarousel.selectedIndex = 0
-        parallaxCarousel.carouselType = .threeDimensional
+        parallaxCarousel.type_ = .threeDimensional
     }
     
     override func viewDidLayoutSubviews() {

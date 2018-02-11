@@ -10,4 +10,5 @@ target 'SpellingBee' do
 	pod 'FontAwesome.swift'
 	pod 'IBAnimatable', '~> 5.0'
 	pod 'FacebookCore'
+	pod 'paper-onboarding'
 end
