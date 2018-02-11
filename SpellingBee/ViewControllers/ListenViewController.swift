@@ -83,7 +83,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        words = (deck?.trainingListHardOnes())!
+        words = (deck?.trainingList(amount: 10, trainIfNotViewed: true))!
         if words.isEmpty {
             return
         }
@@ -100,7 +100,7 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
         utEn.voice = speechSynthVoiceEN
         utEn.preUtteranceDelay = 0.1
         self.speechSynth.speak(utEn)
-        let utJp = AVSpeechUtterance(string: word.kanji)
+        let utJp = AVSpeechUtterance(string: word.kana)
         utJp.voice = speechSynthVoiceJP
         utJp.rate = (AVSpeechUtteranceDefaultSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 2 + AVSpeechUtteranceMinimumSpeechRate
         utJp.preUtteranceDelay = 0.2
@@ -131,12 +131,12 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
             
             progressView.progress = Float(index) / Float(words.count)
             
-            if (index < words.count) {
-                speak(word: words[index])
-                show(word: words[index])
-            }  else {
-                self.navigationController?.popViewController(animated: true)
+            if (index >= words.count) {
+                index = 0
             }
+            
+            speak(word: words[index])
+            show(word: words[index])
         }
     }
     
