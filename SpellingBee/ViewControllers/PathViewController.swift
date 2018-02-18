@@ -138,7 +138,7 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let bValue = (b.value as! NSNumber).floatValue
                 
                 return aValue > bValue
-            })[0...3]
+            })[0...4]
             
             let romaji = self.words[self.indexWord].listRomaji()[self.indexChar]
             
@@ -152,6 +152,11 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
             NSLog("First: %@", firstFive!.debugDescription)
             
             if (containsRomaji!) {
+                do {
+                    try self.soundRecorder.uploadBlob(toContainer: romaji, with: data)
+                } catch {
+                    print("Unexpected error: \(error).")
+                }
                 let indexPath = NSIndexPath(row: self.path[self.indexChar].1, section: self.path[self.indexChar].0)
                 let kanaCell = self.kanaCollectionView.cellForItem(at: indexPath as IndexPath) as! KanaLetterCollectionViewCell
                 kanaCell.kanaLetterButton.backgroundColor = UIColor.red;
@@ -164,6 +169,9 @@ class PathViewController: UIViewController, UICollectionViewDataSource, UICollec
                 let isNewWord = self.indexChar+1 >= self.words[self.indexWord].listRomaji().count
                 if (isNewWord) {
                     self.words[self.indexWord].addToDB(level: .good, type: JapaneseWord.ActionType.followPath)
+                    
+                    let fbParameters: [AppEventParameterName : AppEventParameterValueType]  = [AppEventParameterName.init("Kana"): self.words[self.indexWord].kana]
+                    AppEventsLogger.log("PathShownNewWord", parameters: fbParameters, valueToSum: Double(1.0))
                     
                     let isFinished = self.indexWord + 1 >= self.words.count
                     if (!isFinished) {

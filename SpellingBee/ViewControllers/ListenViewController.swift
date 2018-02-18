@@ -127,6 +127,10 @@ class ListenViewController: UIViewController, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if (enLastSpeechUtterance == utterance) {
             words[index].addToDB(level: .good, type: JapaneseWord.ActionType.listen)
+        
+            let fbParameters: [AppEventParameterName : AppEventParameterValueType]  = [AppEventParameterName.init("Kana"): self.words[index].kana]
+            AppEventsLogger.log("ListenShownNewWord", parameters: fbParameters, valueToSum: Double(1.0))
+            
             index += 1
             
             progressView.progress = Float(index) / Float(words.count)

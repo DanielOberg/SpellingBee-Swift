@@ -37,6 +37,7 @@
 		65A9C6481FA9120B00186637 /* JLPT-N5.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A9C6451FA9104C00186637 /* JLPT-N5.json */; };
 		65B8D70E1FC4496A00107E01 /* ChooseDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */; };
 		65D2E9571FAF425600321C96 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D2E9561FAF425600321C96 /* Award.swift */; };
+		65E71A82203976F100F4C575 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E71A81203976F100F4C575 /* OnboardingViewController.swift */; };
 		65EB1CE91FB074AD00D14C12 /* SpeechFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */; };
 		65EB1CEA1FB074AD00D14C12 /* SpeechFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		70394CECCAABD0D4CAD8523D /* Pods_SpellingBee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */; };
@@ -99,6 +100,7 @@
 		65A9C6451FA9104C00186637 /* JLPT-N5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "JLPT-N5.json"; sourceTree = "<group>"; };
 		65B8D70D1FC4496A00107E01 /* ChooseDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeckViewController.swift; sourceTree = "<group>"; };
 		65D2E9561FAF425600321C96 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		65E71A81203976F100F4C575 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		65EB1CDE1FB072E100D14C12 /* SpeechFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeechFramework.xcodeproj; path = ../../../SpeechFramework/SpeechFramework.xcodeproj; sourceTree = "<group>"; };
 		65EB1CE81FB074AD00D14C12 /* SpeechFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechFramework.framework; path = "../../../Library/Developer/Xcode/DerivedData/SpellingBee-fxxxucwenlsojubptivuudyonbwa/Build/Products/Release-iphoneos/SpeechFramework.framework"; sourceTree = "<group>"; };
 		B3FB837B81CF40DFF8510C7F /* Pods_SpellingBee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpellingBee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 		652E55941F8A24DC0062349B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				65E71A81203976F100F4C575 /* OnboardingViewController.swift */,
 				652E55881F87CBE90062349B /* MenuTableViewController.swift */,
 				652E558A1F87CF280062349B /* ListenViewController.swift */,
 				652E558D1F88F52A0062349B /* PathViewController.swift */,
@@ -403,6 +406,7 @@
 				654407FF1F87BF7200108C79 /* JapaneseWord.swift in Sources */,
 				652E55891F87CBE90062349B /* MenuTableViewController.swift in Sources */,
 				652E559D1F8B81320062349B /* JapaneseWordData.swift in Sources */,
+				65E71A82203976F100F4C575 /* OnboardingViewController.swift in Sources */,
 				652E55921F8945410062349B /* SpellViewController.swift in Sources */,
 				654407E31F86873F00108C79 /* AppDelegate.swift in Sources */,
 				652E55901F8921D90062349B /* KanaLetterCollectionViewCell.swift in Sources */,

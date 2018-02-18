@@ -96,8 +96,12 @@ class SpellViewController: UIViewController {
     
     @IBAction func valueChangedAction(_ sender: Any) {
         self.shouldShowHint = false
-        let level = JapaneseWord.LevelType(rawValue: Int16(difficultySegmentedControl.selectedSegmentIndex+1))
+        let difficulty = Int16(difficultySegmentedControl.selectedSegmentIndex+1)
+        let level = JapaneseWord.LevelType(rawValue: difficulty)
         self.words[self.indexWord].addToDB(level: level!, type: JapaneseWord.ActionType.spell)
+        
+        let fbParameters: [AppEventParameterName : AppEventParameterValueType]  = [AppEventParameterName.init("Kana"): self.words[self.indexWord].kana, AppEventParameterName.init("Level"): String(difficulty)]
+        AppEventsLogger.log("SpellShownNewWord", parameters: fbParameters, valueToSum: Double(1.0))
         
         let isFinished = self.indexWord + 1 >= self.words.count
         if (!isFinished) {

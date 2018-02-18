@@ -47,12 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             
             self.saveActivePack(pack: UUID(uuidString:deck.uuid)!)
             
-            let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let navigationController: UINavigationController? = (storyboard.instantiateViewController(withIdentifier: "NavigationControllerID") as? UINavigationController)
         
             let controller = storyboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
             controller.deck = deck
             navigationController?.pushViewController(controller, animated: false)
+            
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
         }
         
         // Override point for customization after application launch.
